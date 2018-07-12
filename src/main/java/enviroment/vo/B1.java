@@ -10,7 +10,7 @@ public class B1 implements Calc {
 
     private String type;
 
-    public double getM() {\
+    public double getM() {
 
 
         return M;

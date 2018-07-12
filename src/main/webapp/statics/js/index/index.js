@@ -5,40 +5,12 @@ layui.use('element', function () {
     //存储加载页面前从服务器接受的总表数据
     var form_data;
 
-    //用户输入的林分面积数据
-    var A;
-
 
     /**
-     * 加载网页前向服务器申请数据
+     * 生成每个form的具体信息并封装在一个数组中返回
      */
-    $(window).load(function () {
-        var request_data = {
-            year: 2011,
-            position: "liangzilake",
-            type: "forest"
-        };
-        //todo finish the url
-        // var options = {
-        //     url:"/servlet/RecordServlet",
-        //     method:"post",
-        //     data:request_data,
-        //      dataType:"json",
-        //      success:function (data) {
-        //         form_data = data;
-        //         console.log(data);
-        //     }
-        // };
-        // $.ajax(options);
-    });
+    function generateFormArr() {
 
-
-    /**
-     * 网页加载完成后
-     */
-    $(function () {
-
-        //存储所有的表单信息
         var formArr = [];
         //todo finish A1
         formArr[0] = {
@@ -68,9 +40,9 @@ layui.use('element', function () {
             output_lable:["林木流量价值"],
             input_lable_unit:["m<sup>3</sup>", "元.m<sup>-3</sup>"],
             output_lable_unit:["元"],
-            input_name:["A"]
+            input_name:["A", "B"]
         };
-        
+
         //todo finish C1
         formArr[3] = {
             partDiv:"C1",
@@ -170,55 +142,126 @@ layui.use('element', function () {
             input_name:["Bn", "A", "Cy"]
         };
 
-        //todo
         formArr[10] = {
             partDiv:"G1",
-            title:"净化水质功能计算",
-            input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
-            input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            title:"林分年营养物质积累量计算",
+            input_lable:[
+                "林分净生产力",
+                "林木含氮量",
+                "林木含磷量",
+                "林木含钾量",
+                "林分面积",
+                "磷酸二铵化肥价格",
+                "氯化钾价格",
+                "磷酸二铵化肥含氮量",
+                "磷酸二铵化肥含磷量",
+                "氯化钾化肥含钾量"
+            ],
+            output_lable:[
+                "林分年固氮量",
+                "林分年固磷量",
+                "林分年固钾量",
+                "林分年固氮价值",
+                "林分年固磷价值",
+                "林分年固钾价值",
+                "林分年营养物质积累价值"
+            ],
+            input_lable_unit:[
+                "t.hm<sup>-2</sup>.a<sup>-1</sup>",
+                "%",
+                "%",
+                "%",
+                "hm<sup>2</sup>",
+                "元.t<sup>-1</sup>",
+                "元.t<sup>-1</sup>",
+                "%",
+                "%",
+                "%"
+            ],
+            output_lable_unit:[
+                "t.a<sup>-1</sup>",
+                "t.a<sup>-1</sup>",
+                "t.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>"
+            ],
+            input_name:["Bn", "Ny", "Np", "Nk", "A", "C1", "C2", "R1", "R2", "R3"]
         };
 
         formArr[11] = {
             partDiv:"H1",
-            title:"净化水质功能计算",
-            input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
-            input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            title:"提供负离子计算",
+            input_lable:["林分高度", "负离子产生费用", "林分负离子浓度", "林分面积", "负离子寿命"],
+            output_lable:["林分年提供负离子个数", "林分年提供负离子价值"],
+            input_lable_unit:["m", "元.个<sup>-1</sup>", "个.cm<sup>-3</sup>", "hm<sup>2</sup>", "min"],
+            output_lable_unit:["个.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
+            input_name:["H", "Kf", "Qf", "A", "L"]
         };
 
         formArr[12] = {
             partDiv:"H2",
-            title:"净化水质功能计算",
-            input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
-            input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            title:"林分年吸收二氧化硫计算",
+            input_lable:[
+                "林分面积",
+                "二氧化硫治理费用",
+                "氮氧化物治理费用",
+                "氟化物治理费用",
+                "林分面积吸收二氧化硫量",
+                "林分面积吸收氮氧化物量",
+                "林分面积吸收氟化物量"
+            ],
+            output_lable:[
+                "二氧化硫吸收量",
+                "氮氧化物吸收量",
+                "氟化物吸收量",
+                "污染物总吸收量",
+                "林分吸收二氧化硫价值",
+                "林分吸收氮氧化物价值",
+                "林分吸收氟化物价值",
+                "林分吸收污染物总价值"
+            ],
+            input_lable_unit:[
+                "hm<sup>2</sup>",
+                "元.kg<sup>-1</sup>",
+                "元.kg<sup>-1</sup>",
+                "元.kg<sup>-1</sup>",
+                "kg.hm<sup>-2</sup>.a<sup>-1</sup>",
+                "kg.hm<sup>-2</sup>.a<sup>-1</sup>",
+                "kg.hm<sup>-2</sup>.a<sup>-1</sup>"
+            ],
+            output_lable_unit:[
+                "kg.a<sup>-1</sup>",
+                "kg.a<sup>-1</sup>",
+                "kg.a<sup>-1</sup>",
+                "kg.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>",
+                "元.a<sup>-1</sup>"
+            ],
+            input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"]
         };
 
         formArr[13] = {
             partDiv:"H3",
-            title:"净化水质功能计算",
-            input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
-            input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            title:"降低噪音价值计算",
+            input_lable:["降低噪音费用", "森林面积折合为隔音墙的公里数"],
+            output_lable:["林分年降低噪音价值"],
+            input_lable_unit:["元.km<sup>-1</sup>", "km"],
+            output_lable_unit:["元.a<sup>-1</sup>"],
+            input_name:["Kz", "Az"]
         };
 
         formArr[14] = {
             partDiv:"H4",
-            title:"净化水质功能计算",
-            input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
-            input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            title:"滞尘功能计算",
+            input_lable:["林分面积", "降尘清理费用", "林分面积年滞尘量"],
+            output_lable:["林分年滞尘量", "林分年滞尘价值"],
+            input_lable_unit:["hm<sup>2</sup>", "元.kg<sup>-1</sup>", "kg.hm<sup>-2</sup>.a<sup>-1</sup>"],
+            output_lable_unit:["kg.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
+            input_name:["A", "Kz", "Qz"]
         };
 
         formArr[15] = {
@@ -251,58 +294,7 @@ layui.use('element', function () {
             input_name:["Uz", "A"]
         };
 
-
-
-        //获取所有的form对象
-        var calculatorArr = [];
-
-
-        //获取所有form所在的div对象
-        var calcDivArr = [];
-        var $calculatorDivs = $(".calculator");
-        var $specificCalcDivs = $calculatorDivs.children();
-        for (var i = 0; i < $specificCalcDivs.length; ++i) {
-            var $specificCalcDiv = $specificCalcDivs.eq(i);
-            calcDivArr.push($specificCalcDiv);
-            var $specificCalcForm = $specificCalcDiv.find("form").eq(0);
-            calculatorArr.push($specificCalcForm);
-        }
-
-
-        //获取总表
-        var $summarySheet = $(".summary-sheet").eq(0);
-
-
-        //获取日期
-        var year = $("#year").text();
-
-
-        //todo 加载界面时，将所有数据加载到表单中
-        //dataLoad(year, calculatorArr, $summarySheet);
-
-
-        //在加载界面时，只展示第一个calcDiv，隐藏其余div及总表
-        //showSingleDiv(calcDivArr, $summarySheet, 0);
-
-
-        //左侧导航栏切换表单函数
-        switchForm(calcDivArr, $summarySheet);
-
-
-        //提交表单
-        for (var k = 0; k < calculatorArr.length; ++k) {
-            //calculatorArr[k].find(".submit-btn").eq(0).click(submitForm(calculatorArr[k]));
-            submitForm(calculatorArr[k]);
-        }
-
-
-        //更改日期时，重新加载data并刷新界面
-        //dataReload(calculatorArr, $summarySheet);
-    });
-
-
-    function appendFormToBody(formArr) {
-
+        return formArr;
     }
 
 
@@ -374,6 +366,13 @@ layui.use('element', function () {
         tbody7.append(tbodyTr8);
 
         return calculatorDiv2;
+    }
+
+    function appendFormToBody(formArr) {
+        var layui_body = $(".layui-body").eq(0);
+        for(var i = 0; i < formArr.length; ++i) {
+            layui_body.append(createForm(formArr[i]));
+        }
     }
 
 
@@ -501,6 +500,105 @@ layui.use('element', function () {
             });
         }
     }
+
+
+    /**
+     * 启动函数
+     */
+    function main() {
+
+        //获取所有的form对象
+        var calculatorArr = generateFormArr();
+
+        //将form展示添加到html中
+        appendFormToBody(calculatorArr);
+
+        //将所有从服务器请求的数据加载到form中
+        //dataLoad();
+
+        //只展示一个div
+        //showSingleDiv();
+
+        //左侧导航栏切换form函数
+        //switchForm();
+
+        //表单提交函数
+        //submitForm();
+
+        //更改年份时，重新想服务器加载数据并刷新界面
+        //dataReload();
+    }
+
+    /**
+     * 加载网页前向服务器申请数据
+     */
+    // $(window).load(function () {
+    //     var request_data = {
+    //         year: 2011,
+    //         position: "liangzilake",
+    //         type: "forest"
+    //     };
+    //     //todo finish the url
+    //     var options = {
+    //         url:"/servlet/RecordServlet",
+    //         method:"post",
+    //         data:request_data,
+    //          dataType:"json",
+    //          success:function (data) {
+    //             form_data = data;
+    //             console.log(data);
+    //         }
+    //     };
+    //     $.ajax(options);
+    // });
+
+
+    /**
+     * 网页加载完成后
+     */
+    $(function () {
+
+        main();
+
+        // //获取所有form所在的div对象
+        // var calcDivArr = [];
+        // var $calculatorDivs = $(".calculator");
+        // var $specificCalcDivs = $calculatorDivs.children();
+        // for (var i = 0; i < $specificCalcDivs.length; ++i) {
+        //     var $specificCalcDiv = $specificCalcDivs.eq(i);
+        //     calcDivArr.push($specificCalcDiv);
+        //     var $specificCalcForm = $specificCalcDiv.find("form").eq(0);
+        //     calculatorArr.push($specificCalcForm);
+        // }
+        //
+        //
+        // //获取总表
+        // var $summarySheet = $(".summary-sheet").eq(0);
+        //
+        //
+        // //获取日期
+        // var year = $("#year").text();
+        //
+        //
+        // //todo 加载界面时，将所有数据加载到表单中
+        // //dataLoad(year, calculatorArr, $summarySheet);
+        //
+        //
+        // //在加载界面时，只展示第一个calcDiv，隐藏其余div及总表
+        // //showSingleDiv(calcDivArr, $summarySheet, 0);
+        //
+        //
+        // //左侧导航栏切换表单函数
+        // switchForm(calcDivArr, $summarySheet);
+        //
+        //
+        // //提交表单
+        // for (var k = 0; k < calculatorArr.length; ++k) {
+        //     //calculatorArr[k].find(".submit-btn").eq(0).click(submitForm(calculatorArr[k]));
+        //     submitForm(calculatorArr[k]);
+        // }
+
+    });
 });
 
 
