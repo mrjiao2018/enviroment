@@ -1,0 +1,20 @@
+.site-title{ margin: 30px 0 20px;}
+.site-title fieldset{border: none; padding: 0; border-top: 2px solid #e6e6e6;}
+.site-title fieldset legend{margin-left: 400px;  padding: 0 20px; font-size: 22px; font-weight: 300;}
+
+.site-text{position:relative; margin-left: 200px; margin-right: 50px; color:white;}
+.site-text p{margin-bottom: 10px;  line-height:22px;}
+.site-text em{padding: 0 3px; font-weight: 500; font-style: italic; color: #fff;}
+.site-text code{margin:0 5px; padding: 3px 10px; border: 1px solid #e6e6e6; background-color: #fbfbfb; color: #666; border-radius: 2px;}
+
+.site-block{padding: 60px 20px}
+.site-block .layui-form{margin-right: 50px;}
+
+.layui-header .layui-nav .layui-nav-item a{color:black;font-size: 20px;}
+.layui-side .layui-nav-item a:hover{color: #000;}
+.layui-side .layui-nav-item a{color: #fff;}
+.layui-side .layui-nav-child a{padding-left: 30px;}
+.layui-side .layui-nav-child .layui-this>a{color:#000!important;}
+.layui-layout-right .layui-nav-child dd a:hover{color: #3676cc;}
+
+.hidden {display: none;}
