@@ -56,6 +56,7 @@ public class CalcController {
     public String calcA1(A1 a1){
         a1.cale();
         a1.setType(type);
+        a1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
@@ -64,6 +65,7 @@ public class CalcController {
     public String calcB1(B1 b1){
         b1.cale();
         b1.setType(type);
+        b1Mapper.insert(b1);
         return gson.toJson(b1);
     }
 
@@ -72,6 +74,7 @@ public class CalcController {
     public String calcB2(B2 b2){
         b2.cale();
         b2.setType(type);
+        b2Mapper.insert(b2);
         return gson.toJson(b2);
     }
 
@@ -80,6 +83,7 @@ public class CalcController {
     public String calcC1(C1 a1){
         a1.cale();
         a1.setType(type);
+        c1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
@@ -88,6 +92,7 @@ public class CalcController {
     public String calcD1(D1 a1){
         a1.cale();
         a1.setType(type);
+        d1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
@@ -97,6 +102,7 @@ public class CalcController {
     public String calcD2(D2 a1){
         a1.cale();
         a1.setType(type);
+        d2Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
@@ -105,22 +111,34 @@ public class CalcController {
     public String calcE1(E1 a1){
         a1.cale();
         a1.setType(type);
+        e1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/E2")
-    public String calcE21(E2 a1){
+    public String calcE2(E2 a1){
         a1.cale();
         a1.setType(type);
+        e2Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/F1")
-    public String calcE22(F1 a1){
+    public String calcF1(F1 a1){
         a1.cale();
         a1.setType(type);
+        f1Mapper.insert(a1);
+        return gson.toJson(a1);
+    }
+
+    @ResponseBody
+    @RequestMapping("/F2")
+    public String calcF2(F2 a1){
+        a1.cale();
+        a1.setType(type);
+        f2Mapper.insert(a1);
         return gson.toJson(a1);
     }
 

@@ -2,9 +2,6 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
 /**
  * Created by zhong on 2018/7/12 15:38
@@ -37,8 +34,6 @@ public class E2 implements Calc {
         this.type = type;
     }
 
-    @Basic
-    @Column(name = "A", nullable = true, precision = 0)
     public Double getA() {
         return a;
     }
@@ -47,8 +42,6 @@ public class E2 implements Calc {
         this.a = a;
     }
 
-    @Basic
-    @Column(name = "X1", nullable = true, precision = 0)
     public Double getX1() {
         return x1;
     }
@@ -57,8 +50,6 @@ public class E2 implements Calc {
         this.x1 = x1;
     }
 
-    @Basic
-    @Column(name = "X2", nullable = true, precision = 0)
     public Double getX2() {
         return x2;
     }
@@ -67,8 +58,6 @@ public class E2 implements Calc {
         this.x2 = x2;
     }
 
-    @Basic
-    @Column(name = "C1", nullable = true, precision = 0)
     public Double getC1() {
         return c1;
     }
@@ -77,8 +66,6 @@ public class E2 implements Calc {
         this.c1 = c1;
     }
 
-    @Basic
-    @Column(name = "C2", nullable = true, precision = 0)
     public Double getC2() {
         return c2;
     }
@@ -87,8 +74,6 @@ public class E2 implements Calc {
         this.c2 = c2;
     }
 
-    @Basic
-    @Column(name = "C3", nullable = true, precision = 0)
     public Double getC3() {
         return c3;
     }
@@ -97,8 +82,6 @@ public class E2 implements Calc {
         this.c3 = c3;
     }
 
-    @Basic
-    @Column(name = "R1", nullable = true, precision = 0)
     public Double getR1() {
         return r1;
     }
@@ -107,8 +90,6 @@ public class E2 implements Calc {
         this.r1 = r1;
     }
 
-    @Basic
-    @Column(name = "R2", nullable = true, precision = 0)
     public Double getR2() {
         return r2;
     }
@@ -117,8 +98,6 @@ public class E2 implements Calc {
         this.r2 = r2;
     }
 
-    @Basic
-    @Column(name = "R3", nullable = true, precision = 0)
     public Double getR3() {
         return r3;
     }
@@ -127,8 +106,6 @@ public class E2 implements Calc {
         this.r3 = r3;
     }
 
-    @Basic
-    @Column(name = "M", nullable = true, precision = 0)
     public Double getM() {
         return m;
     }
@@ -137,8 +114,6 @@ public class E2 implements Calc {
         this.m = m;
     }
 
-    @Basic
-    @Column(name = "P", nullable = true, precision = 0)
     public Double getP() {
         return p;
     }
@@ -147,8 +122,6 @@ public class E2 implements Calc {
         this.p = p;
     }
 
-    @Basic
-    @Column(name = "K", nullable = true, precision = 0)
     public Double getK() {
         return k;
     }
@@ -157,8 +130,6 @@ public class E2 implements Calc {
         this.k = k;
     }
 
-    @Basic
-    @Column(name = "N", nullable = true, precision = 0)
     public Double getN() {
         return n;
     }
@@ -167,8 +138,6 @@ public class E2 implements Calc {
         this.n = n;
     }
 
-    @Basic
-    @Column(name = "Gf", nullable = true, precision = 0)
     public Double getGf() {
         return gf;
     }
@@ -177,8 +146,6 @@ public class E2 implements Calc {
         this.gf = gf;
     }
 
-    @Basic
-    @Column(name = "Uf", nullable = true, precision = 0)
     public Double getUf() {
         return uf;
     }

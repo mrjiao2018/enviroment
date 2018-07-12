@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface E2Mapper {
 
-    @Insert("insert into D1 values (#{A},#{X1},#{X2},#{C1},#{C2},#{C3},#{R1},#{R1},#{R3},#{M},#{P},#{K},#{N},#{type},#{Gf},#{Uf})")
+    @Insert("insert into E2 values (#{A},#{X1},#{X2},#{C1},#{C2},#{C3},#{R1},#{R1},#{R3},#{M},#{P},#{K},#{N},#{type},#{Gf},#{Uf})")
     int insert(E2 e2);
 
     @Select("select * from E2 where type=#{type}")

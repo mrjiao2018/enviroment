@@ -2,10 +2,6 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
 /**
  * Created by zhong on 2018/7/12 15:39
  */
@@ -17,8 +13,7 @@ public class F2 implements Calc {
     private Double gy;
     private Double uy;
 
-    @Basic
-    @Column(name = "A", nullable = true, precision = 0)
+
     public Double getA() {
         return a;
     }
@@ -27,8 +22,6 @@ public class F2 implements Calc {
         this.a = a;
     }
 
-    @Basic
-    @Column(name = "Bn", nullable = true, precision = 0)
     public Double getBn() {
         return bn;
     }
@@ -37,8 +30,6 @@ public class F2 implements Calc {
         this.bn = bn;
     }
 
-    @Basic
-    @Column(name = "Cy", nullable = true, precision = 0)
     public Double getCy() {
         return cy;
     }
@@ -47,8 +38,6 @@ public class F2 implements Calc {
         this.cy = cy;
     }
 
-    @Basic
-    @Column(name = "type", nullable = true, length = 45)
     public String getType() {
         return type;
     }
@@ -57,8 +46,6 @@ public class F2 implements Calc {
         this.type = type;
     }
 
-    @Basic
-    @Column(name = "Gy", nullable = true, precision = 0)
     public Double getGy() {
         return gy;
     }
@@ -67,8 +54,6 @@ public class F2 implements Calc {
         this.gy = gy;
     }
 
-    @Basic
-    @Column(name = "Uy", nullable = true, precision = 0)
     public Double getUy() {
         return uy;
     }

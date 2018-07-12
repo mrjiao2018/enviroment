@@ -2,9 +2,6 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
 /**
  * Created by zhong on 2018/7/12 15:38
@@ -20,8 +17,6 @@ public class E1 implements Calc {
     private Double ut;
     private String type;
 
-    @Basic
-    @Column(name = "A", nullable = true, precision = 0)
     public Double getA() {
         return a;
     }
@@ -30,8 +25,6 @@ public class E1 implements Calc {
         this.a = a;
     }
 
-    @Basic
-    @Column(name = "X1", nullable = true, precision = 0)
     public Double getX1() {
         return x1;
     }
@@ -40,8 +33,6 @@ public class E1 implements Calc {
         this.x1 = x1;
     }
 
-    @Basic
-    @Column(name = "X2", nullable = true, precision = 0)
     public Double getX2() {
         return x2;
     }
@@ -50,8 +41,6 @@ public class E1 implements Calc {
         this.x2 = x2;
     }
 
-    @Basic
-    @Column(name = "Ct", nullable = true, precision = 0)
     public Double getCt() {
         return ct;
     }
@@ -60,8 +49,6 @@ public class E1 implements Calc {
         this.ct = ct;
     }
 
-    @Basic
-    @Column(name = "p", nullable = true, precision = 0)
     public Double getP() {
         return p;
     }
@@ -70,8 +57,6 @@ public class E1 implements Calc {
         this.p = p;
     }
 
-    @Basic
-    @Column(name = "Gt", nullable = true, precision = 0)
     public Double getGt() {
         return gt;
     }
@@ -80,8 +65,6 @@ public class E1 implements Calc {
         this.gt = gt;
     }
 
-    @Basic
-    @Column(name = "Ut", nullable = true, precision = 0)
     public Double getUt() {
         return ut;
     }
@@ -90,8 +73,6 @@ public class E1 implements Calc {
         this.ut = ut;
     }
 
-    @Basic
-    @Column(name = "type", nullable = true, length = 45)
     public String getType() {
         return type;
     }

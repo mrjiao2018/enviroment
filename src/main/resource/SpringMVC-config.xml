@@ -22,7 +22,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/login/**"/>
-            <bean class="enviroment.interceptor" />
+            <bean class="enviroment.interceptor.AuthInterceptor" />
         </mvc:interceptor>
 
     </mvc:interceptors>

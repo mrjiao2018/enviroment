@@ -2,9 +2,6 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
 /**
  * Created by zhong on 2018/7/12 15:38
@@ -32,8 +29,7 @@ public class C1 implements Calc {
     private Double d1;
     private String type;
 
-    @Basic
-    @Column(name = "A1", nullable = true, precision = 0)
+
     public Double getA1() {
         return a1;
     }
@@ -42,8 +38,7 @@ public class C1 implements Calc {
         this.a1 = a1;
     }
 
-    @Basic
-    @Column(name = "a2", nullable = true, precision = 0)
+
     public Double getA2() {
         return a2;
     }
@@ -52,8 +47,7 @@ public class C1 implements Calc {
         this.a2 = a2;
     }
 
-    @Basic
-    @Column(name = "a3", nullable = true, precision = 0)
+
     public Double getA3() {
         return a3;
     }
@@ -62,8 +56,6 @@ public class C1 implements Calc {
         this.a3 = a3;
     }
 
-    @Basic
-    @Column(name = "a4", nullable = true, precision = 0)
     public Double getA4() {
         return a4;
     }
@@ -72,8 +64,6 @@ public class C1 implements Calc {
         this.a4 = a4;
     }
 
-    @Basic
-    @Column(name = "a5", nullable = true, precision = 0)
     public Double getA5() {
         return a5;
     }
@@ -82,8 +72,6 @@ public class C1 implements Calc {
         this.a5 = a5;
     }
 
-    @Basic
-    @Column(name = "a6", nullable = true, precision = 0)
     public Double getA6() {
         return a6;
     }
@@ -92,8 +80,6 @@ public class C1 implements Calc {
         this.a6 = a6;
     }
 
-    @Basic
-    @Column(name = "b1", nullable = true, precision = 0)
     public Double getB1() {
         return b1;
     }
@@ -102,8 +88,6 @@ public class C1 implements Calc {
         this.b1 = b1;
     }
 
-    @Basic
-    @Column(name = "b2", nullable = true, precision = 0)
     public Double getB2() {
         return b2;
     }
@@ -112,8 +96,6 @@ public class C1 implements Calc {
         this.b2 = b2;
     }
 
-    @Basic
-    @Column(name = "b3", nullable = true, precision = 0)
     public Double getB3() {
         return b3;
     }
@@ -122,8 +104,6 @@ public class C1 implements Calc {
         this.b3 = b3;
     }
 
-    @Basic
-    @Column(name = "b4", nullable = true, precision = 0)
     public Double getB4() {
         return b4;
     }
@@ -132,8 +112,6 @@ public class C1 implements Calc {
         this.b4 = b4;
     }
 
-    @Basic
-    @Column(name = "b5", nullable = true, precision = 0)
     public Double getB5() {
         return b5;
     }
@@ -142,8 +120,6 @@ public class C1 implements Calc {
         this.b5 = b5;
     }
 
-    @Basic
-    @Column(name = "b6", nullable = true, precision = 0)
     public Double getB6() {
         return b6;
     }
@@ -152,8 +128,6 @@ public class C1 implements Calc {
         this.b6 = b6;
     }
 
-    @Basic
-    @Column(name = "c1", nullable = true, precision = 0)
     public Double getC1() {
         return c1;
     }
@@ -162,8 +136,6 @@ public class C1 implements Calc {
         this.c1 = c1;
     }
 
-    @Basic
-    @Column(name = "c2", nullable = true, precision = 0)
     public Double getC2() {
         return c2;
     }
@@ -172,8 +144,6 @@ public class C1 implements Calc {
         this.c2 = c2;
     }
 
-    @Basic
-    @Column(name = "c3", nullable = true, precision = 0)
     public Double getC3() {
         return c3;
     }
@@ -182,8 +152,6 @@ public class C1 implements Calc {
         this.c3 = c3;
     }
 
-    @Basic
-    @Column(name = "c4", nullable = true, precision = 0)
     public Double getC4() {
         return c4;
     }
@@ -192,8 +160,6 @@ public class C1 implements Calc {
         this.c4 = c4;
     }
 
-    @Basic
-    @Column(name = "c5", nullable = true, precision = 0)
     public Double getC5() {
         return c5;
     }
@@ -202,8 +168,6 @@ public class C1 implements Calc {
         this.c5 = c5;
     }
 
-    @Basic
-    @Column(name = "c6", nullable = true, precision = 0)
     public Double getC6() {
         return c6;
     }
@@ -212,8 +176,6 @@ public class C1 implements Calc {
         this.c6 = c6;
     }
 
-    @Basic
-    @Column(name = "d1", nullable = true, precision = 0)
     public Double getD1() {
         return d1;
     }
@@ -222,8 +184,6 @@ public class C1 implements Calc {
         this.d1 = d1;
     }
 
-    @Basic
-    @Column(name = "type", nullable = true, length = 45)
     public String getType() {
         return type;
     }
