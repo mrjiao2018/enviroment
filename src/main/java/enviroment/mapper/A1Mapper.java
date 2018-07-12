@@ -3,7 +3,9 @@ package enviroment.mapper;
 import enviroment.vo.A1;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface A1Mapper {
 
     @Insert("inert into A1 values (#{A1},#{A2},#{A3},#{A4},#{A5},#{A6},#{A7},#{A8},#{A9},#{B1},#{B2},#{B3},#{B4}," +
