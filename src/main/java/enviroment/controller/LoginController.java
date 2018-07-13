@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,12 +26,12 @@ public class LoginController {
 
     @RequestMapping("/login")
     @ResponseBody
-    public String login(User user){
+    public String login(User user, HttpServletRequest httpServletRequest){
         Map map=new HashMap();
         if (userMapper.select(user)==null){
             map.put("status",700);
-
         }else {
+            httpServletRequest.getSession().setAttribute("username",user.getUsername());
             map.put("status",600);
         }
         return gson.toJson(map);

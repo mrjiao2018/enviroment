@@ -250,6 +250,13 @@ public class C1 implements Calc {
 
     @Override
     public void cale() {
+        c1=a1*b1;
+        c2=a2*b2;
+        c3=a3*b3;
+        c4=a4*b4;
+        c5=a5*b5;
+        c6=a6*b6;
 
+        d1=c1+c2+c3+c4+c5+c6;
     }
 }

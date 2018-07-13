@@ -115,6 +115,7 @@ public class D1 implements Calc {
 
     @Override
     public void cale() {
-
+        gt=10*a*(p-e-c);
+        ut=10*ck*a*(p-e-c);
     }
 }

@@ -3,10 +3,14 @@ package enviroment.controller;
 import com.google.gson.Gson;
 import enviroment.mapper.*;
 import enviroment.vo.*;
+import enviroment.vo.mpl.Calc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/calc")
 @Controller
@@ -45,10 +49,38 @@ public class CalcController {
     @Autowired
     private F2Mapper f2Mapper;
 
+    @Autowired
+    private G1Mapper g1Mapper;
+
+    @Autowired
+    private H1Mapper h1Mapper;
+
+    @Autowired
+    private H2Mapper h2Mapper;
+
+    @Autowired
+    private H3Mapper h3Mapper;
+
+    @Autowired
+    private H4Mapper h4Mapper;
+
+    @Autowired
+    private I1Mapper i1Mapper;
+
+    @Autowired
+    private J1Mapper j1Mapper;
+
+    @Autowired
+    private K1Mapper k1Mapper;
+
+    private TypeMapper typeMapper;
     public static String type;
 
-    public void submit(String year,String position,String type){
-        this.type=year+position+type;
+    public void submit(Type type){
+        this.type=type.toString();
+        if (typeMapper.select(type)==null){
+            typeMapper.insert(type);
+        }
     }
 
     @ResponseBody
@@ -144,58 +176,100 @@ public class CalcController {
 
     @ResponseBody
     @RequestMapping("/G1")
-    public String calcG1(A1 a1){
+    public String calcG1(G1 a1){
         a1.cale();
         a1.setType(type);
+        g1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/H1")
-    public String calcH1(A1 a1){
+    public String calcH1(H1 a1){
         a1.cale();
+        a1.setType(type);
+        h1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/H2")
-    public String calcH2(A1 a1){
+    public String calcH2(H2 a1){
         a1.cale();
+        a1.setType(type);
+        h2Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/H3")
-    public String calcH3(A1 a1){
+    public String calcH3(H3 a1){
         a1.cale();
+        a1.setType(type);
+        h3Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/H4")
-    public String calcH4(A1 a1){
+    public String calcH4(H4 a1){
         a1.cale();
+        a1.setType(type);
+        h4Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/I1")
-    public String calcI1(A1 a1){
+    public String calcI1(I1 a1){
         a1.cale();
+        a1.setType(type);
+        i1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/J1")
-    public String calcJ1(A1 a1){
+    public String calcJ1(J1 a1){
         a1.cale();
+        a1.setType(type);
+        j1Mapper.insert(a1);
         return gson.toJson(a1);
     }
 
     @ResponseBody
     @RequestMapping("/K1")
-    public String calcK1(A1 a1){
+    public String calcK1(K1 a1){
         a1.cale();
+        a1.setType(type);
+        k1Mapper.insert(a1);
         return gson.toJson(a1);
+    }
+
+    @ResponseBody
+    @RequestMapping("/total")
+    public String getTotal(String year,String position,String type){
+        List<Calc> calcs=new ArrayList<>();
+        String tableType=year+position+type;
+        calcs.add( a1Mapper.select(tableType));
+        calcs.add( b1Mapper.select(tableType));
+        calcs.add( b2Mapper.select(tableType));
+        calcs.add( c1Mapper.select(tableType));
+        calcs.add( d1Mapper.select(tableType));
+        calcs.add( d2Mapper.select(tableType));
+        calcs.add( e1Mapper.select(tableType));
+        calcs.add( e2Mapper.select(tableType));
+        calcs.add( f1Mapper.select(tableType));
+        calcs.add( f2Mapper.select(tableType));
+        calcs.add( g1Mapper.select(tableType));
+        calcs.add( h1Mapper.select(tableType));
+        calcs.add( h2Mapper.select(tableType));
+        calcs.add( h3Mapper.select(tableType));
+        calcs.add( h4Mapper.select(tableType));
+        calcs.add( i1Mapper.select(tableType));
+        calcs.add( j1Mapper.select(tableType));
+        calcs.add( k1Mapper.select(tableType));
+
+        return gson.toJson(calcs);
     }
 }

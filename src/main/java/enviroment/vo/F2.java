@@ -92,6 +92,7 @@ public class F2 implements Calc {
 
     @Override
     public void cale() {
-
+        gy=1.19*a*bn;
+        uy=gy*cy;
     }
 }

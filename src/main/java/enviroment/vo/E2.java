@@ -202,6 +202,7 @@ public class E2 implements Calc {
 
     @Override
     public void cale() {
-
+        gf=a*(x2-x1)*(n*c1+p*c1+k*c2+m*c3);
+        uf=a*(x2-x1)*(n*c1/r1+p*c1/r2+k*c2/r3+ m*c3);
     }
 }

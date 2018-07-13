@@ -114,6 +114,7 @@ public class F1 implements Calc {
 
     @Override
     public void cale() {
-
+        gt=1.63*rt*a*bn+a*ft;
+        ut=gt*ct;
     }
 }

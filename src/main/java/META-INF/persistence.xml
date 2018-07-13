@@ -10,6 +10,14 @@
         <class>enviroment.vo.E2</class>
         <class>enviroment.vo.F1</class>
         <class>enviroment.vo.F2</class>
+        <class>enviroment.vo.G1</class>
+        <class>enviroment.vo.H1</class>
+        <class>enviroment.vo.H2</class>
+        <class>enviroment.vo.H3</class>
+        <class>enviroment.vo.H4</class>
+        <class>enviroment.vo.I1</class>
+        <class>enviroment.vo.J1</class>
+        <class>enviroment.vo.K1</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:mysql://193.112.33.53:3306/whenviroment"/>
             <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>

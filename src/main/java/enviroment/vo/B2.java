@@ -71,6 +71,6 @@ public class B2 implements Calc {
 
     @Override
     public void cale() {
-
+        c=a*b;
     }
 }
