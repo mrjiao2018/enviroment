@@ -333,7 +333,7 @@ layui.use('element', function () {
             tempFormItem6.append(unitDiv7);
             layuiInputInlineDiv7.append(input8);
         }
-        formItemContainer5.append($("<input type=\"text\" name=" + formInfo.partDiv + " class='hidden' value=\"\">"));
+        formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
         //生成table
         for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
@@ -377,30 +377,34 @@ layui.use('element', function () {
 
 
     /**
-     * 表单提交函数
+     * 获取所有form，监听submit事件，点击submit按钮提交表单
      * @param $form
      */
-    function submitForm($form) {
-        var $tds = $form.find("td");
+    function submitForm() {
+        var $forms = $(".calculator").find(".layui-form");
+        for(var i = 0; i < $forms.length; ++i) {
+            submitForm1($forms.eq(i));
+        }
+    }
+
+    /**
+     * 单个表单提交
+     * @param $form
+     */
+    function submitForm1($form){
         var options = {
             url: "/servlet/CalcServlet",
             type: "post",
             dataType: "json",
-            beforeSubmit: function (formData, form) {
-                console.log(formData);
-                console.log(form);
-                for (var i = 0; i < formData.length; ++i) {
-                    $tds[i].innerHTML = formData[i].value;
-                }
+            beforeSubmit: function (formData) {
+                console.log("提前前，提交数据为：" + formData);
             },
             success: function (responseText) {
-                console.log(responseText);
-                $tds[$tds.length - 1].innerHTML = responseText.result;
+                console.log("提前后，响应数据为：" + responseText);
             }
         };
-        $form.ajaxForm(options)
+        $form.ajaxForm(options);
     }
-
 
     /**
      * 加载界面时，只展示一个div
@@ -449,7 +453,7 @@ layui.use('element', function () {
      * @param $summarySheet
      */
     function showData(data, calculatorArr, $summarySheet) {
-
+        console.log(data);
     }
 
 
@@ -507,7 +511,7 @@ layui.use('element', function () {
      */
     function main() {
 
-        //获取所有的form对象
+        //初始化所有的form对象
         var calculatorArr = generateFormArr();
 
         //将form展示添加到html中
@@ -523,7 +527,7 @@ layui.use('element', function () {
         //switchForm();
 
         //表单提交函数
-        //submitForm();
+        submitForm();
 
         //更改年份时，重新想服务器加载数据并刷新界面
         //dataReload();
@@ -559,44 +563,6 @@ layui.use('element', function () {
     $(function () {
 
         main();
-
-        // //获取所有form所在的div对象
-        // var calcDivArr = [];
-        // var $calculatorDivs = $(".calculator");
-        // var $specificCalcDivs = $calculatorDivs.children();
-        // for (var i = 0; i < $specificCalcDivs.length; ++i) {
-        //     var $specificCalcDiv = $specificCalcDivs.eq(i);
-        //     calcDivArr.push($specificCalcDiv);
-        //     var $specificCalcForm = $specificCalcDiv.find("form").eq(0);
-        //     calculatorArr.push($specificCalcForm);
-        // }
-        //
-        //
-        // //获取总表
-        // var $summarySheet = $(".summary-sheet").eq(0);
-        //
-        //
-        // //获取日期
-        // var year = $("#year").text();
-        //
-        //
-        // //todo 加载界面时，将所有数据加载到表单中
-        // //dataLoad(year, calculatorArr, $summarySheet);
-        //
-        //
-        // //在加载界面时，只展示第一个calcDiv，隐藏其余div及总表
-        // //showSingleDiv(calcDivArr, $summarySheet, 0);
-        //
-        //
-        // //左侧导航栏切换表单函数
-        // switchForm(calcDivArr, $summarySheet);
-        //
-        //
-        // //提交表单
-        // for (var k = 0; k < calculatorArr.length; ++k) {
-        //     //calculatorArr[k].find(".submit-btn").eq(0).click(submitForm(calculatorArr[k]));
-        //     submitForm(calculatorArr[k]);
-        // }
 
     });
 });
