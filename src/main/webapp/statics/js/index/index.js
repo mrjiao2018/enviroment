@@ -553,8 +553,8 @@ layui.use('element', function () {
         //将form展示添加到html中
         appendFormToBody(calculatorArr);
 
-        //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据
-        //dataLoad(2011, "liangzihu", "forest");
+        //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据，加载成功后展示到界面上
+        //showData(dataLoad(2011, "liangzihu", "forest"));
 
         //只展示一个div，从0开始
         showSingleDiv(0);
@@ -568,29 +568,6 @@ layui.use('element', function () {
         //更改年份时，重新向服务器加载数据并刷新界面
         //dataReload();
     }
-
-    /**
-     * 加载网页前向服务器申请数据
-     */
-    // $(window).load(function () {
-    //     var request_data = {
-    //         year: 2011,
-    //         position: "liangzilake",
-    //         type: "forest"
-    //     };
-    //     //todo finish the url
-    //     var options = {
-    //         url:"/servlet/RecordServlet",
-    //         method:"post",
-    //         data:request_data,
-    //          dataType:"json",
-    //          success:function (data) {
-    //             form_data = data;
-    //             console.log(data);
-    //         }
-    //     };
-    //     $.ajax(options);
-    // });
 
 
     /**
