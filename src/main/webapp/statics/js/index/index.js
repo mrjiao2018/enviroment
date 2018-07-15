@@ -46,7 +46,7 @@ layui.use('element', function () {
         //todo finish C1
         formArr[3] = {
             partDiv:"C1",
-            title:"林木流量价值计算",
+            title:"林产品价值计算",
             input_lable:["林木生长量", "杉木立木价格"],
             output_lable:["林木流量价值"],
             input_lable_unit:["m<sup>3</sup>", "元.m<sup>-3</sup>"],
@@ -66,7 +66,7 @@ layui.use('element', function () {
 
         formArr[5] = {
             partDiv:"D2",
-            title:"净化水质功能计算",
+            title:"林分年净化水质价值计算",
             input_lable:["降水量", "林分蒸散量", "地表径流量", "林分面积", "水的净化费用"],
             output_lable:["林分年净化水量", "林分年净化水质价值"],
             input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
@@ -192,7 +192,7 @@ layui.use('element', function () {
 
         formArr[11] = {
             partDiv:"H1",
-            title:"提供负离子计算",
+            title:"林分年提供负离子计算",
             input_lable:["林分高度", "负离子产生费用", "林分负离子浓度", "林分面积", "负离子寿命"],
             output_lable:["林分年提供负离子个数", "林分年提供负离子价值"],
             input_lable_unit:["m", "元.个<sup>-1</sup>", "个.cm<sup>-3</sup>", "hm<sup>2</sup>", "min"],
@@ -202,7 +202,7 @@ layui.use('element', function () {
 
         formArr[12] = {
             partDiv:"H2",
-            title:"林分年吸收二氧化硫计算",
+            title:"林分年吸收污染物计算",
             input_lable:[
                 "林分面积",
                 "二氧化硫治理费用",
@@ -246,7 +246,7 @@ layui.use('element', function () {
 
         formArr[13] = {
             partDiv:"H3",
-            title:"降低噪音价值计算",
+            title:"林分年降低噪音价值计算",
             input_lable:["降低噪音费用", "森林面积折合为隔音墙的公里数"],
             output_lable:["林分年降低噪音价值"],
             input_lable_unit:["元.km<sup>-1</sup>", "km"],
@@ -256,7 +256,7 @@ layui.use('element', function () {
 
         formArr[14] = {
             partDiv:"H4",
-            title:"滞尘功能计算",
+            title:"林分年滞尘量计算",
             input_lable:["林分面积", "降尘清理费用", "林分面积年滞尘量"],
             output_lable:["林分年滞尘量", "林分年滞尘价值"],
             input_lable_unit:["hm<sup>2</sup>", "元.kg<sup>-1</sup>", "kg.hm<sup>-2</sup>.a<sup>-1</sup>"],
@@ -276,7 +276,7 @@ layui.use('element', function () {
 
         formArr[16] = {
             partDiv:"J1",
-            title:"生物多样新保护价值量计算",
+            title:"林分年物种保育价值计算",
             input_lable:["单位面积年物种损失的机会成本", "林分面积"],
             output_lable:["林分年物种保育价值"],
             input_lable_unit:["元.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>"],
@@ -286,7 +286,7 @@ layui.use('element', function () {
 
         formArr[17] = {
             partDiv:"K1",
-            title:"森林游憩价值计算",
+            title:"森林游憩社会服务价值计算",
             input_lable:["年旅游价值", "旅游价值划分比例"],
             output_lable:["森林资源旅游费用"],
             input_lable_unit:["元", "%"],
@@ -369,9 +369,9 @@ layui.use('element', function () {
     }
 
     function appendFormToBody(formArr) {
-        var layui_body = $(".layui-body").eq(0);
+        var $summary_sheet = $(".summary-sheet").eq(0);
         for(var i = 0; i < formArr.length; ++i) {
-            layui_body.append(createForm(formArr[i]));
+            $summary_sheet.before(createForm(formArr[i]));
         }
     }
 
@@ -392,11 +392,14 @@ layui.use('element', function () {
      * @param $form
      */
     function submitForm1($form){
+        var url = "/whe/cal/";
+        var classArr = $form.parent().parent().attr("class").split(" ");
+        url += classArr[1];     //指定提交的servlet
         var options = {
-            url: "/servlet/CalcServlet",
+            url: url,
             type: "post",
             dataType: "json",
-            beforeSubmit: function (formData) {
+            beforeSubmit: function (formData, jqForm) {
                 console.log("提前前，提交数据为：" + formData);
             },
             success: function (responseText) {
@@ -408,20 +411,20 @@ layui.use('element', function () {
 
     /**
      * 加载界面时，只展示一个div
-     * @param calcDivArr
-     * @param $summarySheet
-     * @param index
+     * @param index 要展示的calculator对应div的索引
      */
-    function showSingleDiv(calcDivArr, $summarySheet, index) {
-        for (var j = 0; j < calcDivArr.length; ++j) {
+    function showSingleDiv(index) {
+        var calculators = $(".calculator");
+        var $summarySheet = $(".summary-sheet").eq(0);
+        for (var j = 0; j < calculators.length; ++j) {
             if (j == index) {
-                calcDivArr[j].removeClass("hidden");
+                calculators.eq(j).removeClass("hidden");
             }
             else {
-                calcDivArr[j].addClass("hidden");
+                calculators.eq(j).addClass("hidden");
             }
         }
-        if (index == calcDivArr.length) {
+        if (index == calculators.length) {
             $summarySheet.removeClass("hidden");
         }
         else {
@@ -432,62 +435,94 @@ layui.use('element', function () {
 
     /**
      * 左侧导航栏切换表单函数
-     * @param calcDivArr
-     * @param $summarySheet
      */
-    function switchForm(calcDivArr, $summarySheet) {
+    function switchForm() {
+        var $calculatorDivs = $(".calculator");
+        var $summarySheet = $(".summary-sheet").eq(0);
         var $side_navs = $(".side-nav");
         for (var i = 0; i < $side_navs.length; ++i) {
             $side_navs[i].index = i;
             $side_navs.eq(i).click(function () {
-                showSingleDiv(calcDivArr, $summarySheet, this.index);
+                showSingleDiv(this.index);
             });
         }
     }
 
 
     /**
-     * todo 将加载出的总表数据展示到网页上
+     * todo 将加载出的数据展示到网页上
      * @param data
-     * @param calculatorArr
-     * @param $summarySheet
      */
-    function showData(data, calculatorArr, $summarySheet) {
+    function showData(data) {
         console.log(data);
     }
 
-
     /**
-     * 加载data数据并显示在form中
+     * 请求form中的数据
      * @param year
-     * @param calculatorArr
-     * @param $summarySheet
+     * @param position
+     * @param type
      */
-    function dataLoad(year, calculatorArr, $summarySheet) {
+    function formDataLoad(year, position, type) {
         var request_data = {
             year: year,
-            position: "liangzilake",
-            type: "forest"
+            position: position,
+            type: type
         };
         var options = {
-            url: "",
-            data: JSON.stringify(request_data),
+            url: "/whe/select",
+            data: request_data,
             dataType: "json",
             success: function (data) {
-                showData(data, calculatorArr, $summarySheet);
-                alert("年份切换成功");
+                alert("请求formData成功");
+                return data;
             }
         };
         $.ajax(options);
     }
 
+    /**
+     * 请求总表数据
+     * @param year
+     * @param position
+     * @param type
+     */
+    function summarySheetDataLoad(year, position, type) {
+        var request_data = {
+            year: year,
+            position: position,
+            type: type
+        };
+        var options = {
+            url: "/whe/total",
+            data: request_data,
+            dataType: "json",
+            success: function (data) {
+                alert("请求summarySheetData成功");
+                return data;
+            }
+        };
+        $.ajax(options);
+    }
+
+    /**
+     * 加载data数据并显示在form中
+     * @param year
+     * @param position
+     * @param type
+     * @return {*[]}
+     */
+    function dataLoad(year, position, type) {
+        var formData = formDataLoad(year, position, type);
+        var summarySheetData = summarySheetDataLoad(year, position, type);
+        return [formData, summarySheetData];
+    }
+
 
     /**
      * 更改日期表单重新加载函数
-     * @param calculatorArr
-     * @param $summarySheet
      */
-    function dataReload(calculatorArr, $summarySheet) {
+    function dataReload() {
         //更改日期的处理
         var $year_select = $("#year-select");
         var $year_options = $year_select.find("dd>a");
@@ -498,9 +533,10 @@ layui.use('element', function () {
             $year_options.eq(i).click(function () {
                 year = $(this).text();
                 $year.text(year);
-                // $year_select.find("#year-selected").text(year);
-                //加载data数据并显示在form中
-                dataLoad(year, calculatorArr, $summarySheet);
+                //加载data数据
+                var data = dataLoad(year, "liangzihu", "forest");
+                //展示data数据
+                showData(data);
             });
         }
     }
@@ -517,19 +553,19 @@ layui.use('element', function () {
         //将form展示添加到html中
         appendFormToBody(calculatorArr);
 
-        //将所有从服务器请求的数据加载到form中
-        //dataLoad();
+        //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据
+        //dataLoad(2011, "liangzihu", "forest");
 
-        //只展示一个div
-        //showSingleDiv();
+        //只展示一个div，从0开始
+        showSingleDiv(0);
 
         //左侧导航栏切换form函数
-        //switchForm();
+        switchForm();
 
         //表单提交函数
         submitForm();
 
-        //更改年份时，重新想服务器加载数据并刷新界面
+        //更改年份时，重新向服务器加载数据并刷新界面
         //dataReload();
     }
 
