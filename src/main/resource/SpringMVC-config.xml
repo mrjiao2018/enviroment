@@ -16,7 +16,7 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <mvc:default-servlet-handler/>
-
+    <mvc:resources mapping="/statics/**" location="/statics/"/>
     <!-- 拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>

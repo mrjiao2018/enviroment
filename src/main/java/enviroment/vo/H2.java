@@ -2,9 +2,7 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+
 
 /**
  * Created by zhong on 2018/7/13 16:52
