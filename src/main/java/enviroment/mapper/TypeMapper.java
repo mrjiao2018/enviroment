@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface TypeMapper {
 
-    @Insert("insert into type values (#{year},#{position},#{type})")
+    @Insert("insert into type values (#{year},#{position},#{type},#{inputDate})")
     int insert(Type type);
 
     @Select("select * from type where year=#{year} and position = #{position} and type=#{type}")

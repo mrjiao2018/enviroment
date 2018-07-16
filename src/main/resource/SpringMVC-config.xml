@@ -17,10 +17,7 @@
 
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/statics/**" location="/statics/"/>
-<<<<<<< HEAD
-=======
 
->>>>>>> 08054989284d1c7ff638d2f283a35562350579a7
     <!-- 拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>

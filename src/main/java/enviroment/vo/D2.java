@@ -8,54 +8,14 @@ import enviroment.vo.mpl.Calc;
  */
 
 public class D2 implements Calc {
-    private Double a;
-    private Double p;
-    private Double e;
-    private Double c;
-    private Double k;
+    private double A;
+    private double P;
+    private double E;
+    private double C;
+    private double k;
     private String type;
-    private Double gt;
-    private Double us;
-
-    public Double getA() {
-        return a;
-    }
-
-    public void setA(Double a) {
-        this.a = a;
-    }
-
-    public Double getP() {
-        return p;
-    }
-
-    public void setP(Double p) {
-        this.p = p;
-    }
-
-    public Double getE() {
-        return e;
-    }
-
-    public void setE(Double e) {
-        this.e = e;
-    }
-
-    public Double getC() {
-        return c;
-    }
-
-    public void setC(Double c) {
-        this.c = c;
-    }
-
-    public Double getK() {
-        return k;
-    }
-
-    public void setK(Double k) {
-        this.k = k;
-    }
+    private double Gt;
+    private double Us;
 
     public String getType() {
         return type;
@@ -65,57 +25,49 @@ public class D2 implements Calc {
         this.type = type;
     }
 
-    public Double getGt() {
-        return gt;
+    public void setA(double a) {
+        A = a;
     }
 
-    public void setGt(Double gt) {
-        this.gt = gt;
+    public void setP(double p) {
+        P = p;
     }
 
-    public Double getUs() {
-        return us;
+    public double getE() {
+        return E;
     }
 
-    public void setUs(Double us) {
-        this.us = us;
+    public void setE(double e) {
+        E = e;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        D2 d2 = (D2) o;
-
-        if (a != null ? !a.equals(d2.a) : d2.a != null) return false;
-        if (p != null ? !p.equals(d2.p) : d2.p != null) return false;
-        if (e != null ? !e.equals(d2.e) : d2.e != null) return false;
-        if (c != null ? !c.equals(d2.c) : d2.c != null) return false;
-        if (k != null ? !k.equals(d2.k) : d2.k != null) return false;
-        if (type != null ? !type.equals(d2.type) : d2.type != null) return false;
-        if (gt != null ? !gt.equals(d2.gt) : d2.gt != null) return false;
-        if (us != null ? !us.equals(d2.us) : d2.us != null) return false;
-
-        return true;
+    public void setC(double c) {
+        C = c;
     }
 
-    @Override
-    public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
-        result = 31 * result + (p != null ? p.hashCode() : 0);
-        result = 31 * result + (e != null ? e.hashCode() : 0);
-        result = 31 * result + (c != null ? c.hashCode() : 0);
-        result = 31 * result + (k != null ? k.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (gt != null ? gt.hashCode() : 0);
-        result = 31 * result + (us != null ? us.hashCode() : 0);
-        return result;
+    public void setK(double k) {
+        this.k = k;
+    }
+
+    public double getGt() {
+        return Gt;
+    }
+
+    public void setGt(double gt) {
+        Gt = gt;
+    }
+
+    public double getUs() {
+        return Us;
+    }
+
+    public void setUs(double us) {
+        Us = us;
     }
 
     @Override
     public void cale() {
-        gt =10*a*(p-e-c);
-        us=10*k*a*(p-e-c);
+        Gt =10* A *(P - C - C);
+        Us=10*k* A *(P - C - C);
     }
 }

@@ -392,7 +392,7 @@ layui.use('element', function () {
      * @param $form
      */
     function submitForm1($form){
-        var url = "/whe/cal/";
+        var url = "calc/";
         var classArr = $form.parent().parent().attr("class").split(" ");
         url += classArr[1];     //指定提交的servlet
         var options = {

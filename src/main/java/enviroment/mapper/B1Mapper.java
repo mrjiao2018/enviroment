@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface B1Mapper {
 
-    @Insert("insert into B1 values (#{M},#{f},#{Am},#{Le},#{type},)")
+    @Insert("insert into B1 values (#{M},#{f},#{Am},#{Le},#{type})")
     int insert(B1 b1);
 
     @Select("select * from B1 where type = #{type}")
