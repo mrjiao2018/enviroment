@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>自然资源资产价值计算</title>
+    <link rel="stylesheet" href="statics/css/layui.css">
+    <link rel="stylesheet" href="statics/css/index/index.css">
+    <link rel="stylesheet" href="statics/css/common/common.css">
+    <style type="text/css">
+        body{background: url("statics/img/background/forest.jpeg");}
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-main">
+            <div class="layui-logo">自然资源资产价值计算</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">土地</a></li>
+                <li class="layui-nav-item"><a href="">矿产</a></li>
+                <li class="layui-nav-item layui-this"><a href="">森林</a></li>
+                <li class="layui-nav-item"><a href="">水</a></li>
+                <li class="layui-nav-item"><a href="">生物</a></li>
+                <li class="layui-nav-item"><a href="/resultOverview.html">往年结果查询</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right" id="time-position-select">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        地理位置
+                    </a>
+                    <dl class="layui-nav-child" id="position-select">
+                        <dd><a href="">湖北省</a></dd>
+                        <dd><a href="">安徽省</a></dd>
+                        <dd><a href="">河南省</a></dd>
+                        <dd><a href="">湖南省</a></dd>
+
+                    </dl>
+                </li>
+                <li class="layui-nav-item" id="year-select">
+                    <a href="javascript:;" id="year-selected">
+                        日期
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">2011</a></dd>
+                        <dd><a href="javascript:;">2015</a></dd>
+                        <dd><a href="javascript:;">添加年份</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-side">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <div id="forest-nav">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">林地、林木、林产品价值</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林地价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林木存量价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林木流量价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林产品价值计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">涵养水源</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年调节水量计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年净化水质价值计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">保育土壤</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年固土量计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年保肥量计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">固碳释氧</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年固碳量计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年释氧量计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">积累营养物质</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年营养物质积累计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">净化大气环境</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年提供负离子计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年吸收污染物计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年降低噪音价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">林分年滞尘量计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">森林防护</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">森林防护价值计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">生物多样性保护</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">林分年物种保育价值计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">森林社会服务</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">森林游憩社会服务价值计算</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item side-nav">
+                        <a href="javascript:;">总表</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 顶部位置信息 -->
+        <div class="position-nav">
+            <span class="layui-breadcrumb" lay-separator="-">
+              <a href="javascript:;" id="year">2011</a>
+              <a href="javascript:;">中国</a>
+              <a href="javascript:;">湖北省</a>
+              <a href="javascript:;">武汉市</a>
+              <a href="javascript:;">梁子湖区</a>
+            </span>
+        </div>
+
+
+        <!--生成表格-->
+        <div class="summary-sheet ">
+            <div class="site-title">
+                <fieldset>
+                    <legend><a name="use">总表</a></legend>
+                </fieldset>
+            </div>
+            <div class="site-text">
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="200">
+                        <col width="150">
+                        <col width="150">
+                        <col width="150">
+                        <col width="100">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>类别</sup></th>
+                        <th colspan="2">内容</sup></th>
+                        <th>实物量</sup></th>
+                        <th>单位</sup></th>
+                        <th>价值量(万元/a)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td rowspan="5">林地、林木、林 产品价值</td>
+                        <td>林地</td>
+                        <td>—</td>
+                        <td></td>
+                        <td>hm<sup>2</sup></td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>林木</td>
+                        <td>直接价值</td>
+                        <td></td>
+                        <td>m<sup>3</sup></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>林木</td>
+                        <td>流量价值</td>
+                        <td></td>
+                        <td>m<sup>3</sup></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>林产品</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="21">森林生态服务价值</td>
+                        <td rowspan="3">涵养水源</td>
+                        <td>调节水量</td>
+                        <td></td>
+                        <td>m<sup>3</sup>/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>净化水质</td>
+                        <td></td>
+                        <td>m<sup>3</sup>/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">保育土壤</td>
+                        <td>固土</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>保肥</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">固碳释氧</td>
+                        <td>固碳</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>释氧</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">积累营养物质</td>
+                        <td>林木固氮</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>林木固磷</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>林木固钾</td>
+                        <td></td>
+                        <td>t/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">净化大气环境</td>
+                        <td>提供负离子</td>
+                        <td></td>
+                        <td>个/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>吸收污染物</td>
+                        <td></td>
+                        <td>kg/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>降低噪音</td>
+                        <td></td>
+                        <td>km</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>滞尘</td>
+                        <td></td>
+                        <td>kg/a</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1">森林防护</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1">生物多样性保护</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1">小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">森林社会服务价值</td>
+                        <td>森林游憩</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>小计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1">合计</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <form class="layui-form flex-display" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block layui-form-item-remove-left">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">存储表格</button>
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">打印表格</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="./statics/js/jquery.min.js"></script>
+<script src="./statics/js/jquery.form.js"></script>
+<script src="./statics/js/layui.all.js"></script>
+<script src="./statics/js/index/index.js"></script>
+<!--<script src="./statics/js/index/test.js"></script>-->
+</body>
+</html>
