@@ -19,5 +19,5 @@ public interface TypeMapper {
     Type select(Type type);
 
     @Select("select * from type")
-    List<Type> select();
+    List<Type> selectAll();
 }

@@ -73,16 +73,21 @@ public class CalcController {
     @Autowired
     private K1Mapper k1Mapper;
 
+    @Autowired
     private TypeMapper typeMapper;
+    @Autowired
     private TotalMappere totalMappere;
     public static String type;
 
-    public void submit(Type type){
+    @ResponseBody
+    @RequestMapping("/type")
+    public String submit(Type type){
         this.type=type.toString();
         if (typeMapper.select(type)==null){
             totalMappere.insert(type.toString());
             typeMapper.insert(type);
         }
+        return "success";
     }
 
     @ResponseBody

@@ -15,4 +15,7 @@ public interface TotalMappere {
 
     @Select("select * from total")
     List<Total> select();
+
+    @Select("select * from total where type = #{type}")
+    Total selectByType(String type);
 }

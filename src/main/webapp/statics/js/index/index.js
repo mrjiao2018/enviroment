@@ -470,7 +470,7 @@ layui.use('element', function () {
             type: type
         };
         var options = {
-            url: "/whe/select",
+            url: "calc/type",
             data: request_data,
             dataType: "json",
             success: function (data) {
@@ -494,7 +494,7 @@ layui.use('element', function () {
             type: type
         };
         var options = {
-            url: "/whe/total",
+            url: "total",
             data: request_data,
             dataType: "json",
             success: function (data) {
@@ -554,7 +554,7 @@ layui.use('element', function () {
         appendFormToBody(calculatorArr);
 
         //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据，加载成功后展示到界面上
-        //showData(dataLoad(2011, "liangzihu", "forest"));
+        showData(dataLoad(2011, "liangzihu", "forest"));
 
         //只展示一个div，从0开始
         showSingleDiv(0);

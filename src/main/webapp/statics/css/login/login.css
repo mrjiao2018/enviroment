@@ -1,6 +1,6 @@
 *{margin: 0; padding: 0}
 body {
-    background-image: url("/statics/img/background/forest.jpeg");
+    background-image: url("../../img/background/forest.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;

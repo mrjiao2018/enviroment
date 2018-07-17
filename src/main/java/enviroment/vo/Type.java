@@ -49,6 +49,6 @@ public class Type {
 
     @Override
     public String toString() {
-        return year+position+type+inputDate;
+        return year+position+type;
     }
 }

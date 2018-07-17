@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * Created by zhong on 2018/7/16 19:44
  */
+@RequestMapping("/total")
 @Controller
 public class TotalController {
 
@@ -29,7 +30,7 @@ public class TotalController {
     private TypeMapper typeMapper;
 
     @ResponseBody
-    @RequestMapping("")
+    @RequestMapping("/all")
     public String getTotals(){
         List<Total> totals=totalMappere.select();
         return gson.toJson(totals);
@@ -38,8 +39,16 @@ public class TotalController {
     @ResponseBody
     @RequestMapping("/types")
     public String getTypes(){
-        List<Type> types=typeMapper.select();
+        List<Type> types=typeMapper.selectAll();
         return gson.toJson(types);
+    }
+
+
+    @ResponseBody
+    @RequestMapping("")
+    public String getTotal(Type type){
+        Total total=totalMappere.selectByType(type.toString());
+        return gson.toJson(total);
     }
 
 }
