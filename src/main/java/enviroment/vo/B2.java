@@ -8,33 +8,33 @@ import enviroment.vo.mpl.Calc;
  */
 
 public class B2 implements Calc {
-    private Double a;
-    private Double b;
-    private Double c;
+    private double A;
+    private double B;
+    private double C;
     private String type;
 
     public Double getA() {
-        return a;
+        return A;
     }
 
     public void setA(Double a) {
-        this.a = a;
+        this.A = a;
     }
 
     public Double getB() {
-        return b;
+        return B;
     }
 
     public void setB(Double b) {
-        this.b = b;
+        this.B = b;
     }
 
     public Double getC() {
-        return c;
+        return C;
     }
 
     public void setC(Double c) {
-        this.c = c;
+        this.C = c;
     }
 
     public String getType() {
@@ -46,31 +46,7 @@ public class B2 implements Calc {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        B2 b2 = (B2) o;
-
-        if (a != null ? !a.equals(b2.a) : b2.a != null) return false;
-        if (b != null ? !b.equals(b2.b) : b2.b != null) return false;
-        if (c != null ? !c.equals(b2.c) : b2.c != null) return false;
-        if (type != null ? !type.equals(b2.type) : b2.type != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
-        result = 31 * result + (b != null ? b.hashCode() : 0);
-        result = 31 * result + (c != null ? c.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public void cale() {
-        c=a*b;
+        C = A * B;
     }
 }

@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.D2;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,4 +18,7 @@ public interface D2Mapper {
 
     @Select("select * from D2 where type=#{type}")
     D2 select(String type);
+
+    @Update("update total set D2Gt = #{D2Gt},D2Us=#{D2Us} where type = #{type}")
+    int update(@Param("D2Gt") Double D1Gt, @Param("D2Us") double D1Ut, @Param("type") String type);
 }

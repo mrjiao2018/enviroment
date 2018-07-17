@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.H2;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,4 +17,7 @@ public interface H2Mapper {
 
     @Insert("insert into H2 values (#{A},#{Ke},#{Qe},#{Kd},#{Qd},#{Kf},#{Qf},#{type},#{G},#{U})")
     int insert(H2 f2);
+
+    @Update("update total set H2Gz = #{H2Gz},H2Uz=#{H2Uz} where type = #{type}")
+    int update(@Param("H2Gz") Double H2Gz, @Param("H2Uz") double H2Uz, @Param("type") String type);
 }

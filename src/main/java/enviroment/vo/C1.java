@@ -8,34 +8,34 @@ import enviroment.vo.mpl.Calc;
  */
 
 public class C1 implements Calc {
-    private Double a1;
-    private Double a2;
-    private Double a3;
-    private Double a4;
-    private Double a5;
-    private Double a6;
-    private Double b1;
-    private Double b2;
-    private Double b3;
-    private Double b4;
-    private Double b5;
-    private Double b6;
-    private Double c1;
-    private Double c2;
-    private Double c3;
-    private Double c4;
-    private Double c5;
-    private Double c6;
-    private Double d1;
+    private double A1;
+    private double a2;
+    private double a3;
+    private double a4;
+    private double a5;
+    private double a6;
+    private double b1;
+    private double b2;
+    private double b3;
+    private double b4;
+    private double b5;
+    private double b6;
+    private double c1;
+    private double c2;
+    private double c3;
+    private double c4;
+    private double c5;
+    private double c6;
+    private double d1;
     private String type;
 
 
     public Double getA1() {
-        return a1;
+        return A1;
     }
 
     public void setA1(Double a1) {
-        this.a1 = a1;
+        this.A1 = a1;
     }
 
 
@@ -193,64 +193,8 @@ public class C1 implements Calc {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        C1 c11 = (C1) o;
-
-        if (a1 != null ? !a1.equals(c11.a1) : c11.a1 != null) return false;
-        if (a2 != null ? !a2.equals(c11.a2) : c11.a2 != null) return false;
-        if (a3 != null ? !a3.equals(c11.a3) : c11.a3 != null) return false;
-        if (a4 != null ? !a4.equals(c11.a4) : c11.a4 != null) return false;
-        if (a5 != null ? !a5.equals(c11.a5) : c11.a5 != null) return false;
-        if (a6 != null ? !a6.equals(c11.a6) : c11.a6 != null) return false;
-        if (b1 != null ? !b1.equals(c11.b1) : c11.b1 != null) return false;
-        if (b2 != null ? !b2.equals(c11.b2) : c11.b2 != null) return false;
-        if (b3 != null ? !b3.equals(c11.b3) : c11.b3 != null) return false;
-        if (b4 != null ? !b4.equals(c11.b4) : c11.b4 != null) return false;
-        if (b5 != null ? !b5.equals(c11.b5) : c11.b5 != null) return false;
-        if (b6 != null ? !b6.equals(c11.b6) : c11.b6 != null) return false;
-        if (c1 != null ? !c1.equals(c11.c1) : c11.c1 != null) return false;
-        if (c2 != null ? !c2.equals(c11.c2) : c11.c2 != null) return false;
-        if (c3 != null ? !c3.equals(c11.c3) : c11.c3 != null) return false;
-        if (c4 != null ? !c4.equals(c11.c4) : c11.c4 != null) return false;
-        if (c5 != null ? !c5.equals(c11.c5) : c11.c5 != null) return false;
-        if (c6 != null ? !c6.equals(c11.c6) : c11.c6 != null) return false;
-        if (d1 != null ? !d1.equals(c11.d1) : c11.d1 != null) return false;
-        if (type != null ? !type.equals(c11.type) : c11.type != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = a1 != null ? a1.hashCode() : 0;
-        result = 31 * result + (a2 != null ? a2.hashCode() : 0);
-        result = 31 * result + (a3 != null ? a3.hashCode() : 0);
-        result = 31 * result + (a4 != null ? a4.hashCode() : 0);
-        result = 31 * result + (a5 != null ? a5.hashCode() : 0);
-        result = 31 * result + (a6 != null ? a6.hashCode() : 0);
-        result = 31 * result + (b1 != null ? b1.hashCode() : 0);
-        result = 31 * result + (b2 != null ? b2.hashCode() : 0);
-        result = 31 * result + (b3 != null ? b3.hashCode() : 0);
-        result = 31 * result + (b4 != null ? b4.hashCode() : 0);
-        result = 31 * result + (b5 != null ? b5.hashCode() : 0);
-        result = 31 * result + (b6 != null ? b6.hashCode() : 0);
-        result = 31 * result + (c1 != null ? c1.hashCode() : 0);
-        result = 31 * result + (c2 != null ? c2.hashCode() : 0);
-        result = 31 * result + (c3 != null ? c3.hashCode() : 0);
-        result = 31 * result + (c4 != null ? c4.hashCode() : 0);
-        result = 31 * result + (c5 != null ? c5.hashCode() : 0);
-        result = 31 * result + (c6 != null ? c6.hashCode() : 0);
-        result = 31 * result + (d1 != null ? d1.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public void cale() {
-        c1=a1*b1;
+        c1= A1 *b1;
         c2=a2*b2;
         c3=a3*b3;
         c4=a4*b4;

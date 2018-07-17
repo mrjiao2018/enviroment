@@ -7,53 +7,53 @@ import enviroment.vo.mpl.Calc;
  * Created by zhong on 2018/7/12 15:39
  */
 public class F1 implements Calc {
-    private Double a;
-    private Double ct;
-    private Double rt;
-    private Double bn;
-    private Double ft;
+    private double A;
+    private double Ct;
+    private double Rt;
+    private double Bn;
+    private double Ft;
     private String type;
-    private Double gt;
-    private Double ut;
+    private double Gt;
+    private double Ut;
 
     public Double getA() {
-        return a;
+        return A;
     }
 
     public void setA(Double a) {
-        this.a = a;
+        this.A = a;
     }
 
     public Double getCt() {
-        return ct;
+        return Ct;
     }
 
     public void setCt(Double ct) {
-        this.ct = ct;
+        this.Ct = ct;
     }
 
     public Double getRt() {
-        return rt;
+        return Rt;
     }
 
     public void setRt(Double rt) {
-        this.rt = rt;
+        this.Rt = rt;
     }
 
     public Double getBn() {
-        return bn;
+        return Bn;
     }
 
     public void setBn(Double bn) {
-        this.bn = bn;
+        this.Bn = bn;
     }
 
     public Double getFt() {
-        return ft;
+        return Ft;
     }
 
     public void setFt(Double ft) {
-        this.ft = ft;
+        this.Ft = ft;
     }
 
     public String getType() {
@@ -65,56 +65,24 @@ public class F1 implements Calc {
     }
 
     public Double getGt() {
-        return gt;
+        return Gt;
     }
 
     public void setGt(Double gt) {
-        this.gt = gt;
+        this.Gt = gt;
     }
 
     public Double getUt() {
-        return ut;
+        return Ut;
     }
 
     public void setUt(Double ut) {
-        this.ut = ut;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        F1 f1 = (F1) o;
-
-        if (a != null ? !a.equals(f1.a) : f1.a != null) return false;
-        if (ct != null ? !ct.equals(f1.ct) : f1.ct != null) return false;
-        if (rt != null ? !rt.equals(f1.rt) : f1.rt != null) return false;
-        if (bn != null ? !bn.equals(f1.bn) : f1.bn != null) return false;
-        if (ft != null ? !ft.equals(f1.ft) : f1.ft != null) return false;
-        if (type != null ? !type.equals(f1.type) : f1.type != null) return false;
-        if (gt != null ? !gt.equals(f1.gt) : f1.gt != null) return false;
-        if (ut != null ? !ut.equals(f1.ut) : f1.ut != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
-        result = 31 * result + (ct != null ? ct.hashCode() : 0);
-        result = 31 * result + (rt != null ? rt.hashCode() : 0);
-        result = 31 * result + (bn != null ? bn.hashCode() : 0);
-        result = 31 * result + (ft != null ? ft.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (gt != null ? gt.hashCode() : 0);
-        result = 31 * result + (ut != null ? ut.hashCode() : 0);
-        return result;
+        this.Ut = ut;
     }
 
     @Override
     public void cale() {
-        gt=1.63*rt*a*bn+a*ft;
-        ut=gt*ct;
+        Gt =1.63* Rt * A * Bn + A * Ft;
+        Ut = Gt * Ct;
     }
 }

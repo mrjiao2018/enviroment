@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.J1;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,5 +17,8 @@ public interface J1Mapper {
 
     @Insert("insert into J1 values (#{Ss},#{A},#{Us},#{type})")
     int insert(J1 f2);
+
+    @Update("update total set J1Us = #{J1Us} where type = #{type}")
+    int update(@Param("J1Us") Double J1Us, @Param("type") String type);
 
 }

@@ -8,53 +8,53 @@ import enviroment.vo.mpl.Calc;
  */
 
 public class D1 implements Calc {
-    private Double a;
-    private Double p;
-    private Double e;
-    private Double c;
-    private Double ck;
+    private double A;
+    private double P;
+    private double E;
+    private double C;
+    private double Ck;
     private String type;
-    private Double gt;
-    private Double ut;
+    private double Gt;
+    private double Ut;
 
     public Double getA() {
-        return a;
+        return A;
     }
 
     public void setA(Double a) {
-        this.a = a;
+        this.A = a;
     }
 
     public Double getP() {
-        return p;
+        return P;
     }
 
     public void setP(Double p) {
-        this.p = p;
+        this.P = p;
     }
 
     public Double getE() {
-        return e;
+        return E;
     }
 
     public void setE(Double e) {
-        this.e = e;
+        this.E = e;
     }
 
     public Double getC() {
-        return c;
+        return C;
     }
 
     public void setC(Double c) {
-        this.c = c;
+        this.C = c;
     }
 
     public Double getCk() {
-        return ck;
+        return Ck;
     }
 
     public void setCk(Double ck) {
-        this.ck = ck;
+        this.Ck = ck;
     }
 
     public String getType() {
@@ -66,56 +66,24 @@ public class D1 implements Calc {
     }
 
     public Double getGt() {
-        return gt;
+        return Gt;
     }
 
     public void setGt(Double gt) {
-        this.gt = gt;
+        this.Gt = gt;
     }
 
     public Double getUt() {
-        return ut;
+        return Ut;
     }
 
     public void setUt(Double ut) {
-        this.ut = ut;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        D1 d1 = (D1) o;
-
-        if (a != null ? !a.equals(d1.a) : d1.a != null) return false;
-        if (p != null ? !p.equals(d1.p) : d1.p != null) return false;
-        if (e != null ? !e.equals(d1.e) : d1.e != null) return false;
-        if (c != null ? !c.equals(d1.c) : d1.c != null) return false;
-        if (ck != null ? !ck.equals(d1.ck) : d1.ck != null) return false;
-        if (type != null ? !type.equals(d1.type) : d1.type != null) return false;
-        if (gt != null ? !gt.equals(d1.gt) : d1.gt != null) return false;
-        if (ut != null ? !ut.equals(d1.ut) : d1.ut != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
-        result = 31 * result + (p != null ? p.hashCode() : 0);
-        result = 31 * result + (e != null ? e.hashCode() : 0);
-        result = 31 * result + (c != null ? c.hashCode() : 0);
-        result = 31 * result + (ck != null ? ck.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (gt != null ? gt.hashCode() : 0);
-        result = 31 * result + (ut != null ? ut.hashCode() : 0);
-        return result;
+        this.Ut = ut;
     }
 
     @Override
     public void cale() {
-        gt=10*a*(p-e-c);
-        ut=10*ck*a*(p-e-c);
+        Gt =10* A *(P - E - C);
+        Ut =10* Ck * A *(P - E - C);
     }
 }

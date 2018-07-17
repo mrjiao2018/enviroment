@@ -7,69 +7,69 @@ import enviroment.vo.mpl.Calc;
  * Created by zhong on 2018/7/13 16:52
  */
 public class H1 implements Calc {
-    private Double a;
-    private Double h;
-    private Double kf;
-    private Double qf;
-    private Double l;
-    private Double uf;
-    private Double gf;
+    private double A;
+    private double H;
+    private double Kf;
+    private double Qf;
+    private double L;
+    private double Uf;
+    private double Gf;
     private String type;
 
     public Double getA() {
-        return a;
+        return A;
     }
 
     public void setA(Double a) {
-        this.a = a;
+        this.A = a;
     }
 
     public Double getH() {
-        return h;
+        return H;
     }
 
     public void setH(Double h) {
-        this.h = h;
+        this.H = h;
     }
 
     public Double getKf() {
-        return kf;
+        return Kf;
     }
 
     public void setKf(Double kf) {
-        this.kf = kf;
+        this.Kf = kf;
     }
 
     public Double getQf() {
-        return qf;
+        return Qf;
     }
 
     public void setQf(Double qf) {
-        this.qf = qf;
+        this.Qf = qf;
     }
 
     public Double getL() {
-        return l;
+        return L;
     }
 
     public void setL(Double l) {
-        this.l = l;
+        this.L = l;
     }
 
     public Double getUf() {
-        return uf;
+        return Uf;
     }
 
     public void setUf(Double uf) {
-        this.uf = uf;
+        this.Uf = uf;
     }
 
     public Double getGf() {
-        return gf;
+        return Gf;
     }
 
     public void setGf(Double gf) {
-        this.gf = gf;
+        this.Gf = gf;
     }
 
     public String getType() {
@@ -81,40 +81,8 @@ public class H1 implements Calc {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        H1 h1 = (H1) o;
-
-        if (a != null ? !a.equals(h1.a) : h1.a != null) return false;
-        if (h != null ? !h.equals(h1.h) : h1.h != null) return false;
-        if (kf != null ? !kf.equals(h1.kf) : h1.kf != null) return false;
-        if (qf != null ? !qf.equals(h1.qf) : h1.qf != null) return false;
-        if (l != null ? !l.equals(h1.l) : h1.l != null) return false;
-        if (uf != null ? !uf.equals(h1.uf) : h1.uf != null) return false;
-        if (gf != null ? !gf.equals(h1.gf) : h1.gf != null) return false;
-        if (type != null ? !type.equals(h1.type) : h1.type != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
-        result = 31 * result + (h != null ? h.hashCode() : 0);
-        result = 31 * result + (kf != null ? kf.hashCode() : 0);
-        result = 31 * result + (qf != null ? qf.hashCode() : 0);
-        result = 31 * result + (l != null ? l.hashCode() : 0);
-        result = 31 * result + (uf != null ? uf.hashCode() : 0);
-        result = 31 * result + (gf != null ? gf.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public void cale() {
-        gf=5.256E15*qf*a*h/l;
-        uf=5.256E15*a*h*kf*(qf-600)/l;
+        Gf =5.256E15* Qf * A * H / L;
+        Uf =5.256E15* A * H * Kf *(Qf -600)/ L;
     }
 }

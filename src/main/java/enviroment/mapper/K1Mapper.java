@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.K1;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,4 +17,7 @@ public interface K1Mapper {
 
     @Insert("insert into K1 values (#{A},#{Uz},#{type},#{Us})")
     int insert(K1 f2);
+
+    @Update("update total set K1Us = #{K1Us} where type = #{type}")
+    int update(@Param("K1Us") Double K1Us, @Param("type") String type);
 }
