@@ -10,6 +10,10 @@ body{background: url("./forest.jpeg");}
 
 thead{background-color: rgba(250, 250, 250, 0.7);}
 input{background-color: rgba(255, 255, 255, 0.7);}
+.form-table-container{
+    margin: 0 auto;
+    width: 1000px;
+}
 
 #time-position-select{margin-right: 100px;}
 #time-position-select a{font-size: 14px;}

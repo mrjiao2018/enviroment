@@ -10,17 +10,20 @@ layui.use('element', function () {
      * 生成每个form的具体信息并封装在一个数组中返回
      */
     function generateFormArr() {
-
+        //输入表单的数组
         var formArr = [];
-        //todo finish A1
+
         formArr[0] = {
             partDiv:"A1",
             title:"林地价值计算",
-            input_lable:["林木积蓄", "材种出材率", "材种原木市场单位价格"],
-            output_lable:["林木市场价值"],
-            input_lable_unit:["m<sup>3</sup>", "%", "元.m<sup>-3</sup>"],
-            output_lable_unit:["元"],
-            input_name:["M", "f", "Am"]
+            column: 4,
+            row: 10,
+            head: ["林地类型", "林地价格（元/hm<sup>2</sup>）", "林地面积（hm<sup>2</sup>）", "价值（万元）"],
+            tuple_head: ["有林地", "疏林地", "灌木林地", "园林绿化地", "未成林地", "苗圃地", "无立木林地", "宜林地", "林地辅助生产用地"],
+            input1: ["A1", "A2", 'A3', 'A4', "A5", "A6", "A7", "A8"],
+            input2: ["B1", "B2", 'B3', 'B4', "B5", "B6", "B7", "B8"],
+            output: ["C1", "C2", 'C3', 'C4', "C5", "C6", "C7", "C8"],
+            end: ['合计', '', 'D1', 'D2']
         };
 
         formArr[1] = {
@@ -43,15 +46,17 @@ layui.use('element', function () {
             input_name:["A", "B"]
         };
 
-        //todo finish C1
         formArr[3] = {
             partDiv:"C1",
             title:"林产品价值计算",
-            input_lable:["林木生长量", "杉木立木价格"],
-            output_lable:["林木流量价值"],
-            input_lable_unit:["m<sup>3</sup>", "元.m<sup>-3</sup>"],
-            output_lable_unit:["元"],
-            input_name:["A"]
+            column: 4,
+            row: 8,
+            head: ["林地类型", "林地价格（元/hm<sup>2</sup>）", "林地面积（hm<sup>2</sup>）", "价值（万元）"],
+            tuple_head: ["胡柚", "林芝片", "孢子粉", "鲜茶叶", "山茶籽油", "蓝莓"],
+            input1: ["A1", "A2", 'A3', 'A4', "A5", "A6"],
+            input2: ["B1", "B2", 'B3', 'B4', "B5", "B6"],
+            output: ["C1", "C2", 'C3', 'C4', "C5", "C6"],
+            end: ['合计', '', '', 'D1']
         };
 
         formArr[4] = {
@@ -299,13 +304,27 @@ layui.use('element', function () {
 
 
     /**
+     * 对formArr进行筛选，从中挑选出以表格形式输入的公式，如A1, C1
+     */
+    function selectTableInputFromFormArr(formArr) {
+        var tableArr = [];
+        for(var i = 0; i < formArr.length; ++i) {
+            if(formArr[i].column != null){
+                tableArr.push(formArr[i]);
+            }
+        }
+        return tableArr;
+    }
+
+
+    /**
      * 根据formInfo创建表单
      * @param formInfo
      *
      * 每个元素后面的数字表示相对于layui-body所在的层次，0层表示同层次，1表示为其子元素，以此类推
      * 如calculatorDiv2，表示calculatorDiv2元素为layui-body的孙元素
      */
-    function createForm(formInfo){
+    function createForm1(formInfo){
         var calculatorDiv2 = $("<div class='calculator " + formInfo.partDiv + "'></div>");
         var titleDiv3 = $("<div class=\"site-title\"><fieldset><legend><a name=\"use\">"+formInfo.title+"</a></legend></fieldset></div>");
         var siteTextDiv3 = $("<div class=\"site-text site-block\"></div>");
@@ -368,10 +387,79 @@ layui.use('element', function () {
         return calculatorDiv2;
     }
 
+
+    /**
+     * 根据formInfo创建表单
+     * @param formInfo
+     *
+     * 每个元素后面的数字表示相对于layui-body所在的层次，0层表示同层次，1表示为其子元素，以此类推
+     * 如calculatorDiv2，表示calculatorDiv2元素为layui-body的孙元素
+     */
+    function createForm2(formInfo) {
+        var calculatorDiv2 = $("<div class='calculator " + formInfo.partDiv + "'></div>");
+        var titleDiv3 = $("<div class=\"site-title\"><fieldset><legend><a name=\"use\">"+formInfo.title+"</a></legend></fieldset></div>");
+        var formContainer3 = $("<div class='form-table-container'></div>");
+        var layuiForm4 = $("<form class='layui-form'></form>");
+        var table3 = $("<table class='layui-table'></table>");
+        var thead4 = $("<thead></thead>");
+        var tbody4 = $("<tbody></tbody>");
+        var tr5 = $("<tr></tr>");
+        for(var i = 0; i < formInfo.column; ++i) {
+            var th = $("<th>" + formInfo.head[i] + "</th>")
+            tr5.append(th);
+        }
+        thead4.append(tr5);
+        for(var j = 0; j < formInfo.row - 2; ++j) {
+            tr5 = $("<tr></tr>");
+            var td1 = $("<td>" + formInfo.tuple_head[j] + "</td>");
+            var td2 = $("<td><div class='layui-form-item'><input type='text' name=" + formInfo.input1[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></div></td>");
+            var td3 = $("<td><div class='layui-form-item'><input type='text' name=" + formInfo.input2[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></div></td>");
+            var td4 = $("<td><input type='text' name=" + formInfo.output[j] + " class='layui-input layui-disabled result'></td>");
+            tbody4.append(tr5);
+            tr5.append(td1);
+            tr5.append(td2);
+            tr5.append(td3);
+            tr5.append(td4);
+        }
+        table3.append(thead4);
+        table3.append(tbody4);
+        calculatorDiv2.append(titleDiv3);
+        calculatorDiv2.append(formContainer3);
+        formContainer3.append(layuiForm4);
+        layuiForm4.append(table3);
+        tr5 = $("<tr></tr>");
+        for(var k = 0; k < formInfo.column; ++k) {
+            var td;
+            if(formInfo.end[k] == '合计') {
+                td = $("<td>" + formInfo.end[k] + "</td>");
+            }
+            else if(formInfo.end[k] == '') {
+                td = $("<td></td>");
+            }
+            else {
+                td = $("<td><input type='text' name=" + formInfo.end[k] + " class='layui-input layui-disabled result'></td>");
+            }
+            tr5.append(td);
+        }
+        tbody4.append(tr5);
+
+        var buttons5 = $("<div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
+        layuiForm4.append(buttons5);
+
+        return calculatorDiv2;
+    }
+
+
     function appendFormToBody(formArr) {
         var $summary_sheet = $(".summary-sheet").eq(0);
+        var tableArr = selectTableInputFromFormArr(formArr);
         for(var i = 0; i < formArr.length; ++i) {
-            $summary_sheet.before(createForm(formArr[i]));
+            if(tableArr.includes(formArr[i])) {
+                $summary_sheet.before(createForm2(formArr[i]));
+            }
+            else{
+                $summary_sheet.before(createForm1(formArr[i]));
+            }
         }
     }
 
@@ -400,7 +488,10 @@ layui.use('element', function () {
             type: "post",
             dataType: "json",
             beforeSubmit: function (formData, jqForm) {
-                console.log("提前前，提交数据为：" + formData);
+                for(var i = 0; i < formData.length; ++i) {
+                    console.log(formData[i].name);
+                    console.log(formData[i].value);
+                }
             },
             success: function (responseText) {
                 console.log("提前后，响应数据为：" + responseText);
