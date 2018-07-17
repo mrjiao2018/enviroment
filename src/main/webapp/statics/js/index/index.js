@@ -494,7 +494,10 @@ layui.use('element', function () {
                 }
             },
             success: function (responseText) {
-                console.log("提前后，响应数据为：" + responseText);
+                for(var i = 0; i < responseText.length; ++i) {
+                    console.log(responseText[i].name);
+                    console.log(responseText[i].value);
+                }
             }
         };
         $form.ajaxForm(options);
