@@ -91,6 +91,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         a1Mapper.insert(a1);
+        a1Mapper.update(a1.getD1(),type);
         return gson.toJson(a1);
     }
 
@@ -100,6 +101,7 @@ public class CalcController {
         b1.cale();
         b1.setType(type);
         b1Mapper.insert(b1);
+        b1Mapper.update(b1.getM(),b1.getLe(),type);
         return gson.toJson(b1);
     }
 
@@ -109,6 +111,7 @@ public class CalcController {
         b2.cale();
         b2.setType(type);
         b2Mapper.insert(b2);
+        b2Mapper.update(b2.getA(),b2.getC(),type);
         return gson.toJson(b2);
     }
 
@@ -118,6 +121,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         c1Mapper.insert(a1);
+        c1Mapper.update(a1.getD1(),type);
         return gson.toJson(a1);
     }
 
@@ -127,6 +131,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         d1Mapper.insert(a1);
+        d1Mapper.update(a1.getGt(),a1.getUt(),type);
         return gson.toJson(a1);
     }
 
@@ -137,6 +142,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         d2Mapper.insert(a1);
+        d2Mapper.update(a1.getGt(),a1.getUs(),type);
         return gson.toJson(a1);
     }
 
@@ -146,6 +152,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         e1Mapper.insert(a1);
+        e1Mapper.update(a1.getGt(),a1.getUt(),type);
         return gson.toJson(a1);
     }
 
@@ -155,6 +162,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         e2Mapper.insert(a1);
+        e2Mapper.update(a1.getGf(),a1.getUf(),type);
         return gson.toJson(a1);
     }
 
@@ -164,6 +172,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         f1Mapper.insert(a1);
+        f1Mapper.update(a1.getGt(),a1.getUt(),type);
         return gson.toJson(a1);
     }
 
@@ -173,6 +182,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         f2Mapper.insert(a1);
+        f2Mapper.update(a1.getGy(),a1.getUy(),type);
         return gson.toJson(a1);
     }
 
@@ -182,6 +192,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         g1Mapper.insert(a1);
+
         return gson.toJson(a1);
     }
 
@@ -191,6 +202,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         h1Mapper.insert(a1);
+        h1Mapper.update(a1.getGf(),a1.getUf(),type);
         return gson.toJson(a1);
     }
 
@@ -200,6 +212,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         h2Mapper.insert(a1);
+        //
         return gson.toJson(a1);
     }
 
@@ -209,6 +222,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         h3Mapper.insert(a1);
+        h3Mapper.update(a1.getAz(),a1.getUz(),type);
         return gson.toJson(a1);
     }
 
@@ -218,6 +232,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         h4Mapper.insert(a1);
+        h4Mapper.update(a1.getGz(),a1.getUz(),type);
         return gson.toJson(a1);
     }
 
@@ -227,6 +242,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         i1Mapper.insert(a1);
+        a1Mapper.update(a1.getUf(),type);
         return gson.toJson(a1);
     }
 
@@ -236,6 +252,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         j1Mapper.insert(a1);
+        j1Mapper.update(a1.getUs(),type);
         return gson.toJson(a1);
     }
 
@@ -245,6 +262,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         k1Mapper.insert(a1);
+        k1Mapper.update(a1.getUs(),type);
         return gson.toJson(a1);
     }
 

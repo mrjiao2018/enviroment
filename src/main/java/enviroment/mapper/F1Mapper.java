@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.F1;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,4 +18,7 @@ public interface F1Mapper {
 
     @Select("select * from F1 where type=#{type}")
     F1 select(String type);
+
+    @Update("update total set F1Gt = #{F1Gt},F1Ut=#{F1Ut} where type = #{type}")
+    int update(@Param("F1Gt") Double F1Gt, @Param("F1Ut") double F1Ut, @Param("type") String type);
 }

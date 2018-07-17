@@ -2,7 +2,9 @@ package enviroment.mapper;
 
 import enviroment.vo.E2;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,4 +18,7 @@ public interface E2Mapper {
 
     @Select("select * from E2 where type=#{type}")
     E2 select(String type);
+
+    @Update("update total set E2Gf = #{E2Gf},E2Uf=#{E2Uf} where type = #{type}")
+    int update(@Param("E2Gf") Double E2Gf, @Param("E2Uf") double E2Uf, @Param("type") String type);
 }

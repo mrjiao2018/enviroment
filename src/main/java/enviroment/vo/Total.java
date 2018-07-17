@@ -14,8 +14,8 @@ public class Total {
     private double D1Ut;
     private double D2Ct;
     private double D2Us;
-    private double E1Gg;
-    private double E1Ug;
+    private double E1Gt;
+    private double E1Ut;
     private double E2Gf;
     private double E2Uf;
     private double F1Gt;
@@ -119,20 +119,20 @@ public class Total {
         this.D2Us = d2Us;
     }
 
-    public Double getE1Gg() {
-        return E1Gg;
+    public Double getE1Gt() {
+        return E1Gt;
     }
 
-    public void setE1Gg(Double e1Gg) {
-        this.E1Gg = e1Gg;
+    public void setE1Gt(Double e1Gt) {
+        this.E1Gt = e1Gt;
     }
 
-    public Double getE1Ug() {
-        return E1Ug;
+    public Double getE1Ut() {
+        return E1Ut;
     }
 
-    public void setE1Ug(Double e1Ug) {
-        this.E1Ug = e1Ug;
+    public void setE1Ut(Double e1Ut) {
+        this.E1Ut = e1Ut;
     }
 
     public Double getE2Gf() {

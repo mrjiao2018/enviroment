@@ -52,6 +52,30 @@ public class A1 implements Calc{
         D2=C1+C2+C3+C4+C5+C6+C7+C8+C9;
     }
 
+    public double getA1() {
+        return A1;
+    }
+
+    public void setA1(double a1) {
+        A1 = a1;
+    }
+
+    public double getD1() {
+        return D1;
+    }
+
+    public void setD1(double d1) {
+        D1 = d1;
+    }
+
+    public double getD2() {
+        return D2;
+    }
+
+    public void setD2(double d2) {
+        D2 = d2;
+    }
+
     public String getType() {
         return type;
     }

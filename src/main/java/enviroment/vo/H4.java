@@ -7,27 +7,27 @@ import enviroment.vo.mpl.Calc;
  * Created by zhong on 2018/7/13 16:52
  */
 public class H4 implements Calc {
-    private double K;
-    private double Q;
+    private double Kz;
+    private double Qz;
     private double A;
-    private double C;
-    private double U;
+    private double Gz;
+    private double Uz;
     private String type;
 
-    public double getK() {
-        return K;
+    public double getKz() {
+        return Kz;
     }
 
-    public void setK(double k) {
-        this.K = k;
+    public void setKz(double kz) {
+        this.Kz = kz;
     }
 
-    public Double getQ() {
-        return Q;
+    public Double getQz() {
+        return Qz;
     }
 
-    public void setQ(Double q) {
-        this.Q = q;
+    public void setQz(Double qz) {
+        this.Qz = qz;
     }
 
     public Double getA() {
@@ -38,20 +38,20 @@ public class H4 implements Calc {
         this.A = a;
     }
 
-    public Double getC() {
-        return C;
+    public Double getGz() {
+        return Gz;
     }
 
-    public void setC(Double c) {
-        this.C = c;
+    public void setGz(Double gz) {
+        this.Gz = gz;
     }
 
-    public Double getU() {
-        return U;
+    public Double getUz() {
+        return Uz;
     }
 
-    public void setU(Double u) {
-        this.U = u;
+    public void setUz(Double uz) {
+        this.Uz = uz;
     }
 
     public String getType() {
@@ -64,6 +64,7 @@ public class H4 implements Calc {
 
     @Override
     public void cale() {
-        U = A * K * Q;
+        Gz=Qz*A;
+        Uz = A * Kz * Qz;
     }
 }

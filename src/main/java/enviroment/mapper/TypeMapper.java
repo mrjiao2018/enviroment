@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * Created by zhong on 2018/7/13 18:55
  */
@@ -15,4 +17,7 @@ public interface TypeMapper {
 
     @Select("select * from type where year=#{year} and position = #{position} and type=#{type}")
     Type select(Type type);
+
+    @Select("select * from type")
+    List<Type> select();
 }
