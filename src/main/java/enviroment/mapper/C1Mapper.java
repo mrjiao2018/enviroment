@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface C1Mapper {
-    @Insert("inert into C1 values (#{A1},#{A2},#{A3},#{A4},#{A5},#{A6},#{B1},#{B2},#{B3},#{B4}," +
+    @Insert("insert into C1 values (#{A1},#{A2},#{A3},#{A4},#{A5},#{A6},#{B1},#{B2},#{B3},#{B4}," +
             "#{B5},#{B6},#{C1},#{C2},#{C3},#{C4},#{C5},#{C6},#{D1},#{type})")
     int insert(C1 a1);
 
