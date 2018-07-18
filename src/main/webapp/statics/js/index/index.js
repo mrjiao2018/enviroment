@@ -352,7 +352,7 @@ layui.use('element', function () {
             tempFormItem6.append(unitDiv7);
             layuiInputInlineDiv7.append(input8);
         }
-        //formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
+        formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
         //生成table
         for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
@@ -414,7 +414,8 @@ layui.use('element', function () {
             var td1 = $("<td>" + formInfo.tuple_head[j] + "</td>");
             var td2 = $("<td><input type='text' name=" + formInfo.input1[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
             var td3 = $("<td><input type='text' name=" + formInfo.input2[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
-            var td4 = $("<td><input type='text' name=" + formInfo.output[j] + " class='layui-input layui-disabled result'></td>");
+            //var td4 = $("<td><input type='text' name=" + formInfo.output[j] + " class='layui-input layui-disabled result'></td>");
+            var td4 = $("<td class=" + formInfo.output[j] + "></td>");
             tbody4.append(tr5);
             tr5.append(td1);
             tr5.append(td2);
@@ -437,7 +438,8 @@ layui.use('element', function () {
                 td = $("<td></td>");
             }
             else {
-                td = $("<td><input type='text' name=" + formInfo.end[k] + " class='layui-input layui-disabled result'></td>");
+                //td = $("<td><input type='text' name=" + formInfo.end[k] + " class='layui-input layui-disabled result'></td>");
+                td = $("<td class=" + formInfo.output[j] + "></td>");
             }
             tr5.append(td);
         }
