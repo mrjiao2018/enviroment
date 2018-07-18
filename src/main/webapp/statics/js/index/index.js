@@ -669,7 +669,7 @@ layui.use('element', function () {
         submitForm();
 
         //更改年份时，重新向服务器加载数据并刷新界面
-        //dataReload();
+        dataReload();
     }
 
 
