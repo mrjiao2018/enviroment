@@ -92,12 +92,13 @@ public class CalcController {
 
     @ResponseBody
     @RequestMapping("/A1")
-    public String calcA1(A1 a1){
-        a1.cale();
+    public String calcA1(String A1){
+        return A1;
+        /*a1.cale();
         a1.setType(type);
         a1Mapper.insert(a1);
         a1Mapper.update(a1.getD1(),type);
-        return gson.toJson(a1);
+        return gson.toJson(a1);*/
     }
 
     @ResponseBody
