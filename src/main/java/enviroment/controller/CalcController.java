@@ -87,7 +87,7 @@ public class CalcController {
             totalMappere.insert(type.toString());
             typeMapper.insert(type);
         }
-        return "success";
+        return "{\"name\":123}";
     }
 
     @ResponseBody

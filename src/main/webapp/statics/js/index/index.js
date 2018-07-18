@@ -551,6 +551,19 @@ layui.use('element', function () {
         console.log(data);
     }
 
+    function infoSubmit(year, position, type) {
+        var request_data = {
+            year: year,
+            position: position,
+            type: type
+        };
+        var options = {
+            url: "calc/type",
+            data: request_data,
+        };
+        $.ajax(options);
+    }
+
     /**
      * 请求form中的数据
      * @param year
@@ -564,12 +577,11 @@ layui.use('element', function () {
             type: type
         };
         var options = {
-            url: "calc/type",
+            url: "calc/total",
             data: request_data,
             dataType: "json",
             success: function (data) {
-                alert("请求formData成功");
-                return data;
+                showData(data);
             }
         };
         $.ajax(options);
@@ -587,16 +599,15 @@ layui.use('element', function () {
             position: position,
             type: type
         };
-        var options = {
-            url: "total",
-            data: request_data,
-            dataType: "json",
-            success: function (data) {
-                alert("请求summarySheetData成功");
-                return data;
-            }
-        };
-        $.ajax(options);
+    var options = {
+        url: "total",
+        data: request_data,
+        dataType: "json",
+        success: function (data) {
+            showData(data);
+        }
+    };
+    $.ajax(options);
     }
 
     /**
@@ -607,9 +618,9 @@ layui.use('element', function () {
      * @return {*[]}
      */
     function dataLoad(year, position, type) {
-        var formData = formDataLoad(year, position, type);
-        var summarySheetData = summarySheetDataLoad(year, position, type);
-        return [formData, summarySheetData];
+        infoSubmit(year, position, type);
+        formDataLoad(year, position, type);
+        summarySheetDataLoad(year, position, type);
     }
 
 
@@ -628,9 +639,7 @@ layui.use('element', function () {
                 year = $(this).text();
                 $year.text(year);
                 //加载data数据
-                var data = dataLoad(year, "liangzihu", "forest");
-                //展示data数据
-                showData(data);
+                dataLoad(year, "liangzihu", "forest");
             });
         }
     }
@@ -648,7 +657,7 @@ layui.use('element', function () {
         appendFormToBody(calculatorArr);
 
         //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据，加载成功后展示到界面上
-        showData(dataLoad(2011, "liangzihu", "forest"));
+        dataLoad(2011, "liangzihu", "forest");
 
         //只展示一个div，从0开始
         showSingleDiv(0);
