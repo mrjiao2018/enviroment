@@ -352,7 +352,7 @@ layui.use('element', function () {
             tempFormItem6.append(unitDiv7);
             layuiInputInlineDiv7.append(input8);
         }
-        formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
+        //formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
         //生成table
         for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
@@ -412,8 +412,8 @@ layui.use('element', function () {
         for(var j = 0; j < formInfo.row - 2; ++j) {
             tr5 = $("<tr></tr>");
             var td1 = $("<td>" + formInfo.tuple_head[j] + "</td>");
-            var td2 = $("<td><div class='layui-form-item'><input type='text' name=" + formInfo.input1[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></div></td>");
-            var td3 = $("<td><div class='layui-form-item'><input type='text' name=" + formInfo.input2[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></div></td>");
+            var td2 = $("<td><input type='text' name=" + formInfo.input1[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
+            var td3 = $("<td><input type='text' name=" + formInfo.input2[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
             var td4 = $("<td><input type='text' name=" + formInfo.output[j] + " class='layui-input layui-disabled result'></td>");
             tbody4.append(tr5);
             tr5.append(td1);
