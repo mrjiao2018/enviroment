@@ -17,35 +17,30 @@
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item"><a href="">土地</a></li>
                 <li class="layui-nav-item"><a href="">矿产</a></li>
-                <li class="layui-nav-item"><a href="/index.html">森林</a></li>
+                <li class="layui-nav-item"><a href="index.html">森林</a></li>
                 <li class="layui-nav-item"><a href="">水</a></li>
                 <li class="layui-nav-item"><a href="">生物</a></li>
                 <li class="layui-nav-item layui-this"><a href="/resultOverview.html">往年结果查询</a></li>
             </ul>
         </div>
     </div>
-    <div class="table-container">
-        <table class="layui-table">
-            <tr class="layui-tab-title">
-                <th>序号</th>
-                <th>日期</th>
-                <th>地点</th>
-                <th>输入日期</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-    </div>
 </div>
+
+<div class="layui-container">
+    <table class="layui-table"
+           lay-filter="recordManager"
+           id="tbResultOverview">
+    </table>
+
+    <script type="text/html" id="query">
+        <a class="layui-btn layui-btn-xs" lay-event="querySpecificRecord">查看详情</a>
+    </script>
+</div>
+
+
 <script src="./statics/js/jquery.min.js"></script>
 <script src="./statics/js/jquery.form.js"></script>
 <script src="./statics/js/layui.all.js"></script>
-<script src="./statics/js/index/index.js"></script>
+<script src="./statics/js/resultOverview/resultOverview.js"></script>
 </body>
 </html>

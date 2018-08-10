@@ -1,5 +1,5 @@
 body{
-    background-color: #fdf6e3;
+    /*background-color: #fdf6e3;*/
 }
 
 a{
@@ -14,8 +14,8 @@ a{
 
 }
 
-.table-container{
-    width: 90%;
+.layui-container{
+    width: 70%;
     margin: 20px auto;
 }
 

@@ -1,44 +1,79 @@
-/**
- * 接受从服务器返回的往年结果概览数据
- * @returns {*}
- */
-function loadInfo(){
-    var resultoverviewInfo;
-    return resultoverviewInfo;
-}
 
 /**
- * 将每一组信息创建对应的td
- * @param infoRow resultOverviewInfo中每一行信息
+ * @method drawRoomList() 根据查找条件加载会议室列表
+ * @param {reqData} 传入会议室查找条件
+ * @return {}
  */
-function createRow(infoRow){
+function drawMemberList(reqData) {
+    layui.use('table', function() {
+        var table = layui.table;
+        table.render({
+            elem: '#tbResultOverview',
+            url: './memberList.json',
+            where: reqData,
+            page: true,
+            loading:true,
+            limits: [10, 15, 20],
+            limit: 10,
+            id: 'tbResultOverview',
+            cellMinWidth: 160,
+            cols: [
+                [
+                    {
+                        field: 'index',
+                        title: '序号',
+                        align: "center"
+                    },
+                    {
+                        field: 'date',
+                        title: '日期',
+                        align: "center"
+                    },
+                    {
+                        field: 'position',
+                        title: '地点',
+                        align: 'center'
+                    },
+                    {
+                        field: 'inputTime',
+                        title: '输入日期',
+                        align: 'center'
+                    },
+                    {
+                        title: '操作',
+                        align: "center",
+                        toolbar: '#query'
+                    }
+                ]
+            ]
+        });
 
+        table.on('tool(recordManager)', function(obj) {
+            var data = obj.data;
+            if(obj.event === "querySpecificRecord") {//编辑成员信息
+                //todo 向后台发请求
+                alert("编辑成员信息");
+
+            }
+        });
+
+        $('.demoTable .layui-btn').on('click', function() {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
 }
+
 
 /**
- * 将接收到的数据展示在界面上
+ * @method pageLoad() 页面加载函数，包括各种初始化
+ * @param {}
+ * @return {}
  */
-function appendRowToBody() {
-    var resultOverviewInfo = loadInfo();
-    var table = $(".layui-table").eq(0);
-}
+function pageLoad() {
 
-/**
- * 点击查看按钮，查看详细信息
- */
-function look(){
+    drawMemberList();
 
 }
 
-
-function main(){
-
-    appendRowToBody();
-
-    look();
-}
-
-
-$(function() {
-    main();
-});
+jQuery(document).ready(pageLoad);

@@ -14,5 +14,10 @@ input{background-color: rgba(255, 255, 255, 0.7);}
     width: 1000px;
 }
 
+.form-item-container{padding: 15px 0 10px 0;background-color: rgba(0, 0, 0, 0.6);}
+.layui-form .layui-form-item:first-child{
+    margin-top:20px;
+}
+
 #time-position-select{margin-right: 100px;}
 #time-position-select a{font-size: 14px;}
