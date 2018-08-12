@@ -33,7 +33,8 @@ layui.use('element', function () {
             output_lable:["林木市场价值"],
             input_lable_unit:["m<sup>3</sup>", "%", "元.m<sup>-3</sup>"],
             output_lable_unit:["元"],
-            input_name:["M", "f", "Am"]
+            input_name:["M", "f", "Am"],
+            output_name:["Le"]
         };
 
         formArr[2] = {
@@ -43,7 +44,8 @@ layui.use('element', function () {
             output_lable:["林木流量价值"],
             input_lable_unit:["m<sup>3</sup>", "元.m<sup>-3</sup>"],
             output_lable_unit:["元"],
-            input_name:["A", "B"]
+            input_name:["A", "B"],
+            output_name:["C"]
         };
 
         formArr[3] = {
@@ -66,7 +68,8 @@ layui.use('element', function () {
             output_lable:["林分年调节水量", "林分年调节水量价值"],
             input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.m<sup>-3</sup>"],
             output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            input_name:["P", "E", "C", "A", "Ck"],
+            output_name:["Gt", "Ut"]
         };
 
         formArr[5] = {
@@ -76,17 +79,19 @@ layui.use('element', function () {
             output_lable:["林分年净化水量", "林分年净化水质价值"],
             input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["P", "E", "C", "A", "Ck"]
+            input_name:["P", "E", "C", "A", "Ck"],
+            output_name:['Gt', 'Us']
         };
 
         formArr[6] = {
             partDiv:"E1",
             title:"林分年固土量计算",
             input_lable:["挖取运输单位土方费用", "无林地土壤侵蚀模数", "林地土壤侵蚀模数", "林分面积", "林地土壤容重"],
-            output_lable:["林分年净化水量", "林分年净化水质价值"],
+            output_lable:["林分年固土量", "林分年固土价值"],
             input_lable_unit:["元.m<sup>-3</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "t.m<sup>-3</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["Ct", "X2", "X1", "A", "P"]
+            input_name:["Ct", "X2", "X1", "A", "P"],
+            output_name:['Gg', 'Ug']
         };
 
         formArr[7] = {
@@ -124,7 +129,8 @@ layui.use('element', function () {
                 "%"
             ],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["X2", "X1", "A", "N", "P", "K", "M", "C1", "C2", "C3", "R1", "R2", "R3"]
+            input_name:["X2", "X1", "A", "N", "P", "K", "M", "C1", "C2", "C3", "R1", "R2", "R3"],
+            output_name:['Gf', 'Uf']
         };
 
         formArr[8] = {
@@ -134,7 +140,8 @@ layui.use('element', function () {
             output_lable:["植被年固碳量", "土壤年固碳量", "综合年固碳量", "林分年固碳价值"],
             input_lable_unit:["%", "mm.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["Rt", "Bn", "Ft", "A", "Ct"]
+            input_name:["Rt", "Bn", "Ft", "A", "Ct"],
+            output_name:['Gz', 'Gtt', 'Gt', 'Ut']
         };
 
         formArr[9] = {
@@ -144,7 +151,8 @@ layui.use('element', function () {
             output_lable:["林分年释氧量", "林分年释氧价值"],
             input_lable_unit:["t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["Bn", "A", "Cy"]
+            input_name:["Bn", "A", "Cy"],
+            output_name:["Gy", "Uy"]
         };
 
         formArr[10] = {
@@ -192,7 +200,8 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>",
                 "元.a<sup>-1</sup>"
             ],
-            input_name:["Bn", "Ny", "Np", "Nk", "A", "C1", "C2", "R1", "R2", "R3"]
+            input_name:["B", "N", "P", "K", "A", "C1", "C2", "R1", "R2", "R3"],
+            output_name:['Gn', 'Gp', "Gk", 'Un', 'Up', 'Uk', 'Uz']
         };
 
         formArr[11] = {
@@ -202,7 +211,8 @@ layui.use('element', function () {
             output_lable:["林分年提供负离子个数", "林分年提供负离子价值"],
             input_lable_unit:["m", "元.个<sup>-1</sup>", "个.cm<sup>-3</sup>", "hm<sup>2</sup>", "min"],
             output_lable_unit:["个.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["H", "Kf", "Qf", "A", "L"]
+            input_name:["H", "Kf", "Qf", "A", "L"],
+            output_name:['Gf', 'Uf']
         };
 
         formArr[12] = {
@@ -246,7 +256,8 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>",
                 "元.a<sup>-1</sup>"
             ],
-            input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"]
+            input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
+            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz']
         };
 
         formArr[13] = {
@@ -256,7 +267,8 @@ layui.use('element', function () {
             output_lable:["林分年降低噪音价值"],
             input_lable_unit:["元.km<sup>-1</sup>", "km"],
             output_lable_unit:["元.a<sup>-1</sup>"],
-            input_name:["Kz", "Az"]
+            input_name:["Kz", "Az"],
+            output_name:['Uz']
         };
 
         formArr[14] = {
@@ -266,7 +278,8 @@ layui.use('element', function () {
             output_lable:["林分年滞尘量", "林分年滞尘价值"],
             input_lable_unit:["hm<sup>2</sup>", "元.kg<sup>-1</sup>", "kg.hm<sup>-2</sup>.a<sup>-1</sup>"],
             output_lable_unit:["kg.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
-            input_name:["A", "Kz", "Qz"]
+            input_name:["A", "Kz", "Qz"],
+            output_name:['Gz', 'Uz']
         };
 
         formArr[15] = {
@@ -276,7 +289,8 @@ layui.use('element', function () {
             output_lable:["森林防护价值"],
             input_lable_unit:["元", "%", "%"],
             output_lable_unit:["元"],
-            input_name:["Uz", "A", "B"]
+            input_name:["Uz", "A", "B"],
+            output_name:['Uf']
         };
 
         formArr[16] = {
@@ -286,7 +300,8 @@ layui.use('element', function () {
             output_lable:["林分年物种保育价值"],
             input_lable_unit:["元.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>"],
             output_lable_unit:["元.a<sup>-1</sup>"],
-            input_name:["Ss", "A"]
+            input_name:["Ss", "A"],
+            output_name:['Us']
         };
 
         formArr[17] = {
@@ -296,7 +311,8 @@ layui.use('element', function () {
             output_lable:["森林资源旅游费用"],
             input_lable_unit:["元", "%"],
             output_lable_unit:["元"],
-            input_name:["Uz", "A"]
+            input_name:["Uz", "A"],
+            output_name:['Us']
         };
 
         return formArr;
@@ -343,7 +359,7 @@ layui.use('element', function () {
             var tempFormItem6 = $("<div class=\"layui-form-item\"></div>");
             var tempInputlable7 = $("<label class=\"layui-form-label\">" + formInfo.input_lable[i] + "</label>");
             var layuiInputInlineDiv7 = $("<div class=\"layui-input-inline\"></div>");
-            var input8 = $("<input type=\"text\" name=" + formInfo.input_name[i] + " required lay-verify=\"required\" placeholder=\"请输入数值\" class=\"layui-input\">");
+            var input8 = $("<input type=\"text\" name=" + formInfo.input_name[i] + " required lay-verify='required' placeholder='请输入数值' class='layui-input "+ formInfo.input_name[i] + "'>");
             var unitDiv7 = $("<div class=\"layui-form-mid layui-word-aux\">" + formInfo.input_lable_unit[i] + "</div>");
             formItemContainer5.append(tempFormItem6);
             tempFormItem6.append(tempInputlable7);
@@ -355,15 +371,15 @@ layui.use('element', function () {
 
         //生成table
         for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
-            var col8 = $("<col width=\"200\">");
+            var col8 = $("<col width='200'>");
             var theadTh9, tbodyTh9;
             if(i < formInfo.input_lable.length) {
                 theadTh9 = $("<th>" + formInfo.input_lable[i] + "/" + formInfo.input_lable_unit[i] + "</th>");
-                tbodyTh9 = $("<td>待输入</td>");
+                tbodyTh9 = $("<td class=" + formInfo.input_name[i] + ">待输入</td>");
             }
             else {
                 theadTh9 = $("<th>" + formInfo.output_lable[i - formInfo.input_lable.length] + "/" + formInfo.output_lable_unit[i - formInfo.input_lable.length] + "</th>");
-                tbodyTh9 = $("<td></td>");
+                tbodyTh9 = $("<td class=" + formInfo.output_name[i - formInfo.input_lable.length] + "></td>");
             }
             colgroup7.append(col8);
             theadTr8.append(theadTh9);
@@ -411,8 +427,8 @@ layui.use('element', function () {
         for(var j = 0; j < formInfo.row - 2; ++j) {
             tr5 = $("<tr></tr>");
             var td1 = $("<td>" + formInfo.tuple_head[j] + "</td>");
-            var td2 = $("<td><input type='text' name=" + formInfo.input1[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
-            var td3 = $("<td><input type='text' name=" + formInfo.input2[j] + " required lay-verify='required' placeholder='请输入数值' class='layui-input'></td>");
+            var td2 = $("<td><input type='text' name=" + formInfo.input1[j] + " class = 'layui-input " + formInfo.input1[j] +"' required lay-verify='required' placeholder='请输入数值'></td>");
+            var td3 = $("<td><input type='text' name=" + formInfo.input2[j] + " class = 'layui-input " + formInfo.input2[j] +"' required lay-verify='required' placeholder='请输入数值'></td>");
             //var td4 = $("<td><input type='text' name=" + formInfo.output[j] + " class='layui-input layui-disabled result'></td>");
             var td4 = $("<td class=" + formInfo.output[j] + "></td>");
             tbody4.append(tr5);
@@ -437,8 +453,7 @@ layui.use('element', function () {
                 td = $("<td></td>");
             }
             else {
-                //td = $("<td><input type='text' name=" + formInfo.end[k] + " class='layui-input layui-disabled result'></td>");
-                td = $("<td class=" + formInfo.output[j] + "></td>");
+                td = $("<td class=" + formInfo.end[k] + "></td>");
             }
             tr5.append(td);
         }
@@ -467,7 +482,7 @@ layui.use('element', function () {
 
     /**
      * 获取所有form，监听submit事件，点击submit按钮提交表单
-     * @param $form
+     *
      */
     function submitForm() {
         var $forms = $(".calculator").find(".layui-form");
@@ -478,7 +493,7 @@ layui.use('element', function () {
 
     /**
      * 单个表单提交
-     * @param $form
+     * @param $form 要提交的单个表单
      */
     function submitForm1($form){
         var url = "calc/";
@@ -498,6 +513,8 @@ layui.use('element', function () {
                 for(var i = 0; i < responseText.length; ++i) {
                     console.log(responseText[i].name);
                     console.log(responseText[i].value);
+                    //todo 将相应的结果展示在界面上
+                    showResult($form, responseText);
                 }
             }
         };
@@ -545,13 +562,70 @@ layui.use('element', function () {
 
 
     /**
-     * todo 将加载出的数据展示到网页上
-     * @param data
+     * 将加载出的数据展示到网页上
+     * @param data 服务器返回的数据，此处为请求"calc/total"接口返回的list数据，数据中的每一条记录对应到一个form上
      */
     function showData(data) {
         console.log(data);
+        var $forms = $(".calculator").find(".layui-form");
+        for(var k = 0; k < data.length; ++k){
+            showResult($forms.eq(k), data[k]);
+        }
     }
 
+    /**
+     * 将计算结果展示到网页上
+     * @param $form 一个form
+     * @Param responseText 一个form对应的数据
+     */
+    function showResult($form, responseText){
+        for(var paramName in responseText){
+            var value = responseText[paramName];
+            var same = $form.find("."+paramName);
+            for(var j = 0; j < same.length; ++j){
+                same.eq(j).text(value);
+                same.eq(j).val(value);
+            }
+        }
+    }
+
+    /**
+     *
+     * @Param data 从服务器请求得到的总表中的数据
+     */
+    function calculateSubtotal(data){
+        var subtotal_for_A1B1B2C1 = $("#subtotal_for_A1B1B2C1");
+        var subtotal_for_D1D2 = $("#subtotal_for_D1D2");
+        var subtotal_for_E1E2 = $("#subtotal_for_E1E2");
+        var subtotal_for_F1F2 = $("#subtotal_for_F1F2");
+        var subtotal_for_G1 = $("#subtotal_for_G1");
+        var subtotal_for_H1H2H3H4 = $("#subtotal_for_H1H2H3H4");
+        var subtotal_for_DEFGHIJ = $("#subtotal_for_DEFGHIJ");
+        var subtotal_for_all = $("#subtotal_for_all");
+        var subtotal_value_for_A1B1B2C1 = data['B1Le']+data['B2C']+data['C1D1'];
+        var subtotal_value_for_D1D2 = data['D1Ut']+data['D2Us'];
+        var subtotal_value_for_E1E2 = data['E1Ut']+data['E2Uf'];
+        var subtotal_value_for_F1F2 = data['F1Ut']+data['F2Uy'];
+        var subtotal_value_for_G1 = data['G1Un']+data['G1Up']+data['G1Uk'];
+        var subtotal_value_for_H1H2H3H4 = data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz'];
+        var subtotal_value_for_DEFGHIJ = subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us'];
+        var subtotal_value_for_all = subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us'];
+        subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
+        subtotal_for_D1D2.text(subtotal_value_for_D1D2);
+        subtotal_for_E1E2.text(subtotal_value_for_E1E2);
+        subtotal_for_F1F2.text(subtotal_value_for_F1F2);
+        subtotal_for_G1.text(subtotal_value_for_G1);
+        subtotal_for_H1H2H3H4.text(subtotal_value_for_H1H2H3H4);
+        subtotal_for_DEFGHIJ.text(subtotal_value_for_DEFGHIJ);
+        subtotal_for_all.text(subtotal_value_for_all);
+    }
+
+    /**
+     * 提交当前界面的基本参数信息，用于从服务器接收数据
+     * @param year 年份
+     * @param position  位置
+     * @param type  种类
+     */
     function infoSubmit(year, position, type) {
         var request_data = {
             year: year,
@@ -600,15 +674,20 @@ layui.use('element', function () {
             position: position,
             type: type
         };
-    var options = {
-        url: "total",
-        data: request_data,
-        dataType: "json",
-        success: function (data) {
-            showData(data);
-        }
-    };
-    $.ajax(options);
+        var options = {
+            url: "total",
+            data: request_data,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                var summarySheet = $(".summary-sheet").eq(0);
+                //展示总表数据
+                showResult(summarySheet, data);
+                //计算总表中的各项合计
+                calculateSubtotal(data);
+            }
+        };
+        $.ajax(options);
     }
 
     /**

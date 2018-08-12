@@ -9,7 +9,7 @@ function drawMemberList(reqData) {
         var table = layui.table;
         table.render({
             elem: '#tbResultOverview',
-            url: './memberList.json',
+            url: './records',
             where: reqData,
             page: true,
             loading:true,
