@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface D2Mapper {
 
-    @Insert("insert into D2 values (#{A},#{P},#{E},#{C},#{K},#{type},#{Gt},#{Us})")
+    @Insert("insert into D2 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Us})")
     int insert(D2 d2);
 
     @Select("select * from D2 where type=#{type}")

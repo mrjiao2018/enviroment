@@ -15,7 +15,7 @@ public interface K1Mapper {
     @Select("select * from K1 where type=#{type}")
     K1 select(String type);
 
-    @Insert("insert into K1 values (#{A},#{Uz},#{type},#{Us})")
+    @Insert("insert into K1 values (#{A},#{Uz},#{Us},#{type})")
     int insert(K1 f2);
 
     @Update("update total set K1Us = #{K1Us} where type = #{type}")

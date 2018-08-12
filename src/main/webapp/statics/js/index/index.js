@@ -316,7 +316,6 @@ layui.use('element', function () {
         return tableArr;
     }
 
-
     /**
      * 根据formInfo创建表单
      * @param formInfo

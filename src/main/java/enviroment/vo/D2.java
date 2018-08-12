@@ -12,7 +12,7 @@ public class D2 implements Calc {
     private double P;
     private double E;
     private double C;
-    private double k;
+    private double Ck;
     private String type;
     private double Gt;
     private double Us;
@@ -45,8 +45,8 @@ public class D2 implements Calc {
         C = c;
     }
 
-    public void setK(double k) {
-        this.k = k;
+    public void setCk(double ck) {
+        this.Ck = ck;
     }
 
     public double getGt() {
@@ -68,6 +68,6 @@ public class D2 implements Calc {
     @Override
     public void cale() {
         Gt =10* A *(P - C - C);
-        Us=10*k* A *(P - C - C);
+        Us=10* Ck * A *(P - C - C);
     }
 }
