@@ -13,8 +13,26 @@ public class F1 implements Calc {
     private double Bn;
     private double Ft;
     private String type;
+    private double Gz;
+    private double Gtt;
     private double Gt;
     private double Ut;
+
+    public double getGz() {
+        return Gz;
+    }
+
+    public void setGz(double gz) {
+        Gz = gz;
+    }
+
+    public double getGtt() {
+        return Gtt;
+    }
+
+    public void setGtt(double gtt) {
+        Gtt = gtt;
+    }
 
     public Double getA() {
         return A;

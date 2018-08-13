@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface F1Mapper {
 
-    @Insert("insert into F1 values (#{A},#{Ct},#{Rt},#{Bn},#{Ft},#{type},#{Gt},#{Ut})")
+    @Insert("insert into F1 values (#{A},#{Ct},#{Rt},#{Bn},#{Ft},#{type},#{Gt},#{Ut},#{Gz},#{Gtt})")
     int insert(F1 f1);
 
     @Select("select * from F1 where type=#{type}")

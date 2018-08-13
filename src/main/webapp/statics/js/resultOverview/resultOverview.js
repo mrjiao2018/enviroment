@@ -9,7 +9,7 @@ function drawMemberList(reqData) {
         var table = layui.table;
         table.render({
             elem: '#tbResultOverview',
-            url: './records',
+            url: './total/types',
             where: reqData,
             page: true,
             loading:true,

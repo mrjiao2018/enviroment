@@ -34,10 +34,28 @@ public class Total {
     private double H2Uz;
     private double H3Gz;
     private double H3Uz;
+    private double H4Gz;
+    private double H4Uz;
     private double I1Uf;
     private double J1Us;
     private double K1Us;
     private String type;
+
+    public double getH4Gz() {
+        return H4Gz;
+    }
+
+    public void setH4Gz(double h4Gz) {
+        H4Gz = h4Gz;
+    }
+
+    public double getH4Uz() {
+        return H4Uz;
+    }
+
+    public void setH4Uz(double h4Uz) {
+        H4Uz = h4Uz;
+    }
 
     public Double getA1D1() {
         return A1D1;
