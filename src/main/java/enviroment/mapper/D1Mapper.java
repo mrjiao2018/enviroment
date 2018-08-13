@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface D1Mapper {
-    @Insert("insert into D1 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Ut})")
+    @Insert("insert into D1 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Ut}) ON DUPLICATE KEY UPDATE " +
+            "A=#{A},P=#{P},E=#{E},C=#{C},Ck=#{Ck},Gt=#{Gt},Ut=#{Ut}")
     int insert(D1 d1);
 
     @Select("select * from D1 where type=#{type}")

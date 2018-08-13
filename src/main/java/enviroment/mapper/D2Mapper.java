@@ -13,7 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface D2Mapper {
 
-    @Insert("insert into D2 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Us})")
+    @Insert("insert into D2 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Us}) ON DUPLICATE KEY UPDATE " +
+            "A=#{A},P=#{P},E=#{E},C=#{C},Ck=#{Ck},Gt=#{Gt},Us=#{Us}")
     int insert(D2 d2);
 
     @Select("select * from D2 where type=#{type}")

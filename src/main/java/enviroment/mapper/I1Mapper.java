@@ -15,7 +15,8 @@ public interface I1Mapper {
     @Select("select * from I1 where type=#{type}")
     I1 select(String type);
 
-    @Insert("insert into I1 values (#{A},#{B},#{Uz},#{type},#{Uf})")
+    @Insert("insert into I1 values (#{A},#{B},#{Uz},#{type},#{Uf}) ON DUPLICATE KEY UPDATE " +
+            "A=#{A},B=#{B},Uz=#{Uz},Uf=#{Uf}")
     int insert(I1 f2);
 
     @Update("update total set I1Uf = #{I1Uf} where type = #{type}")

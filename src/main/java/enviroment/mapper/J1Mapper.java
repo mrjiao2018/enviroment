@@ -15,7 +15,8 @@ public interface J1Mapper {
     @Select("select * from J1 where type=#{type}")
     J1 select(String type);
 
-    @Insert("insert into J1 values (#{Ss},#{A},#{Us},#{type})")
+    @Insert("insert into J1 values (#{Ss},#{A},#{Us},#{type}) ON DUPLICATE KEY UPDATE " +
+            "Ss=#{Ss},A=#{A},Us=#{Us}")
     int insert(J1 f2);
 
     @Update("update total set J1Us = #{J1Us} where type = #{type}")
