@@ -22,7 +22,20 @@ public class G1 implements Calc {
     private double Un;
     private double Uk;
     private double Up;
+    private double Uz;
     private String type;
+
+    public void setA(double a) {
+        A = a;
+    }
+
+    public double getUz() {
+        return Uz;
+    }
+
+    public void setUz(double uz) {
+        Uz = uz;
+    }
 
     public Double getA() {
         return A;
@@ -120,5 +133,6 @@ Gk= A * B * K;
 Un=Gn* C1 / R1;
 Uk=Gk* C1 / R2;
 Up=Gp* C2 / R3;
+Uz=Un+Uk+Up;
     }
 }
