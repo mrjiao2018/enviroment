@@ -1,4 +1,8 @@
-
+html{
+    min-width: 1440px;
+    /*overflow-x: auto;*/
+    /*overflow-y: auto;*/
+}
 .position-nav{
     padding-left: 30px;
     padding-top: 30px;
@@ -19,5 +23,19 @@ input{background-color: rgba(255, 255, 255, 0.7);}
     margin-top:20px;
 }
 
-#time-position-select{margin-right: 100px;}
 #time-position-select a{font-size: 14px;}
+
+.layui-anim{
+    color:black!important;
+}
+
+#position-select-lable{width: 65px;}
+#year-select-lable{
+    padding-left: 0;
+    width: 65px;
+}
+
+.layui-input-inline-css-modify{
+    width: 140px!important;
+    padding-right: 0;
+}

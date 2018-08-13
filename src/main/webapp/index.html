@@ -25,30 +25,45 @@
                 <li class="layui-nav-item"><a href="">生物</a></li>
                 <li class="layui-nav-item"><a href="resultOverview.html">往年结果查询</a></li>
             </ul>
-            <ul class="layui-nav layui-layout-right" id="time-position-select">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        地理位置
-                    </a>
-                    <dl class="layui-nav-child" id="position-select">
-                        <dd><a href="">湖北省</a></dd>
-                        <dd><a href="">安徽省</a></dd>
-                        <dd><a href="">河南省</a></dd>
-                        <dd><a href="">湖南省</a></dd>
 
-                    </dl>
-                </li>
-                <li class="layui-nav-item" id="year-select">
-                    <a href="javascript:;" id="year-selected">
-                        日期
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">2011</a></dd>
-                        <dd><a href="javascript:;">2015</a></dd>
-                        <dd><a href="javascript:;">添加年份</a></dd>
-                    </dl>
-                </li>
-            </ul>
+            <div class="layui-layout-right" id="time-position-select">
+                <form class="layui-form" id="position-select">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" id="position-select-lable">选择地区</label>
+                        <div class="layui-input-inline layui-input-inline-css-modify">
+                            <select name="provid" id="provid" class="position-select-nav" lay-filter="provid">
+                                <option value="">请选择省</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline layui-input-inline-css-modify">
+                            <select name="cityid" id="cityid" lay-filter="cityid">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline layui-input-inline-css-modify">
+                            <select name="areaid" id="areaid" lay-filter="areaid">
+                                <option value="">请选择县/区</option>
+                            </select>
+                        </div>
+
+                        <label class="layui-form-label" id="year-select-lable">选择年份</label>
+                        <div class="layui-input-inline layui-input-inline-css-modify">
+                            <select name="yearid" id="yearid" class="position-select-nav" lay-filter="provid">
+                                <option value="">请选择年份</option>
+                                <option value="">2011</option>
+                                <option value="">2012</option>
+                                <option value="">2013</option>
+                                <option value="">2014</option>
+                                <option value="">2015</option>
+                                <option value="">2016</option>
+                                <option value="">2017</option>
+                                <option value="">2018</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -130,15 +145,15 @@
 
     <div class="layui-body">
         <!-- 顶部位置信息 -->
-        <div class="position-nav">
-            <span class="layui-breadcrumb" lay-separator="-">
-              <a href="javascript:;" id="year">2011</a>
-              <a href="javascript:;">中国</a>
-              <a href="javascript:;">湖北省</a>
-              <a href="javascript:;">武汉市</a>
-              <a href="javascript:;">梁子湖区</a>
-            </span>
-        </div>
+        <!--<div class="position-nav">-->
+            <!--<span class="layui-breadcrumb" lay-separator="-">-->
+              <!--<a href="javascript:;">2011</a>-->
+              <!--<a href="javascript:;">中国</a>-->
+              <!--<a href="javascript:;">湖北省</a>-->
+              <!--<a href="javascript:;">武汉市</a>-->
+              <!--<a href="javascript:;">梁子湖区</a>-->
+            <!--</span>-->
+        <!--</div>-->
 
 
         <!--生成表格-->
@@ -378,7 +393,10 @@
 </div>
 <script src="./statics/js/jquery.min.js"></script>
 <script src="./statics/js/jquery.form.js"></script>
-<script src="./statics/js/layui.all.js"></script>
+<script src="statics/js/layui/layui.all.js"></script>
 <script src="./statics/js/index/index.js"></script>
+<script src="statics/js/index/geoData.js"></script>
+<script src="./statics/js/index/areaAndTimeSelect.js"></script>
+
 </body>
 </html>

@@ -698,9 +698,14 @@ layui.use('element', function () {
      * @return {*[]}
      */
     function dataLoad(year, position, type) {
+        //告诉服务器当前请求基本信息
         infoSubmit(year, position, type);
+        //请求加载表单数据
         formDataLoad(year, position, type);
+        //请求加载总表数据
         summarySheetDataLoad(year, position, type);
+        //修改导航栏中的地理位置和日期
+        showPositionAndTime(position, year);
     }
 
 
