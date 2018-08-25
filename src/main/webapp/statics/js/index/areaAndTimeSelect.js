@@ -78,52 +78,24 @@ function treeSelect(config) {
     }
 }
 
-
-
-
-
-
-
 /**
- * 加载地理位置的json数据信息并展示到网页上方的导航栏中
+ * 修改导航栏中时间数据展示
  */
-function loadGeoJson(){
-    //获得展开栏div
-    var provinceSelect = $("#province-select");
-    var citySelect = $("#city-select");
-    var positionSelect = $("#position-select");
-
-    //请求json数据
-    var options = {
-        url:"http://localhost:8080/statics/json/geoJson.json",
-        dataType:"json",
-        success: function (data) {
-            //请求成功后将data数据加载到展开栏中
-            for(var province in data){
-                var provinceDom = $("<dd><a href='javascript:;'>"+province+"</a></dd>");
-                provinceSelect.append(provinceDom);
-            }
-        },
-        error:function () {
-            console.log("请求json数据失败");
-        }
-    };
-
-    $.ajax(options);
+function showTime(){
+    var yearSelect = $("#yearid");
+    yearSelect.change(function () {
+        var yearOption = $("#yearid option:selected");
+        alert(yearOption);
+    });
 }
 
 /**
- * 修改导航栏中地区和时间数据展示
- * @param position 地区，当前默认指定为湖北省武汉市下属的区
- * @param year  年份
+ * 对地理位置和日期的修改进行检测，每次修改后自动提交数据
  */
-function showPositionAndTime(position, year){
-    var provinceSpan = $("#province-text");
-    var citySpan = $("#city-text");
-    var positionSpan = $("#position-text");
-    var yearSpan = $("#year-text");
-    provinceSpan.text("湖北省");
-    citySpan.text("武汉市");
-    positionSpan.text(position);
-    yearSpan.text(year);
+function submitPositionAndYear(){
+
+}
+
+function areaAndTImeSelect(){
+    showTime();
 }

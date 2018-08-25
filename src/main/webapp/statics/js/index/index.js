@@ -705,7 +705,7 @@ layui.use('element', function () {
         //请求加载总表数据
         summarySheetDataLoad(year, position, type);
         //修改导航栏中的地理位置和日期
-        showPositionAndTime(position, year);
+        //showPositionAndTime(position, year);
     }
 
 
@@ -753,8 +753,10 @@ layui.use('element', function () {
         //表单提交函数
         submitForm();
 
-        //更改年份时，重新向服务器加载数据并刷新界面
-        dataReload();
+        //日期与地区修改函数
+        areaAndTImeSelect();
+        // //更改年份时，重新向服务器加载数据并刷新界面
+        // dataReload();
     }
 
 
