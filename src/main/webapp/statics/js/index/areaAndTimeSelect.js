@@ -6,9 +6,11 @@ var defaults = {
     s1: 'provid',
     s2: 'cityid',
     s3: 'areaid',
+    s4: 'yearid',
     v1: null,
     v2: null,
-    v3: null
+    v3: null,
+    v4: null
 };
 var $form;
 var form;
@@ -23,12 +25,14 @@ function treeSelect(config) {
     config.v1 = config.v1 ? config.v1 : 110000;
     config.v2 = config.v2 ? config.v2 : 110100;
     config.v3 = config.v3 ? config.v3 : 110101;
+    config.v4 = config.v4 ? config.v4 : 2011;
     $.each(threeSelectData, function (k, v) {
         appendOptionTo($form.find('select[name=' + config.s1 + ']'), k, v.val, config.v1);
     });
     form.render();
     cityEvent(config);
     areaEvent(config);
+    yearEvent(config);
     form.on('select(' + config.s1 + ')', function (data) {
         cityEvent(data);
         form.on('select(' + config.s2 + ')', function (data) {
@@ -71,31 +75,18 @@ function treeSelect(config) {
         form.render();
         form.on('select(' + config.s3 + ')', function (data) { });
     }
+    function yearEvent(data){
+        $form.find('select[name=' + config.s4 + ']').html("");
+        config.v4 = data.value ? data.value : config.v4;
+
+
+        form.render();
+        form.on('select(' + config.s4 + ')', function (data) { });
+    }
+
     function appendOptionTo($o, k, v, d) {
         var $opt = $("<option>").text(k).val(v);
         if (v == d) { $opt.attr("selected", "selected") }
         $opt.appendTo($o);
     }
-}
-
-/**
- * 修改导航栏中时间数据展示
- */
-function showTime(){
-    var yearSelect = $("#yearid");
-    yearSelect.change(function () {
-        var yearOption = $("#yearid option:selected");
-        alert(yearOption);
-    });
-}
-
-/**
- * 对地理位置和日期的修改进行检测，每次修改后自动提交数据
- */
-function submitPositionAndYear(){
-
-}
-
-function areaAndTImeSelect(){
-    showTime();
 }

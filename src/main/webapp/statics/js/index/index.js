@@ -754,7 +754,8 @@ layui.use('element', function () {
         submitForm();
 
         //日期与地区修改函数
-        areaAndTImeSelect();
+        //areaAndTImeSelect();
+
         // //更改年份时，重新向服务器加载数据并刷新界面
         // dataReload();
     }
