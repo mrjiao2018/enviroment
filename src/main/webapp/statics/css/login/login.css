@@ -108,20 +108,22 @@ input:focus {
 input:-moz-placeholder { 
 	color: #fff;
     font-family: KaiTi;
+    font-size: 16px;
  }
 input:-ms-input-placeholder { 
 	color: #fff;
     font-family: KaiTi;
+    font-size: 16px;
 }
 input::-webkit-input-placeholder { 
 	color: #fff;
     font-family: KaiTi;
- }
+    font-size: 16px;
+}
 
 button {
     font-family: KaiTi;
-    font-size: 20px;
-    /*color:#fff;*/
+    font-size: 22px;
     color: #2E8B57;
     cursor: pointer;
     width: 150px;
@@ -139,6 +141,7 @@ button {
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
+    outline: none;
 }
 
 button:hover {
@@ -164,6 +167,6 @@ button:active {
             0 5px 8px 0 rgba(0,0,0,.1) inset,
             0 1px 4px 0 rgba(0,0,0,.1);
 
-    border: 0px solid #ef4300;
+    border: 0px solid #90EE90;
 }
 
