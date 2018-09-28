@@ -17,13 +17,14 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/statics/**" location="/statics/"/>
+    <mvc:resources location="/statics/" mapping="/statics/**" />
 
     <!-- 拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/statics/**"/>
             <bean class="enviroment.interceptor.AuthInterceptor" />
         </mvc:interceptor>
 
