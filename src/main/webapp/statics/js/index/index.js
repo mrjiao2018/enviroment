@@ -92,7 +92,7 @@ layui.use('element', function () {
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["Ct", "X2", "X1", "A", "P"],
             output_name:['Gg', 'Ug']
-        };
+    };
 
         formArr[7] = {
             partDiv:"E2",
