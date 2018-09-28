@@ -1,0 +1,66 @@
+/*.calculator table{
+	background-color: #00F7DE;
+}*/
+
+/*小窗毛玻璃效果*/
+.calculator table{
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
+    /*max-width: 23em;*/
+    background: hsla(0,0%,100%,.25) border-box;
+    overflow: hidden;
+    border-radius: .5em;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+                0 .5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+
+/*使用滤镜模糊边缘*/
+.calculator table::before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: -30px;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+}
+
+.calculator table input{
+	border: 1px dashed #521E18;
+	border-radius: 5px;
+	border-style: dashed;
+	font-size: 14px;
+}
+
+
+
+/*#submitBtn{
+	background-color: #2E8B57;
+	border: 1px solid rgba(255,255,255,.2);
+	border-radius: .5em;
+}*/
+
+#submitBtn {
+  background: #2E8B57;
+  background-image: -webkit-linear-gradient(top, #2E8B57, #3CB371);
+  background-image: -moz-linear-gradient(top, #2E8B57, #3CB371);
+  background-image: -ms-linear-gradient(top, #2E8B57, #3CB371);
+  background-image: -o-linear-gradient(top, #2E8B57, #3CB371);
+  background-image: linear-gradient(to bottom, #2E8B57, #3CB371);
+  border-radius: 10px;
+  text-shadow: 0px 1px 0px #3CB371;
+  -webkit-box-shadow: 0px 0px 0px 2px #3CB371;
+  -moz-box-shadow: 0px 0px 0px 2px #3CB371;
+  box-shadow: 0px 0px 0px 2px #3CB371;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#submitBtn:hover {
+  /*color: #ffffff;*/
+  background: #3CB371;
+}
+
+

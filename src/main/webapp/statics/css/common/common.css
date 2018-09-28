@@ -12,7 +12,7 @@
 
 .layui-header .layui-nav .layui-nav-item a{color:black;font-size: 20px;}
 .layui-side .layui-nav-item a:hover{color: #000;}
-.layui-side .layui-nav-item a{color: #fff;}
+.layui-side .layui-nav-item a{color: #228B22;}
 .layui-side .layui-nav-child a{padding-left: 30px;}
 .layui-side .layui-nav-child .layui-this>a{color:#000!important;}
 .layui-layout-right .layui-nav-child dd a:hover{color: #3676cc;}

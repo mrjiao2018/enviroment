@@ -459,7 +459,7 @@ layui.use('element', function () {
         }
         tbody4.append(tr5);
 
-        var buttons5 = $("<div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
+        var buttons5 = $("<br><div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
         layuiForm4.append(buttons5);
 
         return calculatorDiv2;
