@@ -1,33 +1,37 @@
 
 /**
- * @method drawRoomList() 根据查找条件加载会议室列表
- * @param {reqData} 传入会议室查找条件
+ * @method drawResultList() 根据查找条件加载会议室列表
+ * @param {data} 传入表格数据
  * @return {}
  */
-function drawMemberList(reqData) {
+function drawResultList(data) {
     layui.use('table', function() {
         var table = layui.table;
         table.render({
             elem: '#tbResultOverview',
-            url: './total/types',
-            where: reqData,
-            page: true,
-            loading:true,
-            limits: [10, 15, 20],
-            limit: 10,
+//          url: './total/types',
+//          where: reqData,
+			data: data,
+//			page: {
+//				limit: 15,
+//				layout: ['count', 'prev', 'page', 'next','skip', 'scroll']
+//			},
+			loading:true,
             id: 'tbResultOverview',
             cellMinWidth: 160,
             cols: [
                 [
                     {
-                        field: 'index',
+                    	type: 'numbers',
                         title: '序号',
-                        align: "center"
+                        align: "center",
+                        width: 100
                     },
                     {
                         field: 'date',
                         title: '日期',
-                        align: "center"
+                        align: "center",
+                        sort: true
                     },
                     {
                         field: 'position',
@@ -38,6 +42,7 @@ function drawMemberList(reqData) {
                         field: 'inputTime',
                         title: '输入日期',
                         align: 'center'
+//                      sort: true
                     },
                     {
                         title: '操作',
@@ -53,7 +58,6 @@ function drawMemberList(reqData) {
             if(obj.event === "querySpecificRecord") {//编辑成员信息
                 //todo 向后台发请求
                 alert("编辑成员信息");
-
             }
         });
 
@@ -72,7 +76,14 @@ function drawMemberList(reqData) {
  */
 function pageLoad() {
 
-    drawMemberList();
+	$.ajax({
+		type:"get",
+		url:"statics/js/resultOverview/resultList.json",
+		async:true,
+		success: function(data){
+			drawResultList(data);
+		}
+	});
 
 }
 

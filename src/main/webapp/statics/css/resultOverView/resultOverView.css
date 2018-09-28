@@ -1,5 +1,8 @@
 body{
     /*background-color: #fdf6e3;*/
+    background-image: url(../../img/background/t4.jpg);
+    background-size: 100%;
+    font-family: FangSong;
 }
 
 a{
@@ -21,4 +24,41 @@ a{
 
 .bg-blue{
     background-color: #1E9FFF;
+}
+
+
+/*小窗毛玻璃效果*/
+#tableContainer{
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
+    background: hsla(0,0%,100%,.25) border-box;
+    overflow: hidden;
+    border-radius: .5em;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+                0 .5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+
+/*使用滤镜模糊边缘*/
+#tableContainer::before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: -30px;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+}
+
+.layui-container thead{
+	background-color: rgba(	60,179,113, 0.2);
+}
+
+.layui-container tbody{
+	background-color: rgba(240,255,240, 0);
+}
+
+.layui-table-page{
+	background-color: rgba(255,255,255, 0.5);
 }
