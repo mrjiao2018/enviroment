@@ -363,7 +363,7 @@ layui.use('element', function () {
         var siteTextDiv3 = $("<div class=\"site-text site-block\"></div>");
         var formDiv4 = $("<form class=\"layui-form\"></form>");
         var formItemContainer5 = $("<div class='form-item-container'></div>");
-        var buttons5 = $("<div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
+        var buttons5 = $("<br /><div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
         var tableContainer5 = $("<div class=\"layui-form-item block-display left-move\"></div>");
         var table6 = $("<table class=\"layui-table\"></table>");
         var colgroup7 = $("<colgroup></colgroup>");
@@ -385,6 +385,21 @@ layui.use('element', function () {
             tempFormItem6.append(unitDiv7);
             layuiInputInlineDiv7.append(input8);
         }
+        
+        for(var i = 0; i < formInfo.output_lable.length; ++i){
+	        var resultDiv = $("<div class='layui-form-item'></div>");
+	        var resultInputLable = $("<label class='layui-form-label'>"+ formInfo.output_lable[i] +"</label>");
+	        var reslutInputInlineDiv = $("<div class='layui-input-inline'></div>");
+	        var resultInput = $("<input id='result' type='text'  disabled='disabled' placeholder='(计算结果)' class='layui-input'/>");
+	        var resultUnit = $("<div class='layui-form-mid layui-word-aux'>"+ formInfo.output_lable_unit[i] +"</div>")
+	        resultDiv.append(resultInputLable);
+	        resultDiv.append(reslutInputInlineDiv);
+	        resultDiv.append(resultUnit);
+	        reslutInputInlineDiv.append(resultInput);
+	        formItemContainer5.append(resultDiv);        	
+        }
+
+        
         formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
         //生成table
