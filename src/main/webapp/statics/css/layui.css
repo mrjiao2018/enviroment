@@ -357,7 +357,7 @@ a cite {
 }
 
 .layui-btn-primary {
-    border: 1px solid #C9C9C9;
+    /*border: 1px solid #C9C9C9;*/
     background-color: #fff;
     color: #555
 }
@@ -578,8 +578,8 @@ a cite {
 }
 
 .layui-form-danger+.layui-form-select .layui-input,.layui-form-danger:focus {
-    border-color: #FF5722!important;
-    border-width: 3px;
+    /*border-color: #FF5722!important;*/
+    /*border-width: 3px;*/
 }
 
 .layui-form-select .layui-input {

@@ -69,7 +69,7 @@
 	border-radius: .5em;
 }*/
 
-#submitBtn, #resetBtn {
+#submitBtn, #resetBtn, #showFormBtn {
   background: #E2E2E2;
   background-image: -webkit-linear-gradient(top, #E2E2E2, #228B22);
   background-image: -moz-linear-gradient(top, #E2E2E2, #228B22);
@@ -85,7 +85,7 @@
   font-size: 16px;
 }
 
-#submitBtn:active, #resetBtn:active {
+#submitBtn:active, #resetBtn:active, #showFormBtn:active {
   /*color: #ffffff;*/
   background: #228B22;
 }

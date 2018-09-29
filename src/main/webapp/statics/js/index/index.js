@@ -367,7 +367,7 @@ layui.use('element', function () {
             "<div class=\"layui-input-block\">" +
             "<button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button>" +
             "<button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>" +
-            "<button class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</button>" +
+            "<a id='showFormBtn' class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</a>" +
             "</div></div>");
         var tableContainer5 = $("<div class=\"layui-form-item block-display left-move\"></div>");
         var table6 = $("<table class=\"layui-table\"></table>");
@@ -511,7 +511,7 @@ layui.use('element', function () {
             "<div class=\"layui-input-block\">" +
             "<button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button>" +
             "<button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>" +
-            "<button class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</button>" +
+            "<a id='showFormBtn' class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</a>" +
             "</div></div>");
         layuiForm4.append(buttons5);
 
@@ -557,10 +557,20 @@ layui.use('element', function () {
         for(var i = 0; i < showFormBtns.length; ++i){
             showFormBtns[i].index = i;
             showFormBtns.eq(i).click(function () {
-                layer.open({
-                	title: '计算公式',
-                	content: "<img src='statics/formPictures/" + showFormBtns.eq(this.index).attr("picPath") + "'>"
-                });
+            	var img = "<img width='800px' src='statics/formPictures/" + showFormBtns.eq(this.index).attr("picPath") + "'>";
+            	layer.ready(function(){
+	                layer.open({
+	                	type: 1,
+	                	shift: 2,
+	                	area: '800px',
+	                	offset: 'auto',
+	                	moveOut: true,
+	                	skin: 'layui-layer-molv',
+	                	title: '计算公式',
+						content: img
+	                });	            		
+            	});
+			
             });
         }
     }
