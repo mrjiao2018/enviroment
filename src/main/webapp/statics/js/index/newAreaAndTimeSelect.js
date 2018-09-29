@@ -5,7 +5,7 @@ function areaAndTimeSelect(){
     layer.open({
         title:"请输入时间与地区",
         type: 1,
-        content: '<input type="text" id="picker" placeholder="每次点击数据联动">'
+        content: '<div style="height: 500px;width: 600px"></div>'
     });
 }
 

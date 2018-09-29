@@ -363,7 +363,12 @@ layui.use('element', function () {
         var siteTextDiv3 = $("<div class=\"site-text site-block\"></div>");
         var formDiv4 = $("<form class=\"layui-form\"></form>");
         var formItemContainer5 = $("<div class='form-item-container'></div>");
-        var buttons5 = $("<br /><div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
+        var buttons5 = $("<br><div class=\"layui-form-item  block-display left-move\">" +
+            "<div class=\"layui-input-block\">" +
+            "<button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button>" +
+            "<button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>" +
+            "<button class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</button>" +
+            "</div></div>");
         var tableContainer5 = $("<div class=\"layui-form-item block-display left-move\"></div>");
         var table6 = $("<table class=\"layui-table\"></table>");
         var colgroup7 = $("<colgroup></colgroup>");
@@ -402,22 +407,22 @@ layui.use('element', function () {
         
         formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
-        //生成table
-        for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
-            var col8 = $("<col width='200'>");
-            var theadTh9, tbodyTh9;
-            if(i < formInfo.input_lable.length) {
-                theadTh9 = $("<th>" + formInfo.input_lable[i] + "/" + formInfo.input_lable_unit[i] + "</th>");
-                tbodyTh9 = $("<td class=" + formInfo.input_name[i] + ">待输入</td>");
-            }
-            else {
-                theadTh9 = $("<th>" + formInfo.output_lable[i - formInfo.input_lable.length] + "/" + formInfo.output_lable_unit[i - formInfo.input_lable.length] + "</th>");
-                tbodyTh9 = $("<td class=" + formInfo.output_name[i - formInfo.input_lable.length] + "></td>");
-            }
-            colgroup7.append(col8);
-            theadTr8.append(theadTh9);
-            tbodyTr8.append(tbodyTh9);
-        }
+        // //生成table
+        // for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
+        //     var col8 = $("<col width='200'>");
+        //     var theadTh9, tbodyTh9;
+        //     if(i < formInfo.input_lable.length) {
+        //         theadTh9 = $("<th>" + formInfo.input_lable[i] + "/" + formInfo.input_lable_unit[i] + "</th>");
+        //         tbodyTh9 = $("<td class=" + formInfo.input_name[i] + ">待输入</td>");
+        //     }
+        //     else {
+        //         theadTh9 = $("<th>" + formInfo.output_lable[i - formInfo.input_lable.length] + "/" + formInfo.output_lable_unit[i - formInfo.input_lable.length] + "</th>");
+        //         tbodyTh9 = $("<td class=" + formInfo.output_name[i - formInfo.input_lable.length] + "></td>");
+        //     }
+        //     colgroup7.append(col8);
+        //     theadTr8.append(theadTh9);
+        //     tbodyTr8.append(tbodyTh9);
+        // }
 
         calculatorDiv2.append(titleDiv3);
         calculatorDiv2.append(siteTextDiv3);
@@ -502,22 +507,33 @@ layui.use('element', function () {
         }
         tbody4.append(tr5);
 
-        var buttons5 = $("<br><div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
+        var buttons5 = $("<br><div class=\"layui-form-item  block-display left-move\">" +
+            "<div class=\"layui-input-block\">" +
+            "<button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button>" +
+            "<button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>" +
+            "<button class='layui-btn showFormBtn' picPath="+formInfo.formPic+">查看公式</button>" +
+            "</div></div>");
         layuiForm4.append(buttons5);
-        
-        var testButton = $("<button id='showForm'>查看公式2</button>");
-        calculatorDiv2.append(testButton);
-        $("#showForm").click(function(){
-        	layer.open({
-				title: '计算公式'
-				,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
-			});    
-        });
+
+        //修改说明，testButton已经被放入上方的buttons5元素中，统一规格
+        //var testButton = $("<button id='showForm'>查看公式2</button>");
+        //calculatorDiv2.append(testButton);
+
+        // $("#showForm").click(function(){
+        // 	layer.open({
+			// 	title: '计算公式'
+			// 	,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
+			// });
+        // });
 
         return calculatorDiv2;
     }
 
 
+    /**
+     * 根据formArr创建formDiv
+     * @param formArr 存储form的数组
+     */
     function appendFormToBody(formArr) {
         var $summary_sheet = $(".summary-sheet").eq(0);
         var tableArr = selectTableInputFromFormArr(formArr);
@@ -531,6 +547,23 @@ layui.use('element', function () {
         }
     }
 
+    /**
+     * 功能：点击展示公式按钮，显示公式图片弹窗
+     * @param formPicPath 公式图片路径
+     */
+    function showForm(){
+        //获取到所有的展示图片button
+        var showFormBtns = $(".showFormBtn");
+        for(var i = 0; i < showFormBtns.length; ++i){
+            showFormBtns[i].index = i;
+            showFormBtns.eq(i).click(function () {
+                layer.open({
+                	title: '计算公式',
+                	content: "<img src='statics/formPictures/" + showFormBtns.eq(this.index).attr("picPath") + "'>"
+                });
+            });
+        }
+    }
 
     /**
      * 获取所有form，监听submit事件，点击submit按钮提交表单
@@ -793,8 +826,11 @@ layui.use('element', function () {
         //将form展示添加到html中
         appendFormToBody(calculatorArr);
 
+        //监听用户点击展示公式按钮事件
+        showForm();
+
         //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据，加载成功后展示到界面上
-        dataLoad(2011, "liangzihu", "forest");
+        //dataLoad(2011, "liangzihu", "forest");
 
         //只展示一个div，从0开始
         showSingleDiv(0);
