@@ -11,12 +11,19 @@
         <meta name="author" content="">
 
         <!-- CSS -->
+        <link rel="stylesheet" href="../../../target/enviroment/statics/css/layui.css" />
         <link rel="stylesheet" href="statics/css/login/login.css?v=1.0">
+
+        
+        <!-- JS -->
+		<script src="statics/js/layui/layui.all.js"></script>
+        
 
     </head>
 
     <body>
-
+    	<br />
+        <!--<h1 id="prjName">自然资源资产价值计算</h1>-->
         <div class="page-container">
             <div id="login-container">
                 <h1>登录</h1>
@@ -41,18 +48,18 @@
                 dataType: "json",
                 beforeSubmit:function(formData){
                     if(formData[0].value == ""){
-                        $("#error").html("<div style='padding-top: 20px'><span style='color:red;'>请输入用户名</span></div>");
+						layer.msg('请输入用户名');
                         return false;
                     }
                     if(formData[1].value == ""){
-                        $("#error").html("<div style='padding-top: 20px'><span style='color:red;'>请输入密码</span></div>");
+                        layer.msg('请输入密码');
                         return false;
                     }
                 },
                 success: function(responseText) {
                     var status = responseText.status;
                     if(status == 700){
-                        $("#error").html("<div style='padding-top: 20px'><span style='color:red;'>用户名或密码错误</span></div>");
+                    	layer.msg('用户名或密码错误');
                     }
                     else if(status == 600){
                         window.location.href = "./nav.html"

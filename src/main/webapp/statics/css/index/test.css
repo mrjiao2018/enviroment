@@ -35,6 +35,12 @@
 }
 
 
+.calculator form input{
+	border: 1px dashed #521E18;
+	border-radius: 5px;
+	border-style: dashed;
+	font-size: 14px;	
+}
 
 /*#submitBtn{
 	background-color: #2E8B57;

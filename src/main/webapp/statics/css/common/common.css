@@ -2,9 +2,9 @@
 .site-title fieldset{border: none; padding: 0; border-top: 2px solid #e6e6e6;}
 .site-title fieldset legend{margin-left: 400px;  padding: 0 20px; font-size: 22px; font-weight: 300;}
 
-.site-text{position:relative; margin-left: 200px; margin-right: 50px; color:white;}
+.site-text{position:relative; margin-left: 200px; margin-right: 50px; color: #000000; font-size: 18px;}
 .site-text p{margin-bottom: 10px;  line-height:22px;}
-.site-text em{padding: 0 3px; font-weight: 500; font-style: italic; color: #fff;}
+.site-text em{padding: 0 3px; font-weight: 500; font-style: italic; color: #000;}
 .site-text code{margin:0 5px; padding: 3px 10px; border: 1px solid #e6e6e6; background-color: #fbfbfb; color: #666; border-radius: 2px;}
 
 .site-block{padding: 60px 20px}

@@ -23,7 +23,8 @@ layui.use('element', function () {
             input1: ["A1", "A2", 'A3', 'A4', "A5", "A6", "A7", "A8"],
             input2: ["B1", "B2", 'B3', 'B4', "B5", "B6", "B7", "B8"],
             output: ["C1", "C2", 'C3', 'C4', "C5", "C6", "C7", "C8"],
-            end: ['合计', '', 'D1', 'D2']
+            end: ['合计', '', 'D1', 'D2'],
+            formPic: "A1.png"
         };
 
         formArr[1] = {
@@ -34,7 +35,8 @@ layui.use('element', function () {
             input_lable_unit:["m<sup>3</sup>", "%", "元.m<sup>-3</sup>"],
             output_lable_unit:["元"],
             input_name:["M", "f", "Am"],
-            output_name:["Le"]
+            output_name:["Le"],
+            formPic: "B1.png"
         };
 
         formArr[2] = {
@@ -45,7 +47,8 @@ layui.use('element', function () {
             input_lable_unit:["m<sup>3</sup>", "元.m<sup>-3</sup>"],
             output_lable_unit:["元"],
             input_name:["A", "B"],
-            output_name:["C"]
+            output_name:["C"],
+            formPic: "B2.png"
         };
 
         formArr[3] = {
@@ -58,7 +61,8 @@ layui.use('element', function () {
             input1: ["A1", "A2", 'A3', 'A4', "A5", "A6"],
             input2: ["B1", "B2", 'B3', 'B4', "B5", "B6"],
             output: ["C1", "C2", 'C3', 'C4', "C5", "C6"],
-            end: ['合计', '', '', 'D1']
+            end: ['合计', '', '', 'D1'],
+            formPic: "C1.png"
         };
 
         formArr[4] = {
@@ -69,7 +73,8 @@ layui.use('element', function () {
             input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.m<sup>-3</sup>"],
             output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["P", "E", "C", "A", "Ck"],
-            output_name:["Gt", "Ut"]
+            output_name:["Gt", "Ut"],
+            formPic: "D1.png"
         };
 
         formArr[5] = {
@@ -80,7 +85,8 @@ layui.use('element', function () {
             input_lable_unit:["mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "mm.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["m<sup>3</sup>.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["P", "E", "C", "A", "Ck"],
-            output_name:['Gt', 'Us']
+            output_name:['Gt', 'Us'],
+            formPic: "D2.png"
         };
 
         formArr[6] = {
@@ -91,7 +97,8 @@ layui.use('element', function () {
             input_lable_unit:["元.m<sup>-3</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "t.m<sup>-3</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["Ct", "X2", "X1", "A", "P"],
-            output_name:['Gg', 'Ug']
+            output_name:['Gg', 'Ug'],
+            formPic: "E1.png"
     };
 
         formArr[7] = {
@@ -130,7 +137,8 @@ layui.use('element', function () {
             ],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["X2", "X1", "A", "N", "P", "K", "M", "C1", "C2", "C3", "R1", "R2", "R3"],
-            output_name:['Gf', 'Uf']
+            output_name:['Gf', 'Uf'],
+            formPic: "E1.png"
         };
 
         formArr[8] = {
@@ -141,7 +149,8 @@ layui.use('element', function () {
             input_lable_unit:["%", "mm.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["Rt", "Bn", "Ft", "A", "Ct"],
-            output_name:['Gz', 'Gtt', 'Gt', 'Ut']
+            output_name:['Gz', 'Gtt', 'Gt', 'Ut'],
+            formPic: "F1.png"
         };
 
         formArr[9] = {
@@ -152,7 +161,8 @@ layui.use('element', function () {
             input_lable_unit:["t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["Bn", "A", "Cy"],
-            output_name:["Gy", "Uy"]
+            output_name:["Gy", "Uy"],
+            formPic: "F2.png"
         };
 
         formArr[10] = {
@@ -201,7 +211,8 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>"
             ],
             input_name:["B", "N", "P", "K", "A", "C1", "C2", "R1", "R2", "R3"],
-            output_name:['Gn', 'Gp', "Gk", 'Un', 'Up', 'Uk', 'Uz']
+            output_name:['Gn', 'Gp', "Gk", 'Un', 'Up', 'Uk', 'Uz'],
+            formPic: "G1.png"
         };
 
         formArr[11] = {
@@ -212,7 +223,8 @@ layui.use('element', function () {
             input_lable_unit:["m", "元.个<sup>-1</sup>", "个.cm<sup>-3</sup>", "hm<sup>2</sup>", "min"],
             output_lable_unit:["个.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["H", "Kf", "Qf", "A", "L"],
-            output_name:['Gf', 'Uf']
+            output_name:['Gf', 'Uf'],
+            formPic: "H1.png"
         };
 
         formArr[12] = {
@@ -257,7 +269,8 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>"
             ],
             input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
-            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz']
+            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz'],
+            formPic: "H1.png"
         };
 
         formArr[13] = {
@@ -268,7 +281,8 @@ layui.use('element', function () {
             input_lable_unit:["元.km<sup>-1</sup>", "km"],
             output_lable_unit:["元.a<sup>-1</sup>"],
             input_name:["Kz", "Az"],
-            output_name:['Uz']
+            output_name:['Uz'],
+            formPic: "H3.png"
         };
 
         formArr[14] = {
@@ -279,7 +293,8 @@ layui.use('element', function () {
             input_lable_unit:["hm<sup>2</sup>", "元.kg<sup>-1</sup>", "kg.hm<sup>-2</sup>.a<sup>-1</sup>"],
             output_lable_unit:["kg.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["A", "Kz", "Qz"],
-            output_name:['Gz', 'Uz']
+            output_name:['Gz', 'Uz'],
+            formPic: "H4.png"
         };
 
         formArr[15] = {
@@ -290,7 +305,8 @@ layui.use('element', function () {
             input_lable_unit:["元", "%", "%"],
             output_lable_unit:["元"],
             input_name:["Uz", "A", "B"],
-            output_name:['Uf']
+            output_name:['Uf'],
+            formPic: "I1.png"
         };
 
         formArr[16] = {
@@ -301,7 +317,8 @@ layui.use('element', function () {
             input_lable_unit:["元.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>"],
             output_lable_unit:["元.a<sup>-1</sup>"],
             input_name:["Ss", "A"],
-            output_name:['Us']
+            output_name:['Us'],
+            formPic: "J1.png"
         };
 
         formArr[17] = {
@@ -312,7 +329,8 @@ layui.use('element', function () {
             input_lable_unit:["元", "%"],
             output_lable_unit:["元"],
             input_name:["Uz", "A"],
-            output_name:['Us']
+            output_name:['Us'],
+            formPic: "K1.png"
         };
 
         return formArr;
@@ -398,6 +416,16 @@ layui.use('element', function () {
         table6.append(tbody7);
         thead7.append(theadTr8);
         tbody7.append(tbodyTr8);
+        
+      
+//      var testButton = $("<button id='showForm'>查看公式1</button>");
+//      calculatorDiv2.append(testButton);
+//      $("#showForm").click(function(){
+//      	layer.open({
+//				title: '计算公式'
+//				,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
+//			});    
+//      });
 
         return calculatorDiv2;
     }
@@ -461,6 +489,15 @@ layui.use('element', function () {
 
         var buttons5 = $("<br><div class=\"layui-form-item  block-display left-move\"><div class=\"layui-input-block\"><button id='submitBtn' class=\"layui-btn submit-btn\" lay-submit lay-filter=\"formDemo\">立即提交</button><button id='resetBtn' type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button></div></div>");
         layuiForm4.append(buttons5);
+        
+        var testButton = $("<button id='showForm'>查看公式2</button>");
+        calculatorDiv2.append(testButton);
+        $("#showForm").click(function(){
+        	layer.open({
+				title: '计算公式'
+				,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
+			});    
+        });
 
         return calculatorDiv2;
     }

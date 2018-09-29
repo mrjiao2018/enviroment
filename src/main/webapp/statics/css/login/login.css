@@ -6,9 +6,16 @@ body {
     background-position: 50% 50%;
     background-attachment: fixed;
     /*font-family: 'PT Sans', Helvetica, Arial, sans-serif;*/
-    font-family: KaiTi;
+    /*font-family: KaiTi;*/
+    font-family: FangSong;
     text-align: center;
     color: #fff;
+}
+
+#prjName{
+	text-align: left;
+	font-family: KaiTi;
+	font-size: 36px;
 }
 
 .page-container {
@@ -57,7 +64,7 @@ body {
 
 h1 {
 
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 700;
     text-shadow: 0 1px 4px rgba(0,0,0,.2);
     /*color:#eee;*/
@@ -107,23 +114,27 @@ input:focus {
 
 input:-moz-placeholder { 
 	color: #fff;
-    font-family: KaiTi;
-    font-size: 16px;
+    /*font-family: KaiTi;*/
+    font-family: FangSong;
+    font-size: 18px;
  }
 input:-ms-input-placeholder { 
 	color: #fff;
-    font-family: KaiTi;
-    font-size: 16px;
+    /*font-family: KaiTi;*/
+    font-family: FangSong;
+    font-size: 18px;
 }
 input::-webkit-input-placeholder { 
 	color: #fff;
-    font-family: KaiTi;
-    font-size: 16px;
+    /*font-family: KaiTi;*/
+    font-family: FangSong;
+    font-size: 18px;
 }
 
 button {
-    font-family: KaiTi;
-    font-size: 22px;
+    font-family: FangSong;
+    /*font-family: KaiTi;*/
+    font-size: 24px;
     color: #2E8B57;
     cursor: pointer;
     width: 150px;

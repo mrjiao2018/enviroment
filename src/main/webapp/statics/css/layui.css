@@ -568,7 +568,8 @@ a cite {
 }
 
 .layui-form-mid {
-    color: white!important;
+    /*color: white!important;*/
+    color: 	#2F4F4F!important;
     float: left;
     display: block;
     padding: 9px 0!important;
