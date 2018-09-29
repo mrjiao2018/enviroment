@@ -81,3 +81,7 @@ input{background-color: rgba(255, 255, 255, 0.7);}
     width: 140px!important;
     padding-right: 0;
 }
+
+.record-btn-container{line-height: 80px; display: inline-block}
+#record-query-btn{display: inline-block}
+#record-establish-btn{margin-left: 30px;display: inline-block}
