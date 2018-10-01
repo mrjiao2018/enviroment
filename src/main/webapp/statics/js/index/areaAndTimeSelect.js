@@ -6,11 +6,9 @@ var defaults = {
     s1: 'provid',
     s2: 'cityid',
     s3: 'areaid',
-    s4: 'yearid',
     v1: null,
     v2: null,
-    v3: null,
-    v4: null
+    v3: null
 };
 var $form;
 var form;
