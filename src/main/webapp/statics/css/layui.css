@@ -70,7 +70,7 @@ hr {
 }
 
 a {
-    color: white;
+    /*color: white;*/
     text-decoration: none
 }
 
@@ -1817,7 +1817,8 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-nav-itemed>a,.layui-nav-tree .layui-nav-title a,.layui-nav-tree .layui-nav-title a:hover {
-    color: #fff!important
+    font-weight: bold;
+    color:black;
 }
 
 .layui-nav-tree .layui-nav-child {
