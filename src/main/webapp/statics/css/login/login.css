@@ -83,7 +83,7 @@ input {
     margin-top: 25px;
     padding: 0 15px;
     background: rgb(60,179,113);
-    background: rgba(60,179,113, .25);
+    background: rgba(60,179,113, 0.7);
     
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
@@ -141,7 +141,7 @@ button {
     height: 44px;
     margin-top: 25px;
     padding: 0;
-    background-color: rgba(240,255,240, 0.5);
+    background-color: rgba(240,255,240, 0.9);
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
