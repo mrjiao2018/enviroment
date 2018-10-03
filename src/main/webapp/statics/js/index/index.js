@@ -137,7 +137,7 @@ layui.use('element', function () {
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["X2", "X1", "A", "N", "P", "K", "M", "C1", "C2", "C3", "R1", "R2", "R3"],
             output_name:['Gf', 'Uf'],
-            formPic: "E1.png"
+            formPic: "E2.png"
         };
 
         formArr[8] = {
@@ -269,7 +269,7 @@ layui.use('element', function () {
             ],
             input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
             output_name:['Ge', 'Gd', 'Gf', 'Gz', 'Ue', 'Ud', 'Uf', 'Uz'],
-            formPic: "H1.png"
+            formPic: "H2.png"
         };
 
         formArr[13] = {
@@ -557,22 +557,28 @@ layui.use('element', function () {
             showFormBtns[i].index = i;
             showFormBtns.eq(i).click(function () {
             	var img = "<img width='800px' src='statics/formPictures/" + showFormBtns.eq(this.index).attr("picPath") + "'>";
-            	layer.ready(function(){
-	                layer.open({
-	                	type: 1,
-	                	shift: 2,
-	                	area: '800px',
-	                	offset: 'auto',
-	                	moveOut: true,
-	                	skin: 'layui-layer-molv',
-	                	title: '计算公式',
-						content: img
-	                });
+            	var winH = window.innerHeight;
+            	
+            	$("<img />").attr("src", $(img).attr("src")).load(function(){
+	            	var imgHeight = this.height;
+	            	var offSetY = winH / 2 - imgHeight / 2;
+	            	layer.ready(function(){
+		                layer.open({
+		                	type: 1,
+		                	shift: 2,
+		                	area: '800px',
+		                	offset: offSetY,
+		                	moveOut: true,
+		                	skin: 'layui-layer-molv',
+		                	title: '计算公式',
+							content: img
+		                });
+	            	});            		
             	});
-
             });
         }
     }
+    
 
     /**
      * 获取所有form，监听submit事件，点击submit按钮提交表单
