@@ -42,6 +42,13 @@ function areaAndTimeSelect(type){
         '                <div class="layui-input-inline">' +
         '                    <select id="yearid">' +
         '                        <option value="">请选择年份</option>' +
+        '                        <option value="2018">2011</option>' +
+        '                        <option value="2018">2012</option>' +
+        '                        <option value="2018">2013</option>' +
+        '                        <option value="2018">2014</option>' +
+        '                        <option value="2018">2015</option>' +
+        '                        <option value="2018">2016</option>' +
+        '                        <option value="2018">2017</option>' +
         '                        <option value="2018">2018</option>' +
         '                    </select>' +
         '                </div>' +
