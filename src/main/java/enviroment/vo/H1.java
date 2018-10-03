@@ -84,5 +84,7 @@ public class H1 implements Calc {
     public void cale() {
         Gf =5.256E15* Qf * A * H / L;
         Uf =5.256E15* A * H * Kf *(Qf -600)/ L;
+
+        Format.set2Point(this);
     }
 }

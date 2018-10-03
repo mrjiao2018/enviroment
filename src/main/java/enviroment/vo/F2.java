@@ -68,5 +68,7 @@ public class F2 implements Calc {
     public void cale() {
         Gy =1.19* A * Bn;
         Uy = Gy * Cy;
+
+        Format.set2Point(this);
     }
 }

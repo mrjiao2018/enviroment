@@ -15,6 +15,14 @@ public class H2 implements Calc {
     private double Qd;
     private double Kf;
     private double Qf;
+    private double Ge;
+    private double Gd;
+    private double Gf;
+    private double Gz;
+    private double Ue;
+    private double Ud;
+    private double Uf;
+    private double Uz;
     private String type;
 
     public Double getA() {
@@ -83,6 +91,14 @@ public class H2 implements Calc {
 
     @Override
     public void cale() {
+Ge=Qe*A;
+Gf=Qf*A;
+Gd=Qd*A;
+Ue=Ge*Ke;
+Uf=Gf*Kf;
+Ud=Gd*Kd;
 
+Gz=Ge+Gf+Gd;
+Uz=Ue+Uf+Ud;
     }
 }

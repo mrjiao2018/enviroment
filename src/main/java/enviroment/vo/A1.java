@@ -47,6 +47,8 @@ public class A1 implements Calc{
 
         D1=B1+B2+B3+B4+B5+B6+B7+B8;
         D2=C1+C2+C3+C4+C5+C6+C7+C8;
+
+        Format.set2Point(this);
     }
 
     public double getA1() {

@@ -5,7 +5,6 @@ layui.use('element', function () {
     //存储加载页面前从服务器接受的总表数据
     var form_data;
 
-
     /**
      * 生成每个form的具体信息并封装在一个数组中返回
      */
@@ -269,7 +268,7 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>"
             ],
             input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
-            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz'],
+            output_name:['Ge', 'Gd', 'Gf', 'Gz', 'Ue', 'Ud', 'Uf', 'Uz'],
             formPic: "H1.png"
         };
 
@@ -608,7 +607,6 @@ layui.use('element', function () {
                 for(var i = 0; i < responseText.length; ++i) {
                     console.log(responseText[i].name);
                     console.log(responseText[i].value);
-                    //todo 将相应的结果展示在界面上
                     showResult($form, responseText);
                 }
             }
@@ -644,8 +642,6 @@ layui.use('element', function () {
      * 左侧导航栏切换表单函数
      */
     function switchForm() {
-        var $calculatorDivs = $(".calculator");
-        var $summarySheet = $(".summary-sheet").eq(0);
         var $side_navs = $(".side-nav");
         for (var i = 0; i < $side_navs.length; ++i) {
             $side_navs[i].index = i;
@@ -660,60 +656,60 @@ layui.use('element', function () {
      * 将加载出的数据展示到网页上
      * @param data 服务器返回的数据，此处为请求"calc/total"接口返回的list数据，数据中的每一条记录对应到一个form上
      */
-    function showData(data) {
-        console.log(data);
-        var $forms = $(".calculator").find(".layui-form");
-        for(var k = 0; k < data.length; ++k){
-            showResult($forms.eq(k), data[k]);
-        }
-    }
+    // function showData(data) {
+    //     console.log(data);
+    //     var $forms = $(".calculator").find(".layui-form");
+    //     for(var k = 0; k < data.length; ++k){
+    //         showResult($forms.eq(k), data[k]);
+    //     }
+    // }
 
     /**
      * 将计算结果展示到网页上
      * @param $form 一个form
      * @Param responseText 一个form对应的数据
      */
-    function showResult($form, responseText){
-        for(var paramName in responseText){
-            var value = responseText[paramName];
-            var same = $form.find("."+paramName);
-            for(var j = 0; j < same.length; ++j){
-                same.eq(j).text(value);
-                same.eq(j).val(value);
-            }
-        }
-    }
+    // function showResult($form, responseText){
+    //     for(var paramName in responseText){
+    //         var value = responseText[paramName];
+    //         var same = $form.find("."+paramName);
+    //         for(var j = 0; j < same.length; ++j){
+    //             same.eq(j).text(value);
+    //             same.eq(j).val(value);
+    //         }
+    //     }
+    // }
 
     /**
      *
      * @Param data 从服务器请求得到的总表中的数据
      */
-    function calculateSubtotal(data){
-        var subtotal_for_A1B1B2C1 = $("#subtotal_for_A1B1B2C1");
-        var subtotal_for_D1D2 = $("#subtotal_for_D1D2");
-        var subtotal_for_E1E2 = $("#subtotal_for_E1E2");
-        var subtotal_for_F1F2 = $("#subtotal_for_F1F2");
-        var subtotal_for_G1 = $("#subtotal_for_G1");
-        var subtotal_for_H1H2H3H4 = $("#subtotal_for_H1H2H3H4");
-        var subtotal_for_DEFGHIJ = $("#subtotal_for_DEFGHIJ");
-        var subtotal_for_all = $("#subtotal_for_all");
-        var subtotal_value_for_A1B1B2C1 = data['B1Le']+data['B2C']+data['C1D1'];
-        var subtotal_value_for_D1D2 = data['D1Ut']+data['D2Us'];
-        var subtotal_value_for_E1E2 = data['E1Ut']+data['E2Uf'];
-        var subtotal_value_for_F1F2 = data['F1Ut']+data['F2Uy'];
-        var subtotal_value_for_G1 = data['G1Un']+data['G1Up']+data['G1Uk'];
-        var subtotal_value_for_H1H2H3H4 = data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz'];
-        var subtotal_value_for_DEFGHIJ = subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us'];
-        var subtotal_value_for_all = subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us'];
-        subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
-        subtotal_for_D1D2.text(subtotal_value_for_D1D2);
-        subtotal_for_E1E2.text(subtotal_value_for_E1E2);
-        subtotal_for_F1F2.text(subtotal_value_for_F1F2);
-        subtotal_for_G1.text(subtotal_value_for_G1);
-        subtotal_for_H1H2H3H4.text(subtotal_value_for_H1H2H3H4);
-        subtotal_for_DEFGHIJ.text(subtotal_value_for_DEFGHIJ);
-        subtotal_for_all.text(subtotal_value_for_all);
-    }
+    // function calculateSubtotal(data){
+    //     var subtotal_for_A1B1B2C1 = $("#subtotal_for_A1B1B2C1");
+    //     var subtotal_for_D1D2 = $("#subtotal_for_D1D2");
+    //     var subtotal_for_E1E2 = $("#subtotal_for_E1E2");
+    //     var subtotal_for_F1F2 = $("#subtotal_for_F1F2");
+    //     var subtotal_for_G1 = $("#subtotal_for_G1");
+    //     var subtotal_for_H1H2H3H4 = $("#subtotal_for_H1H2H3H4");
+    //     var subtotal_for_DEFGHIJ = $("#subtotal_for_DEFGHIJ");
+    //     var subtotal_for_all = $("#subtotal_for_all");
+    //     var subtotal_value_for_A1B1B2C1 = data['B1Le']+data['B2C']+data['C1D1'];
+    //     var subtotal_value_for_D1D2 = data['D1Ut']+data['D2Us'];
+    //     var subtotal_value_for_E1E2 = data['E1Ut']+data['E2Uf'];
+    //     var subtotal_value_for_F1F2 = data['F1Ut']+data['F2Uy'];
+    //     var subtotal_value_for_G1 = data['G1Un']+data['G1Up']+data['G1Uk'];
+    //     var subtotal_value_for_H1H2H3H4 = data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz'];
+    //     var subtotal_value_for_DEFGHIJ = subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us'];
+    //     var subtotal_value_for_all = subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us'];
+    //     subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
+    //     subtotal_for_D1D2.text(subtotal_value_for_D1D2);
+    //     subtotal_for_E1E2.text(subtotal_value_for_E1E2);
+    //     subtotal_for_F1F2.text(subtotal_value_for_F1F2);
+    //     subtotal_for_G1.text(subtotal_value_for_G1);
+    //     subtotal_for_H1H2H3H4.text(subtotal_value_for_H1H2H3H4);
+    //     subtotal_for_DEFGHIJ.text(subtotal_value_for_DEFGHIJ);
+    //     subtotal_for_all.text(subtotal_value_for_all);
+    // }
 
     /**
      * 提交当前界面的基本参数信息，用于从服务器接收数据
@@ -721,18 +717,18 @@ layui.use('element', function () {
      * @param position  位置
      * @param type  种类
      */
-    function infoSubmit(year, position, type) {
-        var request_data = {
-            year: year,
-            position: position,
-            type: type
-        };
-        var options = {
-            url: "calc/type",
-            data: request_data,
-        };
-        $.ajax(options);
-    }
+    // function infoSubmit(year, position, type) {
+    //     var request_data = {
+    //         year: year,
+    //         position: position,
+    //         type: type
+    //     };
+    //     var options = {
+    //         url: "calc/type",
+    //         data: request_data,
+    //     };
+    //     $.ajax(options);
+    // }
 
     /**
      * 请求form中的数据
@@ -740,22 +736,22 @@ layui.use('element', function () {
      * @param position
      * @param type
      */
-    function formDataLoad(year, position, type) {
-        var request_data = {
-            year: year,
-            position: position,
-            type: type
-        };
-        var options = {
-            url: "calc/total",
-            data: request_data,
-            dataType: "json",
-            success: function (data) {
-                showData(data);
-            }
-        };
-        $.ajax(options);
-    }
+    // function formDataLoad(year, position, type) {
+    //     var request_data = {
+    //         year: year,
+    //         position: position,
+    //         type: type
+    //     };
+    //     var options = {
+    //         url: "calc/total",
+    //         data: request_data,
+    //         dataType: "json",
+    //         success: function (data) {
+    //             showData(data);
+    //         }
+    //     };
+    //     $.ajax(options);
+    // }
 
     /**
      * 请求总表数据
@@ -763,27 +759,27 @@ layui.use('element', function () {
      * @param position
      * @param type
      */
-    function summarySheetDataLoad(year, position, type) {
-        var request_data = {
-            year: year,
-            position: position,
-            type: type
-        };
-        var options = {
-            url: "total",
-            data: request_data,
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                var summarySheet = $(".summary-sheet").eq(0);
-                //展示总表数据
-                showResult(summarySheet, data);
-                //计算总表中的各项合计
-                calculateSubtotal(data);
-            }
-        };
-        $.ajax(options);
-    }
+    // function summarySheetDataLoad(year, position, type) {
+    //     var request_data = {
+    //         year: year,
+    //         position: position,
+    //         type: type
+    //     };
+    //     var options = {
+    //         url: "total",
+    //         data: request_data,
+    //         dataType: "json",
+    //         success: function (data) {
+    //             console.log(data);
+    //             var summarySheet = $(".summary-sheet").eq(0);
+    //             //展示总表数据
+    //             showResult(summarySheet, data);
+    //             //计算总表中的各项合计
+    //             calculateSubtotal(data);
+    //         }
+    //     };
+    //     $.ajax(options);
+    // }
 
     /**
      * 加载data数据并显示在form中
@@ -792,37 +788,37 @@ layui.use('element', function () {
      * @param type
      * @return {*[]}
      */
-    function dataLoad(year, position, type) {
-        //告诉服务器当前请求基本信息
-        infoSubmit(year, position, type);
-        //请求加载表单数据
-        formDataLoad(year, position, type);
-        //请求加载总表数据
-        summarySheetDataLoad(year, position, type);
-        //修改导航栏中的地理位置和日期
-        //showPositionAndTime(position, year);
-    }
+    // function dataLoad(year, position, type) {
+    //     //告诉服务器当前请求基本信息
+    //     infoSubmit(year, position, type);
+    //     //请求加载表单数据
+    //     formDataLoad(year, position, type);
+    //     //请求加载总表数据
+    //     summarySheetDataLoad(year, position, type);
+    //     //修改导航栏中的地理位置和日期
+    //     //showPositionAndTime(position, year);
+    // }
 
 
     /**
      * 更改日期表单重新加载函数
      */
-    function dataReload() {
-        //更改日期的处理
-        var $year_select = $("#year-select");
-        var $year_options = $year_select.find("dd>a");
-        var $year = $("#year");
-        var year;
-        //改变主界面中的日期显示
-        for (var i = 0; i < $year_options.length; ++i) {
-            $year_options.eq(i).click(function () {
-                year = $(this).text();
-                $year.text(year);
-                //加载data数据
-                dataLoad(year, "liangzihu", "forest");
-            });
-        }
-    }
+    // function dataReload() {
+    //     //更改日期的处理
+    //     var $year_select = $("#year-select");
+    //     var $year_options = $year_select.find("dd>a");
+    //     var $year = $("#year");
+    //     var year;
+    //     //改变主界面中的日期显示
+    //     for (var i = 0; i < $year_options.length; ++i) {
+    //         $year_options.eq(i).click(function () {
+    //             year = $(this).text();
+    //             $year.text(year);
+    //             //加载data数据
+    //             dataLoad(year, "liangzihu", "forest");
+    //         });
+    //     }
+    // }
 
 
     /**

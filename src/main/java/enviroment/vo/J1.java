@@ -47,5 +47,6 @@ public class J1 implements Calc {
     @Override
     public void cale() {
 Us = S * A;
+        Format.set2Point(this);
     }
 }
