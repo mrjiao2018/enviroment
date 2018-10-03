@@ -85,5 +85,7 @@ public class E1 implements Calc {
     public void cale() {
         Gt=A*(X2-X1);
         Ut=A*Ct*(X2-X1)/P;
+
+        Format.set2Point(this);
     }
 }

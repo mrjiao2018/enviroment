@@ -202,5 +202,7 @@ public class C1 implements Calc {
         C6 = A6 * B6;
 
         D1 = C1 + C2 + C3 + C4 + C5 + C6;
+
+        Format.set2Point(this);
     }
 }

@@ -158,5 +158,7 @@ public class E2 implements Calc {
     public void cale() {
         Gf = A *(X2 - X1)*(N * C1 + P * C1 + K * C2 + M * C3);
         Uf = A *(X2 - X1)*(N * C1 / R1 + P * C1 / R2 + K * C2 / R3 + M * C3);
+
+        Format.set2Point(this);
     }
 }

@@ -134,5 +134,7 @@ Un=Gn* C1 / R1;
 Uk=Gk* C1 / R2;
 Up=Gp* C2 / R3;
 Uz=Un+Uk+Up;
+
+        Format.set2Point(this);
     }
 }

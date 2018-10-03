@@ -268,7 +268,7 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>"
             ],
             input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
-            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz'],
+            output_name:['Ge', 'Gd', 'Gf', 'Gz', 'Ue', 'Ud', 'Uf', 'Uz'],
             formPic: "H1.png"
         };
 
