@@ -199,7 +199,20 @@ function formDataLoad(year, position, type) {
  * @param type
  */
 function createNewRecord(year, position, type) {
-    //todo ajax请求完善
+    var request_data = {
+        year: year,
+        position: position,
+        type: type
+    };
+    var options = {
+        url: "calc/type",
+        data: request_data,
+        dataType: "json",
+        success: function (data) {
+            alert(123);
+        }
+    };
+    $.ajax(options);
 }
 
 /**

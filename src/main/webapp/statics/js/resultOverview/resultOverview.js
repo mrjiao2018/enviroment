@@ -31,18 +31,24 @@ function drawResultList(data) {
                         field: 'date',
                         title: '日期',
                         align: "center",
-                        sort: true
+                        width: 100
                     },
                     {
                         field: 'position',
                         title: '地点',
-                        align: 'center'
+                        align: 'center',
+                        width: 280
                     },
                     {
                         field: 'inputTime',
                         title: '输入日期',
+                        align: 'center',
+                        sort: true
+                    },
+                    {
+                        field: 'type',
+                        title: '资源种类',
                         align: 'center'
-//                      sort: true
                     },
                     {
                         title: '操作',

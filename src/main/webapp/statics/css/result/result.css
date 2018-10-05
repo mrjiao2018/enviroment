@@ -1,0 +1,10 @@
+.site-text{
+    position:relative;
+    margin-right: 100px;
+    color: #000000;
+    font-size: 18px;
+}
+.button-container{
+    width: 300px;
+    margin: 0 auto;
+}
