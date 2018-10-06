@@ -47,5 +47,7 @@ public class H3 implements Calc {
     @Override
     public void cale() {
 Uz = Kz * Az;
+
+        Format.set2Point(this);
     }
 }

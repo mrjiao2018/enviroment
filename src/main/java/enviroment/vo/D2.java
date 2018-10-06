@@ -69,5 +69,7 @@ public class D2 implements Calc {
     public void cale() {
         Gt =10* A *(P - C - C);
         Us=10* Ck * A *(P - C - C);
+
+        Format.set2Point(this);
     }
 }

@@ -102,5 +102,7 @@ public class F1 implements Calc {
     public void cale() {
         Gt =1.63* Rt * A * Bn + A * Ft;
         Ut = Gt * Ct;
+
+        Format.set2Point(this);
     }
 }

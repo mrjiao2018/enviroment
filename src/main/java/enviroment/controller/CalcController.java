@@ -79,7 +79,7 @@ public class CalcController {
     @Autowired
     private TotalMappere totalMappere;
     public static String type;
-
+    
     @ResponseBody
     @RequestMapping("/type")
     public String submit(Type type){

@@ -137,7 +137,7 @@ layui.use('element', function () {
             output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["X2", "X1", "A", "N", "P", "K", "M", "C1", "C2", "C3", "R1", "R2", "R3"],
             output_name:['Gf', 'Uf'],
-            formPic: "E1.png"
+            formPic: "E2.png"
         };
 
         formArr[8] = {
@@ -268,8 +268,8 @@ layui.use('element', function () {
                 "元.a<sup>-1</sup>"
             ],
             input_name:["A", "Ke", "Kd", "Kf", "Qe", "Qd", "Qf"],
-            output_name:['Ge', 'Gn', 'Gf', 'Gz', 'Ue', 'Un', 'Uf', 'Uz'],
-            formPic: "H1.png"
+            output_name:['Ge', 'Gd', 'Gf', 'Gz', 'Ue', 'Ud', 'Uf', 'Uz'],
+            formPic: "H2.png"
         };
 
         formArr[13] = {
@@ -389,7 +389,7 @@ layui.use('element', function () {
             tempFormItem6.append(unitDiv7);
             layuiInputInlineDiv7.append(input8);
         }
-        
+
         for(var i = 0; i < formInfo.output_lable.length; ++i){
 	        var resultDiv = $("<div class='layui-form-item'></div>");
 	        var resultInputLable = $("<label class='layui-form-label'>"+ formInfo.output_lable[i] +"</label>");
@@ -400,10 +400,10 @@ layui.use('element', function () {
 	        resultDiv.append(reslutInputInlineDiv);
 	        resultDiv.append(resultUnit);
 	        reslutInputInlineDiv.append(resultInput);
-	        formItemContainer5.append(resultDiv);        	
+	        formItemContainer5.append(resultDiv);
         }
 
-        
+
         formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
 
         // //生成table
@@ -435,15 +435,15 @@ layui.use('element', function () {
         table6.append(tbody7);
         thead7.append(theadTr8);
         tbody7.append(tbodyTr8);
-        
-      
+
+
 //      var testButton = $("<button id='showForm'>查看公式1</button>");
 //      calculatorDiv2.append(testButton);
 //      $("#showForm").click(function(){
 //      	layer.open({
 //				title: '计算公式'
 //				,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
-//			});    
+//			});
 //      });
 
         return calculatorDiv2;
@@ -557,22 +557,28 @@ layui.use('element', function () {
             showFormBtns[i].index = i;
             showFormBtns.eq(i).click(function () {
             	var img = "<img width='800px' src='statics/formPictures/" + showFormBtns.eq(this.index).attr("picPath") + "'>";
-            	layer.ready(function(){
-	                layer.open({
-	                	type: 1,
-	                	shift: 2,
-	                	area: '800px',
-	                	offset: 'auto',
-	                	moveOut: true,
-	                	skin: 'layui-layer-molv',
-	                	title: '计算公式',
-						content: img
-	                });	            		
+            	var winH = window.innerHeight;
+            	
+            	$("<img />").attr("src", $(img).attr("src")).load(function(){
+	            	var imgHeight = this.height;
+	            	var offSetY = winH / 2 - imgHeight / 2;
+	            	layer.ready(function(){
+		                layer.open({
+		                	type: 1,
+		                	shift: 2,
+		                	area: '800px',
+		                	offset: offSetY,
+		                	moveOut: true,
+		                	skin: 'layui-layer-molv',
+		                	title: '计算公式',
+							content: img
+		                });
+	            	});            		
             	});
-			
             });
         }
     }
+    
 
     /**
      * 获取所有form，监听submit事件，点击submit按钮提交表单
@@ -864,7 +870,6 @@ layui.use('element', function () {
 
     });
 });
-
 
 
 

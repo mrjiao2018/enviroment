@@ -55,5 +55,7 @@ public class B1 implements Calc {
     @Override
     public void cale() {
         Le=M*f*Am;
+
+        Format.set2Point(this);
     }
 }

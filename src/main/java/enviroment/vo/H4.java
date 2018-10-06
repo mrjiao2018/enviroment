@@ -66,5 +66,6 @@ public class H4 implements Calc {
     public void cale() {
         Gz=Qz*A;
         Uz = A * Kz * Qz;
+        Format.set2Point(this);
     }
 }

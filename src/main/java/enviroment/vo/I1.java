@@ -64,5 +64,6 @@ public class I1 implements Calc {
     @Override
     public void cale() {
 Uf = U * A * B;
+        Format.set2Point(this);
     }
 }
