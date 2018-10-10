@@ -9,6 +9,7 @@ public class Format {
     public static void set2Point(Object object){
         Field[] fields = object.getClass().getDeclaredFields();
         for (int i=0;i<fields.length;i++){
+            fields[i].setAccessible(true);
             if (fields[i].getGenericType()==double.class){
                     try {
                         double value=fields[i].getDouble(object);
