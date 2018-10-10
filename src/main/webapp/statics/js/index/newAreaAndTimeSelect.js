@@ -190,8 +190,13 @@ function formDataLoad(year, position, type) {
         url: "calc/total",
         data: request_data,
         dataType: "json",
+        timeout:100,
+        type:'POST',
         beforeSend: function (){
             alert("before");
+        },
+        timeout:function () {
+          alert("timeout");
         },
         success: function (data) {
             //todo 加入返回值为空的判断
@@ -203,6 +208,7 @@ function formDataLoad(year, position, type) {
             alert("error");
         }
     };
+    //TODO: 这个请求被cancel掉了，由于位置原因
     $.ajax(options);
 }
 
