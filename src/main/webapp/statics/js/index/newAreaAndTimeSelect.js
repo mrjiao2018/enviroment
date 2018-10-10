@@ -190,10 +190,17 @@ function formDataLoad(year, position, type) {
         url: "calc/total",
         data: request_data,
         dataType: "json",
+        beforeSend: function (){
+            alert("before");
+        },
         success: function (data) {
             //todo 加入返回值为空的判断
+            alert("after");
             showData(data);
             summarySheetDataLoad(data);
+        },
+        error: function () {
+            alert("error");
         }
     };
     $.ajax(options);
