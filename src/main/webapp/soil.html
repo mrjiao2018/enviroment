@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>自然资源资产价值计算</title>
+    <link rel="stylesheet" href="statics/css/layui.css">
+    <link rel="stylesheet" href="statics/css/index/index.css">
+    <link rel="stylesheet" href="statics/css/common/common.css">
+    <link rel="stylesheet" href="statics/css/index/test.css" />
+    <style type="text/css">
+        body{
+            background: url("statics/img/background/soil.jpeg");
+            background-size: cover;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-main">
+            <div class="layui-logo">自然资源资产价值计算</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item layui-this"><a href="">土地</a></li>
+                <li class="layui-nav-item"><a href="">矿产</a></li>
+                <li class="layui-nav-item"><a href="./index.html">森林</a></li>
+                <li class="layui-nav-item"><a href="./water.html">水</a></li>
+                <li class="layui-nav-item"><a href="">生物</a></li>
+                <li class="layui-nav-item"><a href="resultOverview.html">往年结果查询</a></li>
+            </ul>
+
+            <ul class="layui-nav layui-layout-right">
+                <li class="record-btn-container"><button class="layui-btn" id="record-query-btn">往年输入查询</button></li>
+                <li class="record-btn-container"><button class="layui-btn" id="record-establish-btn">新建记录</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-side">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <div id="forest-nav">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">土地价值</a>
+                        <dl class="layui-nav-child">
+                            <dd><a class="side-nav" href="javascript:;">基准地价修正法土地资源经济价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">征地区片价修正法土地经济价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">土地生态服务价值计算</a></dd>
+                            <dd><a class="side-nav" href="javascript:;">社会保障价值</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 顶部位置信息 -->
+        <!--<div class="position-nav">-->
+        <!--<span class="layui-breadcrumb" lay-separator="-">-->
+        <!--<a href="javascript:;">2011</a>-->
+        <!--<a href="javascript:;">中国</a>-->
+        <!--<a href="javascript:;">湖北省</a>-->
+        <!--<a href="javascript:;">武汉市</a>-->
+        <!--<a href="javascript:;">梁子湖区</a>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--生成表格-->
+        <div class="summary-sheet "></div>
+    </div>
+</div>
+
+<!--通用组件-->
+<script src="./statics/js/jquery.min.js"></script>
+<script src="./statics/js/jquery.form.js"></script>
+<script src="statics/js/layui/layui.all.js"></script>
+
+<!--index.js-->
+<script src="./statics/js/index/soil.js"></script>
+
+</body>
+</html>
