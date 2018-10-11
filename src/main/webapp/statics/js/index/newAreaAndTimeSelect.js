@@ -42,13 +42,13 @@ function areaAndTimeSelect(type){
         '                <div class="layui-input-inline">' +
         '                    <select id="yearid">' +
         '                        <option value="">请选择年份</option>' +
-        '                        <option value="2018">2011</option>' +
-        '                        <option value="2018">2012</option>' +
-        '                        <option value="2018">2013</option>' +
-        '                        <option value="2018">2014</option>' +
-        '                        <option value="2018">2015</option>' +
-        '                        <option value="2018">2016</option>' +
-        '                        <option value="2018">2017</option>' +
+        '                        <option value="2011">2011</option>' +
+        '                        <option value="2012">2012</option>' +
+        '                        <option value="2013">2013</option>' +
+        '                        <option value="2014">2014</option>' +
+        '                        <option value="2015">2015</option>' +
+        '                        <option value="2016">2016</option>' +
+        '                        <option value="2017">2017</option>' +
         '                        <option value="2018">2018</option>' +
         '                    </select>' +
         '                </div>' +
@@ -165,7 +165,7 @@ function submitAreaAndTime(isLoadRecord){
     if(province == '请选择省/直辖市' || year == ''){
         alert("请选择有效地区及年份");
     } else{
-        var province_city_area = province + ' ' + city + ' ' + area;
+        var province_city_area = province + city + area;
         if(isLoadRecord){
             formDataLoad(year, province_city_area, 'forest');
         } else {
@@ -190,19 +190,20 @@ function formDataLoad(year, position, type) {
         url: "calc/total",
         data: request_data,
         dataType: "json",
-        timeout:100,
+        timeout:2000,
         type:'POST',
         beforeSend: function (){
             alert("before");
         },
-        timeout:function () {
-          alert("timeout");
-        },
+        // timeout:function () {
+        //   alert("timeout");
+        // },
         success: function (data) {
             //todo 加入返回值为空的判断
             alert("after");
-            showData(data);
-            summarySheetDataLoad(data);
+            alert(data);
+            //showData(data);
+            //summarySheetDataLoad(data);
         },
         error: function () {
             alert("error");
@@ -276,7 +277,7 @@ function summarySheetDataLoad(year, position, type) {
 }
 
 /**
- * 将计算结果展示到网页上
+ * 将计算结果展示到网页上，表单和总表通用
  * @param $form 一个form
  * @Param responseText 一个form对应的数据
  */

@@ -275,6 +275,7 @@ public class CalcController {
     @ResponseBody
     @RequestMapping("/total")
     public String getTotal(String year,String position,String type){
+        System.out.println(year + position + type);
         List<Calc> calcs=new ArrayList<>();
         String tableType=year+position+type;
         calcs.add( a1Mapper.select(tableType));
@@ -297,5 +298,6 @@ public class CalcController {
         calcs.add( k1Mapper.select(tableType));
 
         return gson.toJson(calcs);
+//        return gson.toJson(new A1());
     }
 }

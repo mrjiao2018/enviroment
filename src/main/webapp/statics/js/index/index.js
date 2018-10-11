@@ -394,7 +394,7 @@ layui.use('element', function () {
 	        var resultDiv = $("<div class='layui-form-item'></div>");
 	        var resultInputLable = $("<label class='layui-form-label'>"+ formInfo.output_lable[i] +"</label>");
 	        var reslutInputInlineDiv = $("<div class='layui-input-inline'></div>");
-	        var resultInput = $("<input id='result' type='text'  disabled='disabled' placeholder='(计算结果)' class='layui-input'/>");
+	        var resultInput = $("<input id='result' type='text'  disabled='disabled' placeholder='(计算结果)' class='layui-input " + formInfo.output_name[i] + "'/>");
 	        var resultUnit = $("<div class='layui-form-mid layui-word-aux'>"+ formInfo.output_lable_unit[i] +"</div>")
 	        resultDiv.append(resultInputLable);
 	        resultDiv.append(reslutInputInlineDiv);
@@ -451,7 +451,7 @@ layui.use('element', function () {
 
 
     /**
-     * 根据formInfo创建表单
+     * 根据formInfo创建表单，表格类型表单
      * @param formInfo
      *
      * 每个元素后面的数字表示相对于layui-body所在的层次，0层表示同层次，1表示为其子元素，以此类推
@@ -604,17 +604,10 @@ layui.use('element', function () {
             type: "post",
             dataType: "json",
             beforeSubmit: function (formData, jqForm) {
-                for(var i = 0; i < formData.length; ++i) {
-                    console.log(formData[i].name);
-                    console.log(formData[i].value);
-                }
+
             },
             success: function (responseText) {
-                for(var i = 0; i < responseText.length; ++i) {
-                    console.log(responseText[i].name);
-                    console.log(responseText[i].value);
-                    showResult($form, responseText);
-                }
+                showResult($form, responseText);
             }
         };
         $form.ajaxForm(options);
