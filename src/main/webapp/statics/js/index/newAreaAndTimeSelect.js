@@ -53,7 +53,7 @@ function areaAndTimeSelect(type){
         '                    </select>' +
         '                </div>' +
         '                <div class="layui-input-inline">' +
-        '                   <button class="layui-btn" onclick="submitAreaAndTime('+isLoadRecord+')" style="width: 190px; margin-top: 20px">'+ submitBtnValue +'</button>' +
+        '                   <button type="button" class="layui-btn" onclick="submitAreaAndTime('+isLoadRecord+')" style="width: 190px; margin-top: 20px">'+ submitBtnValue +'</button>' +
         '                </div>' +
         '            </div>' +
         '        </form>' +
@@ -91,7 +91,6 @@ function areaAndTimeSelect(type){
         form.render();
         cityEvent(config);
         areaEvent(config);
-        yearEvent(config);
         form.on('select(' + config.s1 + ')', function (data) {
             cityEvent(data);
             form.on('select(' + config.s2 + ')', function (data) {
@@ -134,14 +133,6 @@ function areaAndTimeSelect(type){
             form.render();
             form.on('select(' + config.s3 + ')', function (data) { });
         }
-        function yearEvent(data){
-            $form.find('select[name=' + config.s4 + ']').html("");
-            config.v4 = data.value ? data.value : config.v4;
-
-
-            form.render();
-            form.on('select(' + config.s4 + ')', function (data) { });
-        }
 
         function appendOptionTo($o, k, v, d) {
             var $opt = $("<option>").text(k).val(v);
@@ -174,6 +165,30 @@ function submitAreaAndTime(isLoadRecord){
     }
 }
 
+
+/**
+ * 初次进入界面时，自动像服务器请求 9999年，thisIsForTest(position), thisIsForTest(type)
+ * 所对应的表，用于让用户进行数据输入计算测试
+ * @param year
+ * @param position
+ * @param type
+ */
+function applyForCalculateTest() {
+    var request_data = {
+        year: 9999,
+        position: "thisIsForTest",
+        type: "thisIsForTest"
+    };
+    var options = {
+        url: "calc/total",
+        data: request_data,
+        dataType: "json",
+        type:'POST'
+    };
+    $.ajax(options);
+}
+
+
 /**
  * 请求form中的数据
  * @param year
@@ -190,26 +205,19 @@ function formDataLoad(year, position, type) {
         url: "calc/total",
         data: request_data,
         dataType: "json",
-        timeout:2000,
+        //async:false,
         type:'POST',
         beforeSend: function (){
-            alert("before");
         },
-        // timeout:function () {
-        //   alert("timeout");
-        // },
         success: function (data) {
             //todo 加入返回值为空的判断
-            alert("after");
-            alert(data);
-            //showData(data);
-            //summarySheetDataLoad(data);
+            showData(data);
+            summarySheetDataLoad(data);
         },
         error: function () {
             alert("error");
         }
     };
-    //TODO: 这个请求被cancel掉了，由于位置原因
     $.ajax(options);
 }
 
@@ -230,7 +238,7 @@ function createNewRecord(year, position, type) {
         data: request_data,
         dataType: "json",
         success: function (data) {
-            alert(123);
+
         }
     };
     $.ajax(options);
@@ -244,7 +252,7 @@ function showData(data) {
     console.log(data);
     var $forms = $(".calculator").find(".layui-form");
     for(var k = 0; k < data.length; ++k){
-        showResult($forms.eq(k), data[k]);
+        showDataToForm($forms.eq(k), data[k]);
     }
 }
 
@@ -268,7 +276,7 @@ function summarySheetDataLoad(year, position, type) {
             console.log(data);
             var summarySheet = $(".summary-sheet").eq(0);
             //展示总表数据
-            showResult(summarySheet, data);
+            showDataToForm(summarySheet, data);
             //计算总表中的各项合计
             calculateSubtotal(data);
         }
@@ -281,7 +289,7 @@ function summarySheetDataLoad(year, position, type) {
  * @param $form 一个form
  * @Param responseText 一个form对应的数据
  */
-function showResult($form, responseText){
+function showDataToForm($form, responseText){
     for(var paramName in responseText){
         var value = responseText[paramName];
         var same = $form.find("."+paramName);
@@ -329,10 +337,7 @@ function calculateSubtotal(data){
 function newRecord(){
     var recordQueryBtn = $("#record-establish-btn");
     recordQueryBtn.click(function () {
-        layui.use('layer', function(){
-            var layer = layui.layer;
-            areaAndTimeSelect(1);
-        });
+        areaAndTimeSelect(1);
     });
 }
 
@@ -342,10 +347,7 @@ function newRecord(){
 function queryRecord(){
     var recordQueryBtn = $("#record-query-btn");
     recordQueryBtn.click(function () {
-        layui.use('layer', function(){
-            var layer = layui.layer;
-            areaAndTimeSelect(0);
-        });
+        areaAndTimeSelect(0);
     });
 }
 
@@ -353,7 +355,13 @@ function queryRecord(){
  * 启动函数
  */
 function main() {
+    //直接像服务器请求一个记录，让用户进行输入测试
+    applyForCalculateTest();
+
+    //检测用户新建记录
     newRecord();
+
+    //检测用户查询记录
     queryRecord();
 }
 
