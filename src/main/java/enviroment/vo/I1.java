@@ -6,19 +6,19 @@ import enviroment.vo.mpl.Calc;
  * Created by zhong on 2018/7/13 16:52
  */
 public class I1 implements Calc {
-    private double U;
+    private double Uz;
     private double A;
     private double B;
     private double Uf;
     private double Gf;
     private String type;
 
-    public Double getU() {
-        return U;
+    public Double getUz() {
+        return Uz;
     }
 
-    public void setU(Double u) {
-        this.U = u;
+    public void setUz(Double uz) {
+        this.Uz = uz;
     }
 
     public Double getA() {
@@ -63,7 +63,7 @@ public class I1 implements Calc {
 
     @Override
     public void cale() {
-Uf = U * A * B;
+Uf = Uz * A * B;
         Format.set2Point(this);
     }
 }

@@ -89,6 +89,22 @@ public class H2 implements Calc {
         this.type = type;
     }
 
+    public double getGz() {
+        return Gz;
+    }
+
+    public void setGz(double gz) {
+        Gz = gz;
+    }
+
+    public double getUz() {
+        return Uz;
+    }
+
+    public void setUz(double uz) {
+        Uz = uz;
+    }
+
     @Override
     public void cale() {
 Ge=Qe*A;
@@ -100,5 +116,7 @@ Ud=Gd*Kd;
 
 Gz=Ge+Gf+Gd;
 Uz=Ue+Uf+Ud;
+
+Format.set2Point(this);
     }
 }

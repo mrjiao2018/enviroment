@@ -131,10 +131,10 @@ Gn= A * B * N;
 Gp= A * B * P;
 Gk= A * B * K;
 Un=Gn* C1 / R1;
-Uk=Gk* C1 / R2;
-Up=Gp* C2 / R3;
+Uk=Gk* C2 / R3;
+Up=Gp* C1 / R2;
 Uz=Un+Uk+Up;
 
-        Format.set2Point(this);
+        Format.set4Point(this);
     }
 }

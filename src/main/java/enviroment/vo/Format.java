@@ -22,4 +22,21 @@ public class Format {
             }
         }
     }
+
+    public static void set4Point(Object object){
+        Field[] fields = object.getClass().getDeclaredFields();
+        for (int i=0;i<fields.length;i++){
+            fields[i].setAccessible(true);
+            if (fields[i].getGenericType()==double.class){
+                try {
+                    double value=fields[i].getDouble(object);
+                    BigDecimal bd = new BigDecimal(value);
+                    value= bd.setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue();
+                    fields[i].setDouble(object,value);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

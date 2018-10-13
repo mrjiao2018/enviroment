@@ -50,7 +50,7 @@ public class K1 implements Calc {
 
     @Override
     public void cale() {
-        Us = Uz *A/100;
+        Us = Uz *A;
         Format.set2Point(this);
     }
 }

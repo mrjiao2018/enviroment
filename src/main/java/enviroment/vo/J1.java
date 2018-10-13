@@ -7,17 +7,17 @@ import enviroment.vo.mpl.Calc;
  * Created by zhong on 2018/7/13 16:52
  */
 public class J1 implements Calc {
-    private double S;
+    private double Ss;
     private double A;
     private double Us;
     private String type;
 
-    public Double getS() {
-        return S;
+    public Double getSs() {
+        return Ss;
     }
 
-    public void setS(Double s) {
-        this.S = s;
+    public void setSs(Double ss) {
+        this.Ss = ss;
     }
 
     public Double getA() {
@@ -46,7 +46,7 @@ public class J1 implements Calc {
 
     @Override
     public void cale() {
-Us = S * A;
+Us = Ss * A;
         Format.set2Point(this);
     }
 }

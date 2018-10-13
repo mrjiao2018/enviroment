@@ -2,6 +2,8 @@ package enviroment.vo;
 
 import enviroment.vo.mpl.Calc;
 
+import java.math.BigDecimal;
+
 
 /**
  * Created by zhong on 2018/7/13 16:52
@@ -84,7 +86,13 @@ public class H1 implements Calc {
     public void cale() {
         Gf =5.256E15* Qf * A * H / L;
         Uf =5.256E15* A * H * Kf *(Qf -600)/ L;
-
-        Format.set2Point(this);
+        BigDecimal bd = new BigDecimal(Uf);
+        Uf= bd.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+        //Format.set2Point(this);
     }
+
+    /*private void format(){
+        BigDecimal bd = new BigDecimal(value);
+        value= bd.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+    }*/
 }

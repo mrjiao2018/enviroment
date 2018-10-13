@@ -15,7 +15,7 @@ public interface G1Mapper {
     @Select("select * from G1 where type=#{type}")
     G1 select(String type);
 
-    @Insert("insert into G1 values (#{A},#{B},#{C1},#{C2},#{R1},#{R2},#{R3},#{P},#{K},#{N},#{Gp},#{Up}#{Gn},#{Un},#{Gk},#{Uk},{Uz},#{type})" +
+    @Insert("insert into G1 values (#{A},#{B},#{C1},#{C2},#{R1},#{R2},#{R3},#{P},#{K},#{N},#{Gp},#{Up},#{Gn},#{Un},#{Gk},#{Uk},#{Uz},#{type})" +
             " ON DUPLICATE KEY UPDATE " +
             "A=#{A},B=#{B},C1=#{C1},C2=#{C2},R1=#{R1},R2=#{R2},R3=#{R3},P=#{P},K=#{K},N=#{N},Gp=#{Gp},Up=#{Up},Gn=#{Gn},Un=#{Un},Gk=#{Gk},Uk=#{Uk},Uz=#{Uz}")
     int insert(G1 g1);

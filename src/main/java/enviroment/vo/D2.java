@@ -67,8 +67,8 @@ public class D2 implements Calc {
 
     @Override
     public void cale() {
-        Gt =10* A *(P - C - C);
-        Us=10* Ck * A *(P - C - C);
+        Gt =10* A *(P - E - C);
+        Us=10* Ck * A *(P - E - C);
 
         Format.set2Point(this);
     }

@@ -44,6 +44,18 @@ public class H3 implements Calc {
         this.type = type;
     }
 
+    public void setAz(double az) {
+        Az = az;
+    }
+
+    public void setKz(double kz) {
+        Kz = kz;
+    }
+
+    public void setUz(double uz) {
+        Uz = uz;
+    }
+
     @Override
     public void cale() {
 Uz = Kz * Az;
