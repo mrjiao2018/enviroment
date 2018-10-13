@@ -607,7 +607,7 @@ layui.use('element', function () {
 
             },
             success: function (responseText) {
-                showResult($form, responseText);
+                showDataToForm($form, responseText);
             }
         };
         $form.ajaxForm(options);

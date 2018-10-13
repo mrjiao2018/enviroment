@@ -13,10 +13,15 @@ function areaAndTimeSelect(type){
         isLoadRecord = false;
     }
     layer.open({
+        layer: this,
         title:"请输入时间与地区",
         type: 1,
         area: '300px',
         offset: '100px',
+        btnAlign: 'c',
+        yes: function (index, layero) {
+            layer.close(index);
+        },
         content: '<div style="width:200px;margin:20px auto;">' +
         '        <form class="layui-form area-time-select">' +
         '            <div class="layui-form-item">' +
@@ -53,7 +58,7 @@ function areaAndTimeSelect(type){
         '                    </select>' +
         '                </div>' +
         '                <div class="layui-input-inline">' +
-        '                   <button type="button" class="layui-btn" onclick="submitAreaAndTime('+isLoadRecord+')" style="width: 190px; margin-top: 20px">'+ submitBtnValue +'</button>' +
+        '                   <button type="button" class="layui-btn" onclick="submitAreaAndTime(layer,'+isLoadRecord+')" style="width: 190px; margin-top: 20px">'+ submitBtnValue +'</button>' +
         '                </div>' +
         '            </div>' +
         '        </form>' +
@@ -147,7 +152,7 @@ function areaAndTimeSelect(type){
  * 功能：提交用户选定的地区与时间数据
  * @param: {boolean}isLoadRecord 是否为查询以往输入记录而提交数据，若是，则还需要将数据加载到界面上，否则不需要加载
  */
-function submitAreaAndTime(isLoadRecord){
+function submitAreaAndTime(layer, isLoadRecord){
     var province = $("#provid").find("option:selected").text();
     var city = $("#cityid").find("option:selected").text();
     var area = $("#areaid").find("option:selected").text();
@@ -162,6 +167,7 @@ function submitAreaAndTime(isLoadRecord){
         } else {
             createNewRecord(year, province_city_area, 'forest');
         }
+        layer.close(layer.index);   //关闭弹窗
     }
 }
 
@@ -238,7 +244,8 @@ function createNewRecord(year, position, type) {
         data: request_data,
         dataType: "json",
         success: function (data) {
-
+            //请求成功后刷新界面
+            //location.reload(true);
         }
     };
     $.ajax(options);
