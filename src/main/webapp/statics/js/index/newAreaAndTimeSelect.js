@@ -186,7 +186,7 @@ function applyForCalculateTest() {
         type: "thisIsForTest"
     };
     var options = {
-        url: "calc/total",
+        url: "calc/type",
         data: request_data,
         dataType: "json",
         type:'POST'

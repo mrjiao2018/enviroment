@@ -275,10 +275,10 @@ public class CalcController {
 
     @ResponseBody
     @RequestMapping("/total")
-    public String getTotal(String year,String position,String type){
-        System.out.println(year + position + type);
+    public String getTotal(Type type){
+        this.type=type.toString();
         List<Calc> calcs=new ArrayList<>();
-        String tableType=year+position+type;
+        String tableType=this.type;
         calcs.add( a1Mapper.select(tableType));
         calcs.add( b1Mapper.select(tableType));
         calcs.add( b2Mapper.select(tableType));
