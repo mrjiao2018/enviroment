@@ -219,9 +219,9 @@ function formDataLoad(year, province, city, area, type) {
         },
         success: function (data) {
             //todo 加入返回值为空的判断
-            appendYearAndAreaInformationToBody(year, province, city, area)
+            appendYearAndAreaInformationToBody(year, province, city, area);
             showData(data);
-            summarySheetDataLoad(data);
+            summarySheetDataLoad(year, province, city, area, type);
         },
         error: function () {
             alert("error");
@@ -294,13 +294,15 @@ function appendYearAndAreaInformationToBody(year, province, city, area) {
 /**
  * 请求总表数据
  * @param year
- * @param position
+ * @param province
+ * @param city
+ * @param area
  * @param type
  */
-function summarySheetDataLoad(year, position, type) {
+function summarySheetDataLoad(year, province, city, area, type) {
     var request_data = {
         year: year,
-        position: position,
+        position: province + city + area,
         type: type
     };
     var options = {
