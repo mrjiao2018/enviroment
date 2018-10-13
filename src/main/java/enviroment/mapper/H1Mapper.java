@@ -15,7 +15,7 @@ public interface H1Mapper {
     @Select("select * from H1 where type=#{type}")
     H1 select(String type);
 
-    @Insert("insert into H1 values (#{A},#{H},#{Kf},#{Qf},#{L},#{type},#{Gf},#{Uf}) ON DUPLICATE KEY UPDATE " +
+    @Insert("insert into H1 values (#{A},#{H},#{Kf},#{Qf},#{L},#{Gf},#{Uf},#{type}) ON DUPLICATE KEY UPDATE " +
             "A=#{A},H=#{H},Kf=#{Kf},Qf=#{Qf},L=#{L},Gf=#{Gf},Uf=#{Uf}")
     int insert(H1 f2);
 

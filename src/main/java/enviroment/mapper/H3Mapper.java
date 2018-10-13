@@ -15,7 +15,7 @@ public interface H3Mapper {
     @Select("select * from H3 where type=#{type}")
     H3 select(String type);
 
-    @Insert("insert into H3 values (#{Qf},#{type},#{Kz},#{Uz}) ON DUPLICATE KEY UPDATE " +
+    @Insert("insert into H3 values (#{Qf},#{Kz},#{Uz},#{type}) ON DUPLICATE KEY UPDATE " +
             "Qf=#{Qf},Kz=#{Kz},Uz=#{Uz}")
     int insert(H3 f2);
 

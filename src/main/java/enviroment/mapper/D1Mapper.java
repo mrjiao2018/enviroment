@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface D1Mapper {
-    @Insert("insert into D1 values (#{A},#{P},#{E},#{C},#{Ck},#{type},#{Gt},#{Ut}) ON DUPLICATE KEY UPDATE " +
+    @Insert("insert into D1 values (#{A},#{P},#{E},#{C},#{Ck},#{Gt},#{Ut},#{type}) ON DUPLICATE KEY UPDATE " +
             "A=#{A},P=#{P},E=#{E},C=#{C},Ck=#{Ck},Gt=#{Gt},Ut=#{Ut}")
     int insert(D1 d1);
 

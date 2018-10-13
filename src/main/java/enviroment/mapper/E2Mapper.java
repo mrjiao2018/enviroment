@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface E2Mapper {
 
-    @Insert("insert into E2 values (#{A},#{X1},#{X2},#{C1},#{C2},#{C3},#{R1},#{R2},#{R3},#{M},#{P},#{K},#{N},#{type},#{Gf},#{Uf}) ON DUPLICATE KEY UPDATE " +
-            "A=#{A},X1=#{X1},X2=#{X2},C1=#{C1},C2=#{C2},C3=#{C3},R1=#{R1},R2=#{R2},R3=#{R3}" +
+    @Insert("insert into E2 values (#{A},#{X1},#{X2},#{C1},#{C2},#{C3},#{R1},#{R2},#{R3},#{M},#{P},#{K},#{N},#{Gf},#{Uf},#{type}) ON DUPLICATE KEY UPDATE " +
+            "A=#{A},X1=#{X1},X2=#{X2},C1=#{C1},C2=#{C2},C3=#{C3},R1=#{R1},R2=#{R2},R3=#{R3}," +
             "M=#{M},P=#{P},K=#{K},N=#{N},Gf=#{Gf},Uf=#{Uf}")
     int insert(E2 e2);
 

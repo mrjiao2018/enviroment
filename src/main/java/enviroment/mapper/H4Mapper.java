@@ -15,7 +15,7 @@ public interface H4Mapper {
     @Select("select * from H4 where type=#{type}")
     H4 select(String type);
 
-    @Insert("insert into H4 values (#{Kz},#{Qz},#{A},#{type},#{Gz},#{Uz}) ON DUPLICATE KEY UPDATE " +
+    @Insert("insert into H4 values (#{Kz},#{Qz},#{A},#{Gz},#{Uz},#{type}) ON DUPLICATE KEY UPDATE " +
             "Kz=#{Kz},Qz=#{Qz},A=#{A},Gz=#{Gz},Uz=#{Uz}")
     int insert(H4 f2);
 

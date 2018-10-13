@@ -15,8 +15,8 @@ public interface H2Mapper {
     @Select("select * from H2 where type=#{type}")
     H2 select(String type);
 
-    @Insert("insert into H2 values (#{A},#{Ke},#{Qe},#{Kd},#{Qd},#{Kf},#{Qf},#{type},#{Ge},#{Ue},#{Gf},#{Uf}" +
-            ",#{Gd},#{Ud},#{Gz},#{Uz}) ON DUPLICATE KEY UPDATE " +
+    @Insert("insert into H2 values (#{A},#{Ke},#{Qe},#{Kd},#{Qd},#{Kf},#{Qf},#{Ge},#{Ue},#{Gf},#{Uf}" +
+            ",#{Gd},#{Ud},#{Gz},#{Uz},#{type}) ON DUPLICATE KEY UPDATE " +
             "A=#{A},Ke=#{Ke},Qe=#{Qe},Kd=#{Kd},Qd=#{Qd},Kf=#{Kf},Qf=#{Qf},Ge=#{Ge},Ue=#{Ue},Gf=#{Gf},Uf=#{Uf}" +
             ",Gd=#{Gd},Ud=#{Ud},Gz=#{Gz},Uz=#{Uz}")
     int insert(H2 f2);
