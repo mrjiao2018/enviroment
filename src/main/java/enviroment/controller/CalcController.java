@@ -84,11 +84,12 @@ public class CalcController {
     @RequestMapping("/type")
     public String submit(Type type){
         this.type=type.toString();
+        System.out.println(this.type);
         if (typeMapper.select(type)==null){
             totalMappere.insert(type.toString());
             typeMapper.insert(type);
         }
-        return "{\"name\":123}";
+        return this.type;
     }
 
     @ResponseBody
