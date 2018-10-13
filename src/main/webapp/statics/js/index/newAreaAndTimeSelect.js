@@ -161,11 +161,11 @@ function submitAreaAndTime(layer, isLoadRecord){
     if(province == '请选择省/直辖市' || year == ''){
         alert("请选择有效地区及年份");
     } else{
-        var province_city_area = province + city + area;
+        //var province_city_area = province + city + area;
         if(isLoadRecord){
-            formDataLoad(year, province_city_area, 'forest');
+            formDataLoad(year, province, city, area, 'forest');
         } else {
-            createNewRecord(year, province_city_area, 'forest');
+            createNewRecord(year,  province, city, area, 'forest');
         }
         layer.close(layer.index);   //关闭弹窗
     }
@@ -198,13 +198,15 @@ function applyForCalculateTest() {
 /**
  * 请求form中的数据
  * @param year
- * @param position
+ * @param province
+ * @param city
+ * @param area
  * @param type
  */
-function formDataLoad(year, position, type) {
+function formDataLoad(year, province, city, area, type) {
     var request_data = {
         year: year,
-        position: position,
+        position: province + city + area,
         type: type
     };
     var options = {
@@ -217,6 +219,7 @@ function formDataLoad(year, position, type) {
         },
         success: function (data) {
             //todo 加入返回值为空的判断
+            appendYearAndAreaInformationToBody(year, province, city, area)
             showData(data);
             summarySheetDataLoad(data);
         },
@@ -230,20 +233,24 @@ function formDataLoad(year, position, type) {
 /**
  * 新建记录
  * @param year
- * @param position
+ * @param province
+ * @param city
+ * @param area
  * @param type
  */
-function createNewRecord(year, position, type) {
+function createNewRecord(year, province, city, area, type) {
     var request_data = {
         year: year,
-        position: position,
+        position: province + city + area,
         type: type
     };
     var options = {
         url: "calc/type",
         data: request_data,
-        dataType: "json",
-        success: function (data) {
+        success: function () {
+            alert("创建成功");
+            //请求成功后给用户提示
+            appendYearAndAreaInformationToBody(year, province, city, area);
             //请求成功后刷新界面
             //location.reload(true);
         }
@@ -261,6 +268,27 @@ function showData(data) {
     for(var k = 0; k < data.length; ++k){
         showDataToForm($forms.eq(k), data[k]);
     }
+}
+
+/**
+ * 用户在新建记录或者查询记录成功时，在界面顶部展示当前记录的时间和位置信息
+ * @param year
+ * @param province
+ * @param city
+ * @param area
+ */
+function appendYearAndAreaInformationToBody(year, province, city, area) {
+    $(".position-nav").remove();
+    var yearAndAreaInformation = $(
+        "        <div class=\"position-nav\">" +
+        "            <span class=\"layui-breadcrumb\" style='visibility: visible'>" +
+        "              <a href=\"javascript:;\">"+year+"</a><span> &nbsp;&nbsp;-&nbsp;&nbsp; </span>" +
+        "              <a href=\"javascript:;\">"+province+"</a><span> &nbsp;&nbsp;-&nbsp;&nbsp; </span>" +
+        "              <a href=\"javascript:;\">"+city+"</a><span> &nbsp;&nbsp;-&nbsp;&nbsp; </span>" +
+        "              <a href=\"javascript:;\">"+area+"</a>" +
+        "            </span>" +
+        "        </div>");
+    $(".layui-body").prepend(yearAndAreaInformation);
 }
 
 /**

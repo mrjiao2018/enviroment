@@ -1871,11 +1871,11 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-breadcrumb>* {
-    font-size: 14px
+    font-size: 18px
 }
 
 .layui-breadcrumb a {
-    color:white;
+    color:black;
 }
 
 .layui-breadcrumb a:hover {
