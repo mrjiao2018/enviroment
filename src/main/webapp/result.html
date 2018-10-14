@@ -1,292 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="statics/css/layui.css">
-    <link rel="stylesheet" href="statics/css/index/index.css">
-    <link rel="stylesheet" href="statics/css/common/common.css">
-    <link rel="stylesheet" href="statics/css/result/result.css">
-    <link rel="stylesheet" href="statics/css/index/test.css" />
-    <style type="text/css">
-        body{
-            background: url("statics/img/background/t4.jpg");
-            background-size: cover;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-main">
-            <div class="layui-logo">自然资源资产价值计算</div>
-            <!-- 头部区域（可配合layui已有的水平导航） -->
-            <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item"><a href="">土地</a></li>
-                <li class="layui-nav-item"><a href="">矿产</a></li>
-                <li class="layui-nav-item"><a href="">森林</a></li>
-                <li class="layui-nav-item"><a href="">水</a></li>
-                <li class="layui-nav-item"><a href="">生物</a></li>
-                <li class="layui-nav-item layui-this"><a href="resultOverview.html">往年结果查询</a></li>
-            </ul>
 
-            <ul class="layui-nav layui-layout-right">
-                <li class="record-btn-container"><button class="layui-btn" id="record-query-btn">往年输入查询</button></li>
-                <li class="record-btn-container"><button class="layui-btn" id="record-establish-btn">新建记录</button></li>
-            </ul>
-        </div>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="statics/css/layui.css">
+		<link rel="stylesheet" href="statics/css/index/index.css">
+		<link rel="stylesheet" href="statics/css/common/common.css">
+		<link rel="stylesheet" href="statics/css/result/result.css">
+		<!--<link rel="stylesheet" href="statics/css/index/test.css" />-->
+		<style type="text/css">
+			body {
+				background: url("statics/img/background/t4.jpg");
+				background-size: cover;
+				height: 100%;
+			}
+		</style>
+	</head>
 
-    <div>
-        <!-- 顶部位置信息 -->
-        <!--<div class="position-nav">-->
-        <!--<span class="layui-breadcrumb" lay-separator="-">-->
-        <!--<a href="javascript:;">2011</a>-->
-        <!--<a href="javascript:;">中国</a>-->
-        <!--<a href="javascript:;">湖北省</a>-->
-        <!--<a href="javascript:;">武汉市</a>-->
-        <!--<a href="javascript:;">梁子湖区</a>-->
-        <!--</span>-->
-        <!--</div>-->
+	<body>
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-main">
+					<div class="layui-logo">自然资源资产价值计算</div>
+					<!-- 头部区域（可配合layui已有的水平导航） -->
+					<ul class="layui-nav layui-layout-left">
+						<li class="layui-nav-item">
+							<a href="">土地</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="">矿产</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="">森林</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="">水</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="">生物</a>
+						</li>
+						<li class="layui-nav-item layui-this">
+							<a href="resultOverview.html">往年结果查询</a>
+						</li>
+					</ul>
 
+					<ul class="layui-nav layui-layout-right">
+						<li class="record-btn-container"><button class="layui-btn" id="record-query-btn">往年输入查询</button></li>
+						<li class="record-btn-container"><button class="layui-btn" id="record-establish-btn">新建记录</button></li>
+					</ul>
+				</div>
+			</div>
 
-        <!--生成表格-->
-        <div class="summary-sheet ">
-            <div class="site-title">
-                <fieldset>
-                    <legend><a name="use">2015 湖北省 武汉市 梁子湖区 地区自然资源量化价值表</a></legend>
-                </fieldset>
-            </div>
-            <div class="site-text">
-                <table class="layui-table result-table">
-                    <colgroup>
-                        <col width="200">
-                        <col width="150">
-                        <col width="150">
-                        <col width="150">
-                        <col width="100">
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th>类别</sup></th>
-                        <th colspan="2">内容</sup></th>
-                        <th>实物量</sup></th>
-                        <th>单位</sup></th>
-                        <th>价值量(万元/a)</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td rowspan="5">林地、林木、林 产品价值</td>
-                        <td>林地</td>
-                        <td>—</td>
-                        <td class="A1D1"></td>
-                        <td>hm<sup>2</sup></td>
-                        <td>—</td>
-                    </tr>
-                    <tr>
-                        <td>林木</td>
-                        <td>直接价值</td>
-                        <td class="B1M"></td>
-                        <td>m<sup>3</sup></td>
-                        <td class="B1Le"></td>
-                    </tr>
-                    <tr>
-                        <td>林木</td>
-                        <td>流量价值</td>
-                        <td class="B2A"></td>
-                        <td>m<sup>3</sup></td>
-                        <td class="B2C"></td>
-                    </tr>
-                    <tr>
-                        <td>林产品</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="C1D1"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_A1B1B2C1"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="21">森林生态服务价值</td>
-                        <td rowspan="3">涵养水源</td>
-                        <td>调节水量</td>
-                        <td class="D1Ct"></td>
-                        <td>m<sup>3</sup>/a</td>
-                        <td class="D1Ut"></td>
-                    </tr>
-                    <tr>
-                        <td>净化水质</td>
-                        <td class="D2Ct"></td>
-                        <td>m<sup>3</sup>/a</td>
-                        <td class="D2Us"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_D1D2"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">保育土壤</td>
-                        <td>固土</td>
-                        <td class="E1Gt"></td>
-                        <td>t/a</td>
-                        <td class="E1Ut"></td>
-                    </tr>
-                    <tr>
-                        <td>保肥</td>
-                        <td class="E2Gf"></td>
-                        <td>t/a</td>
-                        <td class="E2Uf"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_E1E2"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">固碳释氧</td>
-                        <td>固碳</td>
-                        <td class="F1Gt"></td>
-                        <td>t/a</td>
-                        <td class="F1Ut"></td>
-                    </tr>
-                    <tr>
-                        <td>释氧</td>
-                        <td class="F2Gy"></td>
-                        <td>t/a</td>
-                        <td class="F2Uy"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_F1F2"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="4">积累营养物质</td>
-                        <td>林木固氮</td>
-                        <td class="G1Gn"></td>
-                        <td>t/a</td>
-                        <td class="G1Un"></td>
-                    </tr>
-                    <tr>
-                        <td>林木固磷</td>
-                        <td class="G1Gp"></td>
-                        <td>t/a</td>
-                        <td class="G1Up"></td>
-                    </tr>
-                    <tr>
-                        <td>林木固钾</td>
-                        <td class="G1Gk"></td>
-                        <td>t/a</td>
-                        <td class="G1Uk"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_G1"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="5">净化大气环境</td>
-                        <td>提供负离子</td>
-                        <td class="H1Gf"></td>
-                        <td>个/a</td>
-                        <td class="H1Uf"></td>
-                    </tr>
-                    <tr>
-                        <td>吸收污染物</td>
-                        <td class="H2Gz"></td>
-                        <td>kg/a</td>
-                        <td class="H2Uz"></td>
-                    </tr>
-                    <tr>
-                        <td>降低噪音</td>
-                        <td class="H3Gz"></td>
-                        <td>km</td>
-                        <td class="H3Uz"></td>
-                    </tr>
-                    <tr>
-                        <td>滞尘</td>
-                        <td class="H4Gz"></td>
-                        <td>kg/a</td>
-                        <td class="H4Uz"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_H1H2H3H4"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">森林防护</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="I1Uf"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">生物多样性保护</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="J1Us"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_DEFGHIJ"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">森林社会服务价值</td>
-                        <td>森林游憩</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="K1Us"></td>
-                    </tr>
-                    <tr>
-                        <td>小计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="K1Us"></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">合计</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td id="subtotal_for_all"></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="button-container">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">存储表格</button>
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">打印表格</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+			<div>
+				<!-- 顶部位置信息 -->
+				<!--<div class="position-nav">-->
+				<!--<span class="layui-breadcrumb" lay-separator="-">-->
+				<!--<a href="javascript:;">2011</a>-->
+				<!--<a href="javascript:;">中国</a>-->
+				<!--<a href="javascript:;">湖北省</a>-->
+				<!--<a href="javascript:;">武汉市</a>-->
+				<!--<a href="javascript:;">梁子湖区</a>-->
+				<!--</span>-->
+				<!--</div>-->
 
-<!--通用组件-->
-<script src="./statics/js/jquery.min.js"></script>
-<script src="./statics/js/jquery.form.js"></script>
-<script src="statics/js/layui/layui.all.js"></script>
+				<!--生成表格-->
+				<div class="summary-sheet ">
+					<div class="site-title">
+						<fieldset>
+							<legend>
+								<a name="use">2015 湖北省 武汉市 梁子湖区 地区自然资源量化价值表</a>
+							</legend>
+						</fieldset>
+					</div>
+					<div class="site-text">
+						<div id="summaryTableContainer_result">
+							<table class="layui-table result-table" id="summaryTable_result">
+								<colgroup>
+									<col width="200">
+									<col width="150">
+									<col width="150">
+									<col width="150">
+									<col width="100">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>类别</sup>
+										</th>
+										<th colspan="2">内容</sup>
+										</th>
+										<th>实物量</sup>
+										</th>
+										<th>单位</sup>
+										</th>
+										<th>价值量(万元/a)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="5">林地、林木、林 产品价值</td>
+										<td>林地</td>
+										<td>—</td>
+										<td class="A1D1"></td>
+										<td>hm<sup>2</sup></td>
+										<td>—</td>
+									</tr>
+									<tr>
+										<td>林木</td>
+										<td>直接价值</td>
+										<td class="B1M"></td>
+										<td>m<sup>3</sup></td>
+										<td class="B1Le"></td>
+									</tr>
+									<tr>
+										<td>林木</td>
+										<td>流量价值</td>
+										<td class="B2A"></td>
+										<td>m<sup>3</sup></td>
+										<td class="B2C"></td>
+									</tr>
+									<tr>
+										<td>林产品</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td class="C1D1"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_A1B1B2C1"></td>
+									</tr>
+									<tr>
+										<td rowspan="21">森林生态服务价值</td>
+										<td rowspan="3">涵养水源</td>
+										<td>调节水量</td>
+										<td class="D1Ct"></td>
+										<td>m<sup>3</sup>/a</td>
+										<td class="D1Ut"></td>
+									</tr>
+									<tr>
+										<td>净化水质</td>
+										<td class="D2Ct"></td>
+										<td>m<sup>3</sup>/a</td>
+										<td class="D2Us"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_D1D2"></td>
+									</tr>
+									<tr>
+										<td rowspan="3">保育土壤</td>
+										<td>固土</td>
+										<td class="E1Gt"></td>
+										<td>t/a</td>
+										<td class="E1Ut"></td>
+									</tr>
+									<tr>
+										<td>保肥</td>
+										<td class="E2Gf"></td>
+										<td>t/a</td>
+										<td class="E2Uf"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_E1E2"></td>
+									</tr>
+									<tr>
+										<td rowspan="3">固碳释氧</td>
+										<td>固碳</td>
+										<td class="F1Gt"></td>
+										<td>t/a</td>
+										<td class="F1Ut"></td>
+									</tr>
+									<tr>
+										<td>释氧</td>
+										<td class="F2Gy"></td>
+										<td>t/a</td>
+										<td class="F2Uy"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_F1F2"></td>
+									</tr>
+									<tr>
+										<td rowspan="4">积累营养物质</td>
+										<td>林木固氮</td>
+										<td class="G1Gn"></td>
+										<td>t/a</td>
+										<td class="G1Un"></td>
+									</tr>
+									<tr>
+										<td>林木固磷</td>
+										<td class="G1Gp"></td>
+										<td>t/a</td>
+										<td class="G1Up"></td>
+									</tr>
+									<tr>
+										<td>林木固钾</td>
+										<td class="G1Gk"></td>
+										<td>t/a</td>
+										<td class="G1Uk"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_G1"></td>
+									</tr>
+									<tr>
+										<td rowspan="5">净化大气环境</td>
+										<td>提供负离子</td>
+										<td class="H1Gf"></td>
+										<td>个/a</td>
+										<td class="H1Uf"></td>
+									</tr>
+									<tr>
+										<td>吸收污染物</td>
+										<td class="H2Gz"></td>
+										<td>kg/a</td>
+										<td class="H2Uz"></td>
+									</tr>
+									<tr>
+										<td>降低噪音</td>
+										<td class="H3Gz"></td>
+										<td>km</td>
+										<td class="H3Uz"></td>
+									</tr>
+									<tr>
+										<td>滞尘</td>
+										<td class="H4Gz"></td>
+										<td>kg/a</td>
+										<td class="H4Uz"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_H1H2H3H4"></td>
+									</tr>
+									<tr>
+										<td rowspan="1">森林防护</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td class="I1Uf"></td>
+									</tr>
+									<tr>
+										<td rowspan="1">生物多样性保护</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td class="J1Us"></td>
+									</tr>
+									<tr>
+										<td rowspan="1">小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_DEFGHIJ"></td>
+									</tr>
+									<tr>
+										<td rowspan="2">森林社会服务价值</td>
+										<td>森林游憩</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td class="K1Us"></td>
+									</tr>
+									<tr>
+										<td>小计</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td class="K1Us"></td>
+									</tr>
+									<tr>
+										<td rowspan="1">合计</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td>—</td>
+										<td id="subtotal_for_all"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="button-container">
+							<button id="saveBtn_result" class="layui-btn" lay-submit lay-filter="formDemo">存储表格</button>
+							<button id="printBtn_result" class="layui-btn" lay-submit lay-filter="formDemo">打印表格</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<!--通用组件-->
+		<script src="./statics/js/jquery.min.js"></script>
+		<script src="./statics/js/jquery.form.js"></script>
+		<script src="statics/js/layui/layui.all.js"></script>
 
-</body>
+	</body>
+
 </html>

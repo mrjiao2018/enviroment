@@ -12,3 +12,62 @@
     max-width: 1000px;
     margin: 0 auto;
 }
+
+/*小窗毛玻璃效果*/
+#summaryTableContainer_result{
+	width: 1000px;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
+    background: hsla(0,0%,100%,.25) border-box;
+    overflow: hidden;
+    border-radius: .5em;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+                0 .5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+
+/*使用滤镜模糊边缘*/
+#summaryTableContainer_result::before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: -30px;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+}
+
+/*表格样式微调 */
+#summaryTable_result{
+	border-radius: 5px;
+}
+#summaryTable_result thead{
+	background-color: rgba(	60,179,113, 0.2);;
+}
+
+#summaryTable_result tbody{
+	background-color: rgba(240,255,240, 0);
+}
+
+/*按钮样式*/
+#saveBtn_result, #printBtn_result {
+  background: #E2E2E2;
+  background-image: -webkit-linear-gradient(top, #E2E2E2, #228B22);
+  background-image: -moz-linear-gradient(top, #E2E2E2, #228B22);
+  background-image: -ms-linear-gradient(top, #E2E2E2, #228B22);
+  background-image: -o-linear-gradient(top, #E2E2E2, #228B22);
+  background-image: linear-gradient(to bottom, #E2E2E2, #228B22);
+  border-radius: 10px;
+  text-shadow: 0px 1px 0px #228B22;
+  -webkit-box-shadow: 0px 0px 0px 2px #228B22;
+  -moz-box-shadow: 0px 0px 0px 2px #228B22;
+  box-shadow: 0px 0px 0px 2px #228B22;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#saveBtn_result:active, #printBtn_result:active {
+  /*color: #ffffff;*/
+  background: #228B22;
+}
