@@ -219,7 +219,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         h2Mapper.insert(a1);
-        //
+        h2Mapper.update(a1.getGz(),a1.getUz(),type);
         return gson.toJson(a1);
     }
 
@@ -249,7 +249,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         i1Mapper.insert(a1);
-        a1Mapper.update(a1.getUf(),type);
+        i1Mapper.update(a1.getUf(),type);
         return gson.toJson(a1);
     }
 
