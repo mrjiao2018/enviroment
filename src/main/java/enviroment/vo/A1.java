@@ -27,7 +27,9 @@ public class A1 implements Calc{
     private double A8;
     private double B8;
     private double C8;
-
+    private double A9;
+    private double B9;
+    private double C9;
     private double D1;
     private double D2;
 
@@ -44,9 +46,10 @@ public class A1 implements Calc{
         C6=A6*B6;
         C7=A7*B7;
         C8=A8*B8;
+        C9=A9*B9;
 
-        D1=B1+B2+B3+B4+B5+B6+B7+B8;
-        D2=C1+C2+C3+C4+C5+C6+C7+C8;
+        D1=B1+B2+B3+B4+B5+B6+B7+B8+B9;
+        D2=C1+C2+C3+C4+C5+C6+C7+C8+C9;
 
         Format.set2Point(this);
     }
@@ -265,5 +268,29 @@ public class A1 implements Calc{
 
     public void setC8(double c8) {
         C8 = c8;
+    }
+
+    public double getA9() {
+        return A9;
+    }
+
+    public void setA9(double a9) {
+        A9 = a9;
+    }
+
+    public double getB9() {
+        return B9;
+    }
+
+    public void setB9(double b9) {
+        B9 = b9;
+    }
+
+    public double getC9() {
+        return C9;
+    }
+
+    public void setC9(double c9) {
+        C9 = c9;
     }
 }
