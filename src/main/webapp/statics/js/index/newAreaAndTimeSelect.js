@@ -328,7 +328,7 @@ function summarySheetDataLoad(year, province, city, area, type) {
  */
 function showDataToForm($form, responseText){
     for(var paramName in responseText){
-        var value = parseFloat(responseText[paramName]).toFixed(2); //为了取2小数位
+        var value = responseText[paramName];
         var same = $form.find("."+paramName);
         for(var j = 0; j < same.length; ++j){
             same.eq(j).text(value);
