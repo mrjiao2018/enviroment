@@ -10,9 +10,9 @@ public class Total {
     private double B2A;
     private double B2C;
     private double C1D1;
-    private double D1Ct;
+    private double D1Gt;
     private double D1Ut;
-    private double D2Ct;
+    private double D2Gt;
     private double D2Us;
     private double E1Gt;
     private double E1Ut;
@@ -105,12 +105,12 @@ public class Total {
         this.C1D1 = c1D1;
     }
 
-    public Double getD1Ct() {
-        return D1Ct;
+    public Double getD1Gt() {
+        return D1Gt;
     }
 
-    public void setD1Ct(Double d1Ct) {
-        this.D1Ct = d1Ct;
+    public void setD1Gt(Double d1Gt) {
+        this.D1Gt = d1Gt;
     }
 
     public Double getD1Ut() {
@@ -121,12 +121,12 @@ public class Total {
         this.D1Ut = d1Ut;
     }
 
-    public Double getD2Ct() {
-        return D2Ct;
+    public Double getD2Gt() {
+        return D2Gt;
     }
 
-    public void setD2Ct(Double d2Ct) {
-        this.D2Ct = d2Ct;
+    public void setD2Gt(Double d2Gt) {
+        this.D2Gt = d2Gt;
     }
 
     public Double getD2Us() {
