@@ -199,7 +199,7 @@ public class CalcController {
         a1.cale();
         a1.setType(type);
         g1Mapper.insert(a1);
-
+        g1Mapper.update(a1.getGk(),a1.getGn(),a1.getGp(),a1.getUk(),a1.getUn(),a1.getUp(),type);
         return gson.toJson(a1);
     }
 

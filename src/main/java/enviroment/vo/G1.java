@@ -125,6 +125,54 @@ public class G1 implements Calc {
         this.type = type;
     }
 
+    public double getGk() {
+        return Gk;
+    }
+
+    public void setGk(double gk) {
+        Gk = gk;
+    }
+
+    public double getGn() {
+        return Gn;
+    }
+
+    public void setGn(double gn) {
+        Gn = gn;
+    }
+
+    public double getGp() {
+        return Gp;
+    }
+
+    public void setGp(double gp) {
+        Gp = gp;
+    }
+
+    public double getUn() {
+        return Un;
+    }
+
+    public void setUn(double un) {
+        Un = un;
+    }
+
+    public double getUk() {
+        return Uk;
+    }
+
+    public void setUk(double uk) {
+        Uk = uk;
+    }
+
+    public double getUp() {
+        return Up;
+    }
+
+    public void setUp(double up) {
+        Up = up;
+    }
+
     @Override
     public void cale() {
 Gn= A * B * N;
