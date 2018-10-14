@@ -328,7 +328,7 @@ function summarySheetDataLoad(year, province, city, area, type) {
  */
 function showDataToForm($form, responseText){
     for(var paramName in responseText){
-        var value = responseText[paramName];
+        var value = parseFloat(responseText[paramName]).toFixed(2); //为了取2小数位
         var same = $form.find("."+paramName);
         for(var j = 0; j < same.length; ++j){
             same.eq(j).text(value);
@@ -350,14 +350,14 @@ function calculateSubtotal(data){
     var subtotal_for_H1H2H3H4 = $("#subtotal_for_H1H2H3H4");
     var subtotal_for_DEFGHIJ = $("#subtotal_for_DEFGHIJ");
     var subtotal_for_all = $("#subtotal_for_all");
-    var subtotal_value_for_A1B1B2C1 = data['B1Le']+data['B2C']+data['C1D1'];
-    var subtotal_value_for_D1D2 = data['D1Ut']+data['D2Us'];
-    var subtotal_value_for_E1E2 = data['E1Ut']+data['E2Uf'];
-    var subtotal_value_for_F1F2 = data['F1Ut']+data['F2Uy'];
-    var subtotal_value_for_G1 = data['G1Un']+data['G1Up']+data['G1Uk'];
-    var subtotal_value_for_H1H2H3H4 = data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz'];
-    var subtotal_value_for_DEFGHIJ = subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us'];
-    var subtotal_value_for_all = subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us'];
+    var subtotal_value_for_A1B1B2C1 = parseFloat(data['B1Le']+data['B2C']+data['C1D1']).toFixed(2);
+    var subtotal_value_for_D1D2 = parseFloat(data['D1Ut']+data['D2Us']).toFixed(2);
+    var subtotal_value_for_E1E2 = parseFloat(data['E1Ut']+data['E2Uf']).toFixed(2);
+    var subtotal_value_for_F1F2 = parseFloat(data['F1Ut']+data['F2Uy']).toFixed(2);
+    var subtotal_value_for_G1 = parseFloat(data['G1Un']+data['G1Up']+data['G1Uk']).toFixed(2);
+    var subtotal_value_for_H1H2H3H4 = parseFloat(data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz']).toFixed(2);
+    var subtotal_value_for_DEFGHIJ = parseFloat(subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us']).toFixed(2);
+    var subtotal_value_for_all = parseFloat(subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us']).toFixed(2);
     subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
     subtotal_for_D1D2.text(subtotal_value_for_D1D2);
     subtotal_for_E1E2.text(subtotal_value_for_E1E2);

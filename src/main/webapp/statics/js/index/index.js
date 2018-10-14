@@ -17,7 +17,7 @@ layui.use('element', function () {
             title:"林地价值计算",
             column: 4,
             row: 10,
-            head: ["林地类型", "林地价格（元/hm<sup>2</sup>）", "林地面积（hm<sup>2</sup>）", "价值（万元）"],
+            head: ["林地类型", "林地价格（元/hm<sup>2</sup>）", "林地面积（hm<sup>2</sup>）", "价值（元）"],
             tuple_head: ["有林地", "疏林地", "灌木林地", "园林绿化地", "未成林地", "苗圃地", "无立木林地", "宜林地", "林地辅助生产用地"],
             input1: ["A1", "A2", 'A3', 'A4', "A5", "A6", "A7", "A8"],
             input2: ["B1", "B2", 'B3', 'B4', "B5", "B6", "B7", "B8"],
@@ -144,11 +144,11 @@ layui.use('element', function () {
             partDiv:"F1",
             title:"林分年固碳量计算",
             input_lable:["二氧化碳中碳含量", "林分净生产力", "单位面积林分土壤年固碳量", "林分面积", "固碳价格"],
-            output_lable:["植被年固碳量", "土壤年固碳量", "综合年固碳量", "林分年固碳价值"],
+            output_lable:["综合年固碳量", "林分年固碳价值"],
             input_lable_unit:["%", "mm.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "t.hm<sup>-2</sup>.a<sup>-1</sup>", "hm<sup>2</sup>", "元.t<sup>-1</sup>"],
-            output_lable_unit:["t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
+            output_lable_unit:["t.a<sup>-1</sup>", "元.a<sup>-1</sup>"],
             input_name:["Rt", "Bn", "Ft", "A", "Ct"],
-            output_name:['Gz', 'Gtt', 'Gt', 'Ut'],
+            output_name:['Gt', 'Ut'],
             formPic: "F1.png"
         };
 
