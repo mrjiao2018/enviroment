@@ -356,8 +356,16 @@ function calculateSubtotal(data){
     var subtotal_value_for_F1F2 = parseFloat(data['F1Ut']+data['F2Uy']).toFixed(2);
     var subtotal_value_for_G1 = parseFloat(data['G1Un']+data['G1Up']+data['G1Uk']).toFixed(2);
     var subtotal_value_for_H1H2H3H4 = parseFloat(data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz']).toFixed(2);
-    var subtotal_value_for_DEFGHIJ = parseFloat(subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us']).toFixed(2);
-    var subtotal_value_for_all = parseFloat(subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us']).toFixed(2);
+    var subtotal_value_for_DEFGHIJ = (parseFloat(subtotal_value_for_D1D2)
+        + parseFloat(subtotal_value_for_E1E2)
+        + parseFloat(subtotal_value_for_F1F2)
+        + parseFloat(subtotal_value_for_G1)
+        + parseFloat(subtotal_value_for_H1H2H3H4)
+        + parseFloat(data['I1Uf'])
+        + parseFloat(data['J1Us'])).toFixed(2);
+    var subtotal_value_for_all = (parseFloat(subtotal_value_for_A1B1B2C1)
+        + parseFloat(subtotal_value_for_DEFGHIJ)
+        + parseFloat(data['K1Us'])).toFixed(2);
     subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
     subtotal_for_D1D2.text(subtotal_value_for_D1D2);
     subtotal_for_E1E2.text(subtotal_value_for_E1E2);
