@@ -37,7 +37,7 @@ public class TotalController {
     }
 
     @ResponseBody
-    @RequestMapping("/types")
+    @RequestMapping(value={"/types"},produces = {"text/json;charset=UTF-8"})
     public String getTypes(){
         List<Type> types=typeMapper.selectAll();
         return gson.toJson(types);

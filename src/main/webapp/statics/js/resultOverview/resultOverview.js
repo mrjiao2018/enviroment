@@ -40,7 +40,7 @@ function drawResultList(data) {
                         width: 280
                     },
                     {
-                        field: 'inputTime',
+                        field: 'inputDate',
                         title: '输入日期',
                         align: 'center',
                         sort: true
@@ -84,7 +84,7 @@ function pageLoad() {
 
 	$.ajax({
 		type:"get",
-		url:"statics/js/resultOverview/resultList.json",
+		url:"total/types",
 		async:true,
 		success: function(data){
 			drawResultList(data);
