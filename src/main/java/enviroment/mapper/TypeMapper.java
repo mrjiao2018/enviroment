@@ -18,6 +18,6 @@ public interface TypeMapper {
     @Select("select * from type where year=#{year} and position = #{position} and type=#{type}")
     Type select(Type type);
 
-    @Select("select * from type")
+    @Select("select * from type where year != '9999'")
     List<Type> selectAll();
 }

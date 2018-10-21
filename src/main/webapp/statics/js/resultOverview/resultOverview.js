@@ -28,7 +28,7 @@ function drawResultList(data) {
                         width: 100
                     },
                     {
-                        field: 'date',
+                        field: 'year',
                         title: '日期',
                         align: "center",
                         width: 100
