@@ -61,7 +61,7 @@ function drawResultList(data) {
             var data = obj.data;
             if(obj.event === "showRecordDetail") {//查看详情
             	sessionStorage.setItem("date", data.date);
-            	sessionStorage.setItem("position", sessionStorage.position);
+            	sessionStorage.setItem("position", data.position);
             	sessionStorage.setItem("type", data.type);
                 window.location.href = "./result.html";
             }
@@ -79,7 +79,8 @@ function pageLoad() {
 
 	$.ajax({
 		type:"get",
-		url:"total/types",
+//		url:"total/types",
+		url:"./statics/js/resultOverview/resultList.json",
 		async:true,
 		success: function(data){
 			drawResultList(data);
