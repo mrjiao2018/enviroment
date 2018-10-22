@@ -18,7 +18,5 @@
         <property name="timeout" value="20000"/>
         <property name="poolConfig" ref="poolConfig"></property>
     </bean>
-
-
-
+    
 </beans>
