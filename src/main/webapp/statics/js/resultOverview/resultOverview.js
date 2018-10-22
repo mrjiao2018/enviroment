@@ -62,6 +62,7 @@ function drawResultList(data) {
             if(obj.event === "showRecordDetail") {//查看详情
             	sessionStorage.setItem("date", data.date);
             	sessionStorage.setItem("position", sessionStorage.position);
+            	sessionStorage.setItem("type", data.type);
                 window.location.href = "./result.html";
             }
         });
