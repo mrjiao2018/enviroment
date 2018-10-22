@@ -76,7 +76,11 @@ function calculateSubtotal(data){
 }
 
 function main() {
-    summarySheetDataLoad(2011, "湖北省", "武汉", "梁子湖区", "forest");
+	var date = sessionStorage.getItem("date");
+	var positionStr = sessionStorage.getItem("position");
+	var type = sessionStorage.getItem("type");
+	var positionArray = positionStr.split(" ");
+    summarySheetDataLoad(date, positionArray[0], positionArray[1], positionArray[2], type);
 }
 
 /**

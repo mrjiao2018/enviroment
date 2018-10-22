@@ -9,8 +9,6 @@ function drawResultList(data) {
         var table = layui.table;
         table.render({
             elem: '#tbResultOverview',
-//          url: './total/types',
-//          where: reqData,
 			data: data,
 //			page: {
 //				limit: 15,
@@ -53,7 +51,7 @@ function drawResultList(data) {
                     {
                         title: '操作',
                         align: "center",
-                        toolbar: '#query'
+                        toolbar: '#showDetail'
                     }
                 ]
             ]
@@ -61,15 +59,12 @@ function drawResultList(data) {
 
         table.on('tool(recordManager)', function(obj) {
             var data = obj.data;
-            if(obj.event === "querySpecificRecord") {//编辑成员信息
-                //todo 向后台发请求
-                alert("编辑成员信息");
+            if(obj.event === "showRecordDetail") {//查看详情
+            	sessionStorage.setItem("date", data.date);
+            	sessionStorage.setItem("position", sessionStorage.position);
+            	sessionStorage.setItem("type", data.type);
+                window.location.href = "./result.html";
             }
-        });
-
-        $('.demoTable .layui-btn').on('click', function() {
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
         });
     });
 }
