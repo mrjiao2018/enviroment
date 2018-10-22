@@ -79,8 +79,8 @@ function pageLoad() {
 
 	$.ajax({
 		type:"get",
-//		url:"total/types",
-		url:"./statics/js/resultOverview/resultList.json",
+		url:"total/types",
+//		url:"./statics/js/resultOverview/resultList.json",
 		async:true,
 		success: function(data){
 			drawResultList(data);
