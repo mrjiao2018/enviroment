@@ -19,6 +19,7 @@ function summarySheetDataLoad(year, position, type) {
         }
     };
     $.ajax(options);
+    $(".recordTitle").text(year + " " + position + " " + "地区自然资源量化价值表");
 }
 
 /**
