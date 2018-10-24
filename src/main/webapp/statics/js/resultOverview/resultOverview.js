@@ -60,7 +60,7 @@ function drawResultList(data) {
         table.on('tool(recordManager)', function(obj) {
             var data = obj.data;
             if(obj.event === "showRecordDetail") {//查看详情
-            	sessionStorage.setItem("date", data.date);
+            	sessionStorage.setItem("year", data.year);
             	sessionStorage.setItem("position", data.position);
             	sessionStorage.setItem("type", data.type);
                 window.location.href = "./result.html";

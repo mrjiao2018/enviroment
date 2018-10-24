@@ -1,7 +1,8 @@
-function summarySheetDataLoad(year, province, city, area, type) {
+function summarySheetDataLoad(year, position, type) {
     var request_data = {
         year: year,
-        position: province + city + area,
+//      position: province + city + area,
+		position: position,
         type: type
     };
     var options = {
@@ -76,11 +77,10 @@ function calculateSubtotal(data){
 }
 
 function main() {
-	var date = sessionStorage.getItem("date");
-	var positionStr = sessionStorage.getItem("position");
+	var date = sessionStorage.getItem("year");
+	var position = sessionStorage.getItem("position");
 	var type = sessionStorage.getItem("type");
-	var positionArray = positionStr.split(" ");
-    summarySheetDataLoad(date, positionArray[0], positionArray[1], positionArray[2], type);
+    summarySheetDataLoad(date, position, type);
 }
 
 /**
