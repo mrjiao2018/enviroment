@@ -2,9 +2,6 @@
 layui.use('element', function () {
     var element = layui.element;
 
-    //存储加载页面前从服务器接受的总表数据
-    var form_data;
-
     /**
      * 生成每个form的具体信息并封装在一个数组中返回
      */
@@ -403,25 +400,7 @@ layui.use('element', function () {
 	        formItemContainer5.append(resultDiv);
         }
 
-
         formItemContainer5.append($("<input type=\"hidden\" name=" + formInfo.partDiv + " value=\"\">"));
-
-        // //生成table
-        // for(i = 0; i < (formInfo.input_lable.length + formInfo.output_lable.length); ++i) {
-        //     var col8 = $("<col width='200'>");
-        //     var theadTh9, tbodyTh9;
-        //     if(i < formInfo.input_lable.length) {
-        //         theadTh9 = $("<th>" + formInfo.input_lable[i] + "/" + formInfo.input_lable_unit[i] + "</th>");
-        //         tbodyTh9 = $("<td class=" + formInfo.input_name[i] + ">待输入</td>");
-        //     }
-        //     else {
-        //         theadTh9 = $("<th>" + formInfo.output_lable[i - formInfo.input_lable.length] + "/" + formInfo.output_lable_unit[i - formInfo.input_lable.length] + "</th>");
-        //         tbodyTh9 = $("<td class=" + formInfo.output_name[i - formInfo.input_lable.length] + "></td>");
-        //     }
-        //     colgroup7.append(col8);
-        //     theadTr8.append(theadTh9);
-        //     tbodyTr8.append(tbodyTh9);
-        // }
 
         calculatorDiv2.append(titleDiv3);
         calculatorDiv2.append(siteTextDiv3);
@@ -435,16 +414,6 @@ layui.use('element', function () {
         table6.append(tbody7);
         thead7.append(theadTr8);
         tbody7.append(tbodyTr8);
-
-
-//      var testButton = $("<button id='showForm'>查看公式1</button>");
-//      calculatorDiv2.append(testButton);
-//      $("#showForm").click(function(){
-//      	layer.open({
-//				title: '计算公式'
-//				,content: "<img src='statics/formPictures/" + formInfo.formPic + "'>"
-//			});
-//      });
 
         return calculatorDiv2;
     }
@@ -650,176 +619,6 @@ layui.use('element', function () {
         }
     }
 
-
-    /**
-     * 将加载出的数据展示到网页上
-     * @param data 服务器返回的数据，此处为请求"calc/total"接口返回的list数据，数据中的每一条记录对应到一个form上
-     */
-    // function showData(data) {
-    //     console.log(data);
-    //     var $forms = $(".calculator").find(".layui-form");
-    //     for(var k = 0; k < data.length; ++k){
-    //         showResult($forms.eq(k), data[k]);
-    //     }
-    // }
-
-    /**
-     * 将计算结果展示到网页上
-     * @param $form 一个form
-     * @Param responseText 一个form对应的数据
-     */
-    // function showResult($form, responseText){
-    //     for(var paramName in responseText){
-    //         var value = responseText[paramName];
-    //         var same = $form.find("."+paramName);
-    //         for(var j = 0; j < same.length; ++j){
-    //             same.eq(j).text(value);
-    //             same.eq(j).val(value);
-    //         }
-    //     }
-    // }
-
-    /**
-     *
-     * @Param data 从服务器请求得到的总表中的数据
-     */
-    // function calculateSubtotal(data){
-    //     var subtotal_for_A1B1B2C1 = $("#subtotal_for_A1B1B2C1");
-    //     var subtotal_for_D1D2 = $("#subtotal_for_D1D2");
-    //     var subtotal_for_E1E2 = $("#subtotal_for_E1E2");
-    //     var subtotal_for_F1F2 = $("#subtotal_for_F1F2");
-    //     var subtotal_for_G1 = $("#subtotal_for_G1");
-    //     var subtotal_for_H1H2H3H4 = $("#subtotal_for_H1H2H3H4");
-    //     var subtotal_for_DEFGHIJ = $("#subtotal_for_DEFGHIJ");
-    //     var subtotal_for_all = $("#subtotal_for_all");
-    //     var subtotal_value_for_A1B1B2C1 = data['B1Le']+data['B2C']+data['C1D1'];
-    //     var subtotal_value_for_D1D2 = data['D1Ut']+data['D2Us'];
-    //     var subtotal_value_for_E1E2 = data['E1Ut']+data['E2Uf'];
-    //     var subtotal_value_for_F1F2 = data['F1Ut']+data['F2Uy'];
-    //     var subtotal_value_for_G1 = data['G1Un']+data['G1Up']+data['G1Uk'];
-    //     var subtotal_value_for_H1H2H3H4 = data['H1Uf']+data['H2Uz']+data['H3Uz']+data['H4Uz'];
-    //     var subtotal_value_for_DEFGHIJ = subtotal_value_for_D1D2 + subtotal_value_for_E1E2 + subtotal_value_for_F1F2 + subtotal_value_for_G1 + subtotal_value_for_H1H2H3H4 + data['I1Uf'] + data['J1Us'];
-    //     var subtotal_value_for_all = subtotal_value_for_A1B1B2C1 + subtotal_value_for_DEFGHIJ + data['K1Us'];
-    //     subtotal_for_A1B1B2C1.text(subtotal_value_for_A1B1B2C1);
-    //     subtotal_for_D1D2.text(subtotal_value_for_D1D2);
-    //     subtotal_for_E1E2.text(subtotal_value_for_E1E2);
-    //     subtotal_for_F1F2.text(subtotal_value_for_F1F2);
-    //     subtotal_for_G1.text(subtotal_value_for_G1);
-    //     subtotal_for_H1H2H3H4.text(subtotal_value_for_H1H2H3H4);
-    //     subtotal_for_DEFGHIJ.text(subtotal_value_for_DEFGHIJ);
-    //     subtotal_for_all.text(subtotal_value_for_all);
-    // }
-
-    /**
-     * 提交当前界面的基本参数信息，用于从服务器接收数据
-     * @param year 年份
-     * @param position  位置
-     * @param type  种类
-     */
-    // function infoSubmit(year, position, type) {
-    //     var request_data = {
-    //         year: year,
-    //         position: position,
-    //         type: type
-    //     };
-    //     var options = {
-    //         url: "calc/type",
-    //         data: request_data,
-    //     };
-    //     $.ajax(options);
-    // }
-
-    /**
-     * 请求form中的数据
-     * @param year
-     * @param position
-     * @param type
-     */
-    // function formDataLoad(year, position, type) {
-    //     var request_data = {
-    //         year: year,
-    //         position: position,
-    //         type: type
-    //     };
-    //     var options = {
-    //         url: "calc/total",
-    //         data: request_data,
-    //         dataType: "json",
-    //         success: function (data) {
-    //             showData(data);
-    //         }
-    //     };
-    //     $.ajax(options);
-    // }
-
-    /**
-     * 请求总表数据
-     * @param year
-     * @param position
-     * @param type
-     */
-    // function summarySheetDataLoad(year, position, type) {
-    //     var request_data = {
-    //         year: year,
-    //         position: position,
-    //         type: type
-    //     };
-    //     var options = {
-    //         url: "total",
-    //         data: request_data,
-    //         dataType: "json",
-    //         success: function (data) {
-    //             console.log(data);
-    //             var summarySheet = $(".summary-sheet").eq(0);
-    //             //展示总表数据
-    //             showResult(summarySheet, data);
-    //             //计算总表中的各项合计
-    //             calculateSubtotal(data);
-    //         }
-    //     };
-    //     $.ajax(options);
-    // }
-
-    /**
-     * 加载data数据并显示在form中
-     * @param year
-     * @param position
-     * @param type
-     * @return {*[]}
-     */
-    // function dataLoad(year, position, type) {
-    //     //告诉服务器当前请求基本信息
-    //     infoSubmit(year, position, type);
-    //     //请求加载表单数据
-    //     formDataLoad(year, position, type);
-    //     //请求加载总表数据
-    //     summarySheetDataLoad(year, position, type);
-    //     //修改导航栏中的地理位置和日期
-    //     //showPositionAndTime(position, year);
-    // }
-
-
-    /**
-     * 更改日期表单重新加载函数
-     */
-    // function dataReload() {
-    //     //更改日期的处理
-    //     var $year_select = $("#year-select");
-    //     var $year_options = $year_select.find("dd>a");
-    //     var $year = $("#year");
-    //     var year;
-    //     //改变主界面中的日期显示
-    //     for (var i = 0; i < $year_options.length; ++i) {
-    //         $year_options.eq(i).click(function () {
-    //             year = $(this).text();
-    //             $year.text(year);
-    //             //加载data数据
-    //             dataLoad(year, "liangzihu", "forest");
-    //         });
-    //     }
-    // }
-
-
     /**
      * 启动函数
      */
@@ -834,9 +633,6 @@ layui.use('element', function () {
         //监听用户点击展示公式按钮事件
         showForm();
 
-        //将所有从服务器请求的数据加载到form中，初次打开页面默认加载为2011年梁子湖森林数据，加载成功后展示到界面上
-        //dataLoad(2011, "liangzihu", "forest");
-
         //只展示一个div，从0开始
         showSingleDiv(0);
 
@@ -846,13 +642,7 @@ layui.use('element', function () {
         //表单提交函数
         submitForm();
 
-        //日期与地区修改函数
-        //areaAndTImeSelect();
-
-        // //更改年份时，重新向服务器加载数据并刷新界面
-        // dataReload();
     }
-
 
     /**
      * 网页加载完成后
@@ -863,6 +653,3 @@ layui.use('element', function () {
 
     });
 });
-
-
-

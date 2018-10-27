@@ -150,6 +150,7 @@ function areaAndTimeSelect(type){
 
 /**
  * 功能：提交用户选定的地区与时间数据
+ * @param: {layui.element}layer layui中弹窗元素，此处用于关闭弹窗
  * @param: {boolean}isLoadRecord 是否为查询以往输入记录而提交数据，若是，则还需要将数据加载到界面上，否则不需要加载
  */
 function submitAreaAndTime(layer, isLoadRecord){
@@ -164,6 +165,10 @@ function submitAreaAndTime(layer, isLoadRecord){
         //var province_city_area = province + city + area;
         if(isLoadRecord){
             formDataLoad(year, province, city, area, 'forest');
+            sessionStorage.setItem("selectedYear", year);
+            sessionStorage.setItem("selectedProvince", province);
+            sessionStorage.setItem("selectedCity", city);
+            sessionStorage.setItem("selectedArea", area);
         } else {
             createNewRecord(year,  province, city, area, 'forest');
         }
@@ -175,9 +180,6 @@ function submitAreaAndTime(layer, isLoadRecord){
 /**
  * 初次进入界面时，自动像服务器请求 9999年，thisIsForTest(position), thisIsForTest(type)
  * 所对应的表，用于让用户进行数据输入计算测试
- * @param year
- * @param position
- * @param type
  */
 function applyForCalculateTest() {
     var request_data = {
@@ -194,6 +196,23 @@ function applyForCalculateTest() {
     $.ajax(options);
 }
 
+/**
+ * 判断是否是初次进入界面，
+ * 若为初次进入界面，自动像服务器请求 9999年，thisIsForTest(position), thisIsForTest(type)
+ * 若不是初次进入界面，即之前进入过index界面，跳转到了别的界面，现在又跳转回来，则自动加载上次进入界面时的数据
+ */
+function preProcess(){
+    //判断用户之前是否进入过本界面，发送过请求
+    if(sessionStorage.getItem("selectedYear")){
+        var year = sessionStorage.getItem("selectedYear");
+        var province = sessionStorage.getItem("selectedProvince");
+        var city = sessionStorage.getItem("selectedCity");
+        var area = sessionStorage.getItem("selectedArea");
+        formDataLoad(year, province, city, area, 'forest');
+    } else{
+        applyForCalculateTest();
+    }
+}
 
 /**
  * 请求form中的数据
@@ -383,6 +402,11 @@ function newRecord(){
     var recordQueryBtn = $("#record-establish-btn");
     recordQueryBtn.click(function () {
         areaAndTimeSelect(1);
+        //清空输入框
+        var inputs = $(".calculator input");
+        for(var i = 1; i < inputs.length; ++i){
+            inputs[i].value = '';
+        }
     });
 }
 
@@ -400,8 +424,8 @@ function queryRecord(){
  * 启动函数
  */
 function main() {
-    //直接像服务器请求一个记录，让用户进行输入测试
-    applyForCalculateTest();
+    //向服务器请求数据，用于给用户进行输入测试
+    preProcess();
 
     //检测用户新建记录
     newRecord();
